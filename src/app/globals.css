@@ -1,8 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #ffffff; /* Light background */
+  --foreground: #171717; /* Dark text */
+
+  /* Pastel Colors */
+  --color-primary: #C6E2FF; /* Pastel Blue */
+  --color-secondary: #FFB3BA; /* Pastel Pink */
+  --color-tertiary: #B2E2B2; /* Pastel Green */
+  --color-highlight: #FFE5B4; /* Pastel Yellow */
 }
 
 @theme inline {
@@ -14,8 +20,14 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0a0a0a; /* Dark mode background */
+    --foreground: #ededed; /* Light text in dark mode */
+
+    /* Dark mode pastel colors */
+    --color-primary: #1E3A8A; /* Darker variant of primary */
+    --color-secondary: #7C2D12; /* Darker variant of secondary */
+    --color-tertiary: #2F855A; /* Darker variant of tertiary */
+    --color-highlight: #B45309; /* Darker variant of highlight */
   }
 }
 
@@ -23,4 +35,227 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* styles.css */
+
+.navbar-button {
+    background-color: var(--color-primary);  /* Use primary pastel color */
+    color: white;                            /* Text color */
+    padding: 0.5rem 1rem;                   /* Padding for the button */
+    border: none;                            /* No border */
+    border-radius: 0.25rem;                  /* Rounded corners */
+    font-size: 1rem;                        /* Font size */
+    font-weight: bold;                      /* Make the font bold */
+    text-align: center;                     /* Center text */
+    cursor: pointer;                        /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Animation effects */
+}
+
+.navbar-button:hover {
+    background-color: var(--color-secondary); /* Use secondary pastel color on hover */
+    transform: scale(1.05);                  /* Slight zoom effect on hover */
+}
+
+.navbar-button:focus {
+    outline: none;                           /* Remove default outline */
+    box-shadow: 0 0 0 2px rgba(255, 192, 203, 0.5); /* Outline effect on focus */
+}
+
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff; /* Light background */
+  --foreground: #171717; /* Dark text */
+
+  /* Pastel Colors */
+  --color-primary: #C6E2FF; /* Pastel Blue */
+  --color-secondary: #FFB3BA; /* Pastel Pink */
+  --color-tertiary: #B2E2B2; /* Pastel Green */
+  --color-highlight: #FFE5B4; /* Pastel Yellow */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a; /* Dark mode background */
+    --foreground: #ededed; /* Light text in dark mode */
+
+    /* Dark mode pastel colors */
+    --color-primary: #1E3A8A; /* Darker variant of primary */
+    --color-secondary: #7C2D12; /* Darker variant of secondary */
+    --color-tertiary: #2F855A; /* Darker variant of tertiary */
+    --color-highlight: #B45309; /* Darker variant of highlight */
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* styles.css */
+
+.navbar-button {
+    background-color: var(--color-primary);  /* Use primary pastel color */
+    color: white;                            /* Text color */
+    padding: 0.5rem 1rem;                   /* Padding for the button */
+    border: none;                            /* No border */
+    border-radius: 0.25rem;                  /* Rounded corners */
+    font-size: 1rem;                        /* Font size */
+    font-weight: bold;                      /* Make the font bold */
+    text-align: center;                     /* Center text */
+    cursor: pointer;                        /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Animation effects */
+}
+
+.navbar-button:hover {
+    background-color: var(--color-secondary); /* Use secondary pastel color on hover */
+    transform: scale(1.05);                  /* Slight zoom effect on hover */
+}
+
+.navbar-button:focus {
+    outline: none;                           /* Remove default outline */
+    box-shadow: 0 0 0 2px rgba(255, 192, 203, 0.5); /* Outline effect on focus */
+}
+
+.card {
+  background-color: var(--color-background);
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.card-header {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0.5rem 0.5rem 0 0;
+  font-weight: bold;
+}
+
+.card-content {
+  color: var(--color-foreground);
+}
+
+.alert {
+  padding: 1rem;
+  border-radius: 0.375rem;
+  margin: 1rem 0;
+}
+
+.alert-info {
+  background-color: var(--color-highlight);
+  color: var(--color-foreground);
+  border-left: 4px solid var(--color-primary);
+}
+
+.alert-success {
+  background-color: var(--color-tertiary);
+  color: #000000;
+  border-left: 4px solid #28a745; /* Green for success alerts */
+}
+
+.alert-error {
+  background-color: #ffb3b3; /* Light red for error alerts */
+  color: #442222; /* Dark text */
+  border-left: 4px solid #dc3545; /* Red for error alerts */
+}
+
+
+.input-field {
+  border: 1px solid #dddddd;
+  border-radius: 0.375rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  width: 100%;
+  transition: border-color 0.3s ease;
+}
+
+.input-field:focus {
+  border-color: var(--color-primary);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.5);
+}
+
+.textarea {
+  border: 1px solid #dddddd;
+  border-radius: 0.375rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  width: 100%;
+  transition: border-color 0.3s ease;
+  min-height: 100px; /* Minimum height for textarea */
+}
+
+.textarea:focus {
+  border-color: var(--color-primary);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.5);
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: var(--color-background);
+  border-radius: 0.5rem;
+  padding: 2rem;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+  width: 90%; /* Responsive width for small devices */
+  max-width: 500px; /* Maximum width for larger screens */
+}
+
+.modal-header {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--color-primary);
+}
+
+.modal-body {
+  color: var(--color-foreground);
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltip-content {
+  visibility: hidden;
+  width: 120px;
+  background-color: var(--color-secondary);
+  color: #fff;
+  text-align: center;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; /* Position the tooltip above the element */
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltip-content {
+  visibility: visible;
+  opacity: 1; /* Show tooltip on hover */
 }
