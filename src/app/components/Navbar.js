@@ -22,7 +22,7 @@ const Navbar = () => {
                             <Link href="/" className="navbar-button">Home</Link>
                         </li>
                         <li>
-                            <Link href="/about" className="navbar-button">About</Link>
+                            <Link href="/experience" className="navbar-button">Experience</Link>
                         </li>
                         <li>
                             <Link href="/projects" className="navbar-button">Projects</Link>
@@ -55,7 +55,7 @@ const Navbar = () => {
                             <Link href="/" className="navbar-button">Home</Link>
                         </li>
                         <li>
-                            <Link href="/about" className="navbar-button">About</Link>
+                            <Link href="/experience" className="navbar-button">Experience</Link>
                         </li>
                         <li>
                             <Link href="/projects" className="navbar-button">Projects</Link>

@@ -15,7 +15,7 @@ export default function Home() {
         <h1 className="text-4xl font-extrabold mt-4">Welcome to My Portfolio</h1>
         <p className="mt-2 text-center max-w-prose">
           I'm a passionate web developer skilled in building compelling web
-          experiences. Explore my projects, learn more about my skills, and
+          experiences. Explore my projects, learn more experience my skills, and
           get in touch!
         </p>
       </header>
