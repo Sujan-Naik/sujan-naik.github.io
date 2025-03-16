@@ -229,9 +229,9 @@ export default function Experience() {
           <p className="mb-4 text-[var(--muted-foreground)]">
             Interested in working together? Let's connect!
           </p>
-          {/*<Link href="/contact" className="btn-primary px-6 py-2">*/}
-          {/*  Contact Me*/}
-          {/*</Link>*/}
+          <Link href="/contact" className="btn-primary px-6 py-2">
+            Contact Me
+          </Link>
         </div>
       </main>
     </>)
