@@ -74,6 +74,9 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Use tokens
+        run: |
+          echo "Username is $GITHUB_USERNAME"
+          echo "Using GitHub token for some operation..."
         env:
           GITHUB_USERNAME: ${{ secrets.USERNAME }}  # Map USERNAME secret to GITHUB_USERNAME variable
           GITHUB_TOKEN: ${{ secrets.TOKEN }}         # Map TOKEN secret to GITHUB_TOKEN variable
