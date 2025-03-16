@@ -73,6 +73,10 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+      - name: Use tokens
+          env:
+            GITHUB_USERNAME: ${{ secrets.USERNAME }}  # Map USERNAME secret to GITHUB_USERNAME variable
+            GITHUB_TOKEN: ${{ secrets.TOKEN }}         # Map TOKEN secret to GITHUB_TOKEN variable
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Upload artifact
