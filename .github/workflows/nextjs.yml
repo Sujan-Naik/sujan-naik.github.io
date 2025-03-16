@@ -1,4 +1,4 @@
-# Sample workflow for building and deploying a Next.js site to GitHub Pages
+ # Sample workflow for building and deploying a Next.js site to GitHub Pages
 #
 # To get started with Next.js see: https://nextjs.org/docs/getting-started
 #
@@ -76,7 +76,7 @@ jobs:
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
         env:
-          GITHUB_USERNAME: ${{ secrets.USERNAME }}  # Map USERNAME secret to GITHUB_USERNAME variable
+          GITHUB_USERNAME: ${{ github.actor }}  # Map USERNAME secret to GITHUB_USERNAME variable
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}       # Map TOKEN secret to GITHUB_TOKEN variable
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
