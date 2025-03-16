@@ -1,7 +1,6 @@
 // src/app/projects/[id]/page.js
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import process from "next/dist/build/webpack/loaders/resolve-url-loader/lib/postcss";
 
 // Mark this component as a Server Component
 export default async function Project({ params }) {
