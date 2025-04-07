@@ -9,16 +9,24 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mdx-js/loader": "^3.1.0",
+    "@mdx-js/react": "^3.1.0",
+    "@next/mdx": "^15.2.4",
+    "@types/mdx": "^2.0.13",
+    "install": "^0.13.0",
+    "next": "15.2.4",
+    "pnpm": "^10.7.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "next": "15.2.4"
+    "remark-frontmatter": "^5.0.0",
+    "typography": "^0.16.24"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4"
+    "tailwindcss": "^4",
+    "typescript": "^5"
   }
 }
