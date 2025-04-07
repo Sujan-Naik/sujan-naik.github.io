@@ -22,6 +22,7 @@ export default function CarouselHolder({ files }: CarouselProps) {
 
     return (
         <div className="carousel">
+
     <div className="carousel-inner">
         {files.length > 0 && (
             <div className="opacity-100" key={files[index]}>

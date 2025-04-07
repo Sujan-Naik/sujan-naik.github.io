@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState, Suspense } from 'react';
+import {useEffect, useState, Suspense, JSX, LazyExoticComponent} from 'react';
 
 interface ProjectProps {
     path: string;
@@ -8,7 +8,7 @@ interface ProjectProps {
 const loadMDXComponent = (path: string) => import(`@/content/${path}.mdx`);
 
 const Project = ({ path }: ProjectProps) => {
-    const [MDXComponent, setMDXComponent] = useState();
+    const [MDXComponent, setMDXComponent] = useState<LazyExoticComponent<any>>();
 
     useEffect(() => {
         const fetchMDX = async () => {

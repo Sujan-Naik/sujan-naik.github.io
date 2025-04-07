@@ -1,6 +1,8 @@
 import {pixelifySans} from "@/app/ui/fonts";
 import SujanLogo from "@/app/ui/sujan-logo";
 import Carousel from "@/app/ui/projects/carousel";
+import Link from "next/link";
+
 
 export default function Home(){
   return (
@@ -14,10 +16,15 @@ export default function Home(){
         <section>
             <hgroup>
                 <h1>
-                    My Projects
+                    My Best Projects
                 </h1>
             </hgroup>
             <Carousel />
+            <hgroup>
+                <Link href={"/projects"}>
+                   <h3> View All</h3>
+                </Link>
+            </hgroup>
         </section>
     </div>
   )

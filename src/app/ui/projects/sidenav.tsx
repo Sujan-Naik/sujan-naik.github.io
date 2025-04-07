@@ -8,7 +8,12 @@ import {Dialog, DialogBackdrop, DialogPanel, DialogTitle} from '@headlessui/reac
 import {ExclamationTriangleIcon} from "@heroicons/react/16/solid";
 import NavLinks from "@/app/ui/nav-links";
 
-export default function SideNav() {
+
+interface NavLinksProps {
+    projectNames: string[];
+}
+
+export default function SideNav({projectNames}: NavLinksProps) {
     const [showContactMe, setShowContactMe] = useState(false);
     const handleContactButtonClick = () => {
         setShowContactMe(prevState => !prevState);
@@ -22,7 +27,7 @@ export default function SideNav() {
                 <SujanLogo/>
             </Link>
             <div className="flex grow flex-row justify-between space-x-2 md:flex-col md:space-x-0 md:space-y-2">
-                {<NavLinks />}
+                {<NavLinks projectNames={projectNames} />}
                 <div className="hidden h-auto w-full grow rounded-md bg-gray-50 md:block"></div>
 
                 <button onClick={handleContactButtonClick}
