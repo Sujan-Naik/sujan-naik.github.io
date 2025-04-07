@@ -1,5 +1,6 @@
 import * as fs from "node:fs/promises";
 import Link from "next/link";
+import PrimaryLink from "@/app/ui/components/Link/primary-link";
 
 
 export default async function Page(){
@@ -8,9 +9,9 @@ export default async function Page(){
         <div>
             {projectNames && projectNames.map((fileName, index) => {
                 const file = fileName.replace(/\.mdx$/, '');
-                return <Link key={file} href={`/projects/${file}`}>
+                return <PrimaryLink key={file} href={`/projects/${file}`}>
                      {file}
-                </Link>
+                </PrimaryLink>
             })}
         </div>
     )

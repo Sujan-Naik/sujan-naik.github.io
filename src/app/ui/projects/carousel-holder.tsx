@@ -1,7 +1,7 @@
 "use client";
 import { useState } from 'react';
 import Project from "@/app/ui/projects/project";
-
+import PrimaryButton from "../components/Button/primary-button"
 interface CarouselProps {
     files: string[];
 }
@@ -30,8 +30,8 @@ export default function CarouselHolder({ files }: CarouselProps) {
             </div>
         )}
     </div>
-    <button className="button" onClick={() => handleSelect('prev')}>❮</button>
-    <button className="button" onClick={() => handleSelect('next')}>❯</button>
+    <PrimaryButton onClick={() => handleSelect('prev')}>❮</PrimaryButton>
+    <PrimaryButton onClick={() => handleSelect('next')}>❯</PrimaryButton>
 </div>
     );
 }

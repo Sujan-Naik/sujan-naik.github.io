@@ -1,7 +1,7 @@
 import {pixelifySans} from "@/app/ui/fonts";
 import SujanLogo from "@/app/ui/sujan-logo";
 import Carousel from "@/app/ui/projects/carousel";
-import Link from "next/link";
+import PrimaryLink from "./ui/components/Link/primary-link";
 
 
 export default function Home(){
@@ -21,9 +21,9 @@ export default function Home(){
             </hgroup>
             <Carousel />
             <hgroup>
-                <Link href={"/projects"}>
+                <PrimaryLink href={"/projects"}>
                    <h3> View All</h3>
-                </Link>
+                </PrimaryLink>
             </hgroup>
         </section>
     </div>
