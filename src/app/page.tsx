@@ -1,11 +1,13 @@
 import {pixelifySans} from "@/app/ui/fonts";
+import SujanLogo from "@/app/ui/sujan-logo";
+import Carousel from "@/app/ui/projects/carousel";
 
 export default function Home(){
   return (
     <div>
         <header>
             <hgroup className={"text-center"}>
-                <h1 className={`${pixelifySans.className} antialiased`}> Sujan Naik </h1>
+                <h1> <SujanLogo/> </h1>
                 <p > I'm an aspiring Game Developer and Web Developer (I built this website from scratch!)</p>
             </hgroup>
         </header>
@@ -15,7 +17,9 @@ export default function Home(){
                     My Projects
                 </h1>
             </hgroup>
+            <Carousel />
         </section>
     </div>
   )
 }
+

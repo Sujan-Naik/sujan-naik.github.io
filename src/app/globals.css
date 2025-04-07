@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --background-primary: #C9F6FF; /* water */
-  --background-secondary: #97EBF4; /* Winter Wizard */
-  --background-tertiary: #7AE5F5; /* Medium Sky Blue */
-  --foreground-primary: #35D6ED; /* Turquoise */
-  --foreground-secondary: #65DDEF; /* Crayola’s Sky Blue  */
-  --foreground-tertiary: #7AE5F5; /* Medium Sky Blue  */
+  --background-primary: #C9F6FF; /* water lightest background for everywhere */
+  --background-secondary: #97EBF4; /* Winter Wizard background for cards*/
+  --background-tertiary: #7AE5F5; /* Medium Sky Blue background for headings*/
+  --foreground-primary: #35D6ED; /* Turquoise main color for text */
+  --foreground-secondary: #65DDEF; /* Crayola’s Sky Blue for cards*/
+  --foreground-tertiary: #7AE5F5; /* Medium Sky Blue for heading */
 }
 
 @theme inline {
@@ -14,27 +14,6 @@
   --color-foreground: var(--foreground-primary);
 }
 
-h1{
-
-}
-
-header{
-  display: flex;
-  flex-direction: column;
-  background: var(--background-primary);
-  color: var(--foreground-primary);
-  justify-content: center;
-  align-items: center;
-}
-
-hgroup{
-  display: flex;
-  flex-direction: column;
-  background: var(--background-primary);
-  color: var(--foreground-primary);
-  justify-content: center;
-  align-items: center;
-}
 
 body {
   background: var(--background-primary);
@@ -55,4 +34,51 @@ body {
     color: var(--color-blue-600);
     text-decoration-line: underline;
   }
+  /* Style the iframe directly */
+iframe {
+    width: 100%; /* Make the iframe take the full width of the parent */
+    height: auto; /* Auto height for responsive scaling */
+    max-width: 100%; /* Ensure it doesn't exceed the width of its container */
+    aspect-ratio: 16 / 9; /* Maintain a 16:9 aspect ratio */
+    border: none; /* Remove default border */
+}
+
+/* Optional: Add some styles for iframe focus */
+iframe:focus {
+    outline: none; /* Remove outline when focused */
+}
+  header{
+  display: flex;
+  flex-direction: column;
+  background: var(--background-primary);
+  color: var(--foreground-primary);
+  justify-content: center;
+  align-items: center;
+}
+
+hgroup{
+  display: flex;
+  flex-direction: column;
+  background: var(--background-primary);
+  color: var(--foreground-primary);
+  justify-content: center;
+  align-items: center;
+}
+
+}
+
+
+@layer components{
+    .carousel {
+    position: relative;
+    width: 100%;
+    max-width: 600px; /* Set a max width */
+    margin: auto; /* Center the carousel */
+    overflow: hidden; /* Hide overflow */
+    border-radius: 8px; /* Optional: rounded corners */
+        @apply relative w-full max-w-[600px] mx-auto overflow-hidden rounded-lg;
+        background: var(--background-secondary);
+        color: var(--foreground-secondary);
+  }
+
 }
