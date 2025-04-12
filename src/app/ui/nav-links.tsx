@@ -31,20 +31,24 @@ export default function NavLinks({projectNames} : NavLinksProps) {
   return (
     <div>
     {links.map(link => {
-        const LinkIcon = link.icon;
-        return (
-            <PrimaryLink key={link.name} href={link.href}>
-                <LinkIcon />
-                <p>{link.name}</p>
-            </PrimaryLink>
-        );
-    })}
+    const LinkIcon = link.icon;
+    return (
+        <PrimaryLink key={link.name} href={link.href} className="flex items-center space-x-2 p-1">
+            <span className="flex items-center justify-center w-6 h-6">
+                <LinkIcon className="w-full h-full" />
+            </span>
+            <p className="text-base">{link.name}</p>
+        </PrimaryLink>
+    );
+})}
 
     {projectNames && projectNames.map(link => {
         const LinkIcon = ArrowRightIcon;
         return (
-            <PrimaryLink key={link} href={`/projects/${link}`}>
-                <LinkIcon />
+            <PrimaryLink key={link} href={`/projects/${link}`} className="flex items-center space-x-2 p-1">
+                <span className="flex items-center justify-center w-6 h-6">
+                  <LinkIcon className="w-full h-full" />
+                </span>
                 <p>{link}</p>
             </PrimaryLink>
         );

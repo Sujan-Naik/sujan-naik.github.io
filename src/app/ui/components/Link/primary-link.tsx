@@ -14,7 +14,7 @@ const PrimaryLink: React.FC<PrimaryLinkProps> = ({
   ...props
 }) => {
   return (
-    <Link {...props} className={` ${className}`}
+    <Link {...props} className={`link ${className} `}
         onClick={onClick}>
 
         {children}

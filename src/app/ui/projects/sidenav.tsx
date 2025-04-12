@@ -35,24 +35,14 @@ export default function SideNav({projectNames}: NavLinksProps) {
 
     {showContactMe && (
         <PrimaryDialog isOpen={showContactMe} onClose={handleContactButtonClick} title={"Hello!"}>
-            <DialogBackdrop />
 
             <div>
                 <DialogPanel>
                     <div>
                         <div>
-                            <ExclamationTriangleIcon aria-hidden="true" />
-                        </div>
-                        <div>
                             <DialogTitle>Contact me!</DialogTitle>
                             <ContactMe />
                         </div>
-                    </div>
-
-                    <div>
-                        <PrimaryButton onClick={handleContactButtonClick}>
-                            Cancel
-                        </PrimaryButton>
                     </div>
                 </DialogPanel>
             </div>

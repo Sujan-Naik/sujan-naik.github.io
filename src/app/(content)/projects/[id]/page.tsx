@@ -9,7 +9,7 @@ export default async function Page({
 
   const { id } = await params
 
-    let path: string = id
+    let path: string = id.replace(/%20/g, ' ');
 
     const showcases: string[] = await getShowcaseProjects();
     if (showcases.includes(path) ){

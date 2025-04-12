@@ -12,7 +12,7 @@ const PrimaryDropdown: React.FC<DropdownProps> = ({ options, selected, onChange 
     return (
         <Listbox value={selected} onChange={onChange}>
             <div className="relative">
-                <Listbox.Button className="custom-button">{selected}</Listbox.Button>
+                <Listbox.Button className="primary-button">{selected}</Listbox.Button>
                 <Listbox.Options className="absolute z-10 mt-2 bg-white border rounded-md shadow-lg">
                     {options.map((option) => (
                         <Listbox.Option key={option} value={option} as={Fragment}>

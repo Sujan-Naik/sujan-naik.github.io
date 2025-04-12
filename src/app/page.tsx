@@ -14,7 +14,7 @@ export default function Home(){
             </hgroup>
         </header>
         <section>
-            <hgroup>
+            <hgroup className={"p-3"}>
                 <h1>
                     My Best Projects
                 </h1>

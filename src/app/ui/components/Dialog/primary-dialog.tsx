@@ -1,6 +1,6 @@
 // src/app/ui/components/Dialog/Dialog.tsx
 import React from 'react';
-import { Dialog } from '@headlessui/react';
+import {Dialog, DialogBackdrop, DialogPanel, DialogTitle} from '@headlessui/react';
 
 interface DialogProps {
     isOpen: boolean;
@@ -11,13 +11,16 @@ interface DialogProps {
 
 const CustomDialog: React.FC<DialogProps> = ({ isOpen, onClose, title, children }) => {
     return (
-        <Dialog open={isOpen} onClose={onClose} className="fixed inset-0 z-10 overflow-y-auto primary-dialog">
-            <div className="modal-content">
-                <Dialog.Title>{title}</Dialog.Title>
+        <div>
+        <Dialog open={isOpen} onClose={onClose} className="primary-dialog">
+            <DialogBackdrop></DialogBackdrop>
+            <DialogPanel className="primary-dialog-panel">
+                <DialogTitle>{title}</DialogTitle>
                 <div>{children}</div>
-                <button onClick={onClose} className="custom-button">Close</button>
-            </div>
+                <button onClick={onClose} className="primary-button">Close</button>
+            </DialogPanel>
         </Dialog>
+        </div>
     );
 };
 

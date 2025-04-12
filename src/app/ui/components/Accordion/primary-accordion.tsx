@@ -11,8 +11,13 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ title, children }) => (
     <Disclosure>
         {({ open }) => (
             <>
-                <Disclosure.Button className="custom-button">
-                    {title} {open ? '-' : '+'}
+                <Disclosure.Button className="primary-button">
+                    <p className={"primary-accordion__title"}>
+                        {title}
+                    </p>
+                    <p className={"primary-accordion__content"}>
+                        {open ? '-' : '+'}
+                    </p>
                 </Disclosure.Button>
                 <Disclosure.Panel className="p-2">
                     {children}

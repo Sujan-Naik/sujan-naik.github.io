@@ -31,7 +31,7 @@ export default function CarouselHolder({ files }: CarouselProps) {
         )}
     </div>
     <PrimaryButton onClick={() => handleSelect('prev')}>❮</PrimaryButton>
-    <PrimaryButton onClick={() => handleSelect('next')}>❯</PrimaryButton>
+    <PrimaryButton className={"absolute right-0"} onClick={() => handleSelect('next')}>❯</PrimaryButton>
 </div>
     );
 }
