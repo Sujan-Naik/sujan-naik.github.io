@@ -1,31 +1,23 @@
-import * as fs from "node:fs/promises";
-import Link from "next/link";
-import PrimaryLink from "@/app/ui/components/Link/primary-link";
+// src/app/page.tsx
+import { getDirectories, getFilesInDirectory } from "@/app/lib/fetchProjectData";
+import DirectoryPreview from "@/app/ui/directory-preview";
 
+export default async function Page() {
+    const { directoryNames } = await getDirectories();
+    const filesByDirectory: Record<string, string[]> = {};
 
-export default async function Page(){
-    const {projectNames} = await getFiles();
+    // Fetch files for each directory at build time
+    for (const dir of directoryNames) {
+        filesByDirectory[dir] = await getFilesInDirectory(dir);
+    }
+
     return (
         <div>
-            {projectNames && projectNames.map((fileName, index) => {
-                const file = fileName.replace(/\.mdx$/, '');
-                return <PrimaryLink key={file} href={`/projects/${file}`}>
-                     {file}
-                </PrimaryLink>
-            })}
+            <h1>File Navigator</h1>
+            <DirectoryPreview
+                directoryNames={directoryNames}
+                filesByDirectory={filesByDirectory}
+            />
         </div>
-    )
+    );
 }
-
-async function getFiles (){
-    let files: any[] = []
-    try {
-        files = await fs.readdir("src/content/");
-        console.log()
-    } catch (err) {
-        console.error("Error reading fies", err);
-    }
-    return {
-        projectNames: files,
-    };
-};

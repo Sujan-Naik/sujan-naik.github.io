@@ -19,6 +19,7 @@
     "@types/mdx": "^2.0.13",
     "clsx": "^2.1.1",
     "framer-motion": "^12.6.5",
+    "gray-matter": "^4.0.3",
     "headlessui": "^0.0.0",
     "install": "^0.13.0",
     "next": "15.2.4",
