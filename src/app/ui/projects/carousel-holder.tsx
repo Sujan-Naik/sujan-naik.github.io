@@ -22,16 +22,16 @@ export default function CarouselHolder({ files }: CarouselProps) {
 
     return (
         <div className="carousel">
+    <PrimaryButton onClick={() => handleSelect('prev')}>❮</PrimaryButton>
+    <PrimaryButton className={"absolute right-0"} onClick={() => handleSelect('next')}>❯</PrimaryButton>
 
     <div className="carousel-inner">
         {files.length > 0 && (
             <div className="opacity-100" key={files[index]}>
-                <Project path={`showcase/${files[index]}`} />
+                <Project path={`content/showcase/${files[index]}`} />
             </div>
         )}
     </div>
-    <PrimaryButton onClick={() => handleSelect('prev')}>❮</PrimaryButton>
-    <PrimaryButton className={"absolute right-0"} onClick={() => handleSelect('next')}>❯</PrimaryButton>
 </div>
     );
 }

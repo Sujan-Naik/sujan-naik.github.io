@@ -91,9 +91,9 @@ hgroup{
     margin: auto; /* Center the carousel */
     overflow: hidden; /* Hide overflow */
     border-radius: 8px; /* Optional: rounded corners */
-    border-width: 40px;
+    border-width: 10px;
     border-color: var(--background-primary);
-    outline: black thick groove;
+    outline: black thin groove;
     /*@apply relative w-full max-w-[600px] mx-auto overflow-hidden rounded-lg;*/
     background: var(--background-secondary);
     color: var(--foreground-secondary);

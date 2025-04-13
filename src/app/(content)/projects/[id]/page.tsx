@@ -16,9 +16,8 @@ export default async function Page({
         path = `showcase/${path}`;
     }
 
-    console.log(path)
 
     return(
-        <div> <Project path={path}/></div>
+        <div> <Project path={`content/${path}`}/></div>
     )
 }

@@ -34,6 +34,8 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     // Image with responsive styling
     img: (props) => (
       <Image
+          width={props.width || 800}    // Default width if not provided
+        height={props.height || 600}  // Default height if not provided
         sizes="100vw"
         className="rounded-lg mb-4"
         style={{ width: '100%', height: 'auto' }}

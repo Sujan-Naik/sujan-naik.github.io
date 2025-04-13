@@ -45,6 +45,5 @@ export const getAllProjects = async () => {
     } catch (err) {
         console.error("Error reading files", err);
     }
-
     return files;
 };
