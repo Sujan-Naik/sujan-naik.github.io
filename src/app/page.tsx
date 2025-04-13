@@ -6,6 +6,7 @@ import fs from "fs/promises";
 import Project from "@/app/ui/projects/project";
 import PrimarySwitch from "@/app/ui/components/Switch/primary-switch";
 import {Transition} from "@headlessui/react";
+import PrimaryHero from "@/app/ui/primary-hero";
 
 
 export default function Home(){
@@ -24,6 +25,7 @@ export default function Home(){
             </div>
                 </Transition>
         </header>
+        <PrimaryHero></PrimaryHero>
         {/*<section>*/}
         {/*        <Project path={`home/home`} />*/}
 

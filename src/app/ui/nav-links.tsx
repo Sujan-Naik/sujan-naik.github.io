@@ -8,6 +8,7 @@ import {
 } from '@heroicons/react/24/outline';
 import { usePathname } from 'next/navigation';
 import PrimaryLink from "@/app/ui/components/Link/primary-link";
+import AnimatedText from "@/app/ui/components/Animations/AnimatedText";
 
 
 // Map of links to display in the side navigation.
@@ -37,7 +38,7 @@ export default function NavLinks({projectNames} : NavLinksProps) {
             <span className="flex items-center justify-center w-6 h-6">
                 <LinkIcon className="w-full h-full" />
             </span>
-            <p className="text-base">{link.name}</p>
+                <AnimatedText text={link.name}></AnimatedText>
         </PrimaryLink>
     );
 })}
@@ -49,7 +50,7 @@ export default function NavLinks({projectNames} : NavLinksProps) {
                 <span className="flex items-center justify-center w-6 h-6">
                   <LinkIcon className="w-full h-full" />
                 </span>
-                <p>{link}</p>
+                <AnimatedText text={link}></AnimatedText>
             </PrimaryLink>
         );
     })}

@@ -1,6 +1,7 @@
 "use client";
 import {useEffect, useState, Suspense, JSX, LazyExoticComponent} from 'react';
 import {Transition} from "@headlessui/react";
+import LoadingCircleSpinner from "@/app/ui/components/Loading/LoadingCircleSpinner";
 
 interface ProjectProps {
     path: string;
@@ -23,7 +24,9 @@ const Project = ({ path }: ProjectProps) => {
         <Transition show={true} appear={true}>
 
                 <div className={"transition duration-1000 ease-in data-[enter]:opacity-0"}>
-        <Suspense fallback={<p>Loading...</p>}>
+        <Suspense fallback={
+
+            <LoadingCircleSpinner/>}>
             {MDXComponent ? <MDXComponent/> : ''}
         </Suspense>
                 </div>
