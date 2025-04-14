@@ -5,12 +5,13 @@ import React, { useState } from "react";
 import ProjectPreview from "@/app/ui/project-preview";
 import PrimaryPopover from "@/app/ui/components/Dropdown/primary-popover";
 import PrimaryTabs from "@/app/ui/components/Tabs/primary-tabs";
-import SecondaryButton from "@/app/ui/components/Button/secondary-button"; // Adjust the import based on your structure
-
+import SecondaryButton from "@/app/ui/components/Button/secondary-button";
+import {useRouter, usePathname} from "next/navigation";
 interface ProjectMetadata {
     title: string;
     githubUrl: string;
     previewImage: string;
+    video: string;
 }
 
 
@@ -33,12 +34,21 @@ const DirectoryPreview: React.FC<DirectoryPreviewProps> = ({ directoryNames, fil
 
     const [currentFileName, setCurrentFileName] = useState<string | null>(null);
 
-
-
+    const router = useRouter();
+    const pathname = usePathname()
     const handleFileClick = async (filename: string) => {
         const currentDir = findKeyByValue(filesByDirectory, filename);
         setCurrentFileName(`${currentDir}/${filename}`)
     };
+
+    const navigateToMedia = async (filename: string) => {
+        if (fileMetadataMap.has(filename)  ) {
+            const newPath = `/projects/media/${(fileMetadataMap.get(filename) as ProjectMetadata).video}`;
+            if (pathname !=newPath ){
+                router.push(newPath)
+            }
+        }
+    }
 
 
     return (
@@ -49,7 +59,9 @@ const DirectoryPreview: React.FC<DirectoryPreviewProps> = ({ directoryNames, fil
                             <PrimaryPopover title={`Files in ${directory}`}>
                                 {filesByDirectory[directory].map(fileName => (
                                     <SecondaryButton key={fileName} onClick={() => handleFileClick(fileName)}>
-                                        {fileName}
+                                        <div onMouseOver={() => navigateToMedia(fileName) }>
+                                            {fileName}
+                                        </div>
                                     </SecondaryButton>
                                 ))}
 
@@ -62,8 +74,7 @@ const DirectoryPreview: React.FC<DirectoryPreviewProps> = ({ directoryNames, fil
 
         {currentFileName && (() => {
             // Extract only the filename (e.g., showcase.mdx from content/showcase.mdx)
-    const baseFileNameWithExtension = currentFileName.split('/').pop() as string; // This gets the last segment of the path
-    const baseFileName = baseFileNameWithExtension.replace(/\.mdx$/, '') as string; // Remove the .mdx extension
+    const baseFileName = currentFileName.split('/').pop() as string; // This gets the last segment of the path
 
             return (
                 fileMetadataMap.has(baseFileName) && (

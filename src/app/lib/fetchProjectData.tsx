@@ -66,7 +66,7 @@ export const  getFilesInDirectory = async(directory: string)=> {
         const dirPath = `src/content/${directory}`;
         files = await fs.readdir(dirPath);
         // Filter for .mdx files only
-        files = files.filter(file => file.endsWith('.mdx'));
+        files = files.filter(file => file.endsWith('.mdx')).map(value => value.replace(/\.mdx$/, ''));
     } catch (err) {
         console.error(`Error reading files in directory ${directory}`, err);
     }

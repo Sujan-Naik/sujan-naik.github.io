@@ -10,7 +10,7 @@ import {useMDXComponents} from "@mdx-js/react";
 export const loadMDXComponent = async (path: string) => {
 
     // Read the file content
-    const fileContent = await fs.readFile(path, 'utf-8');
+    const fileContent = await fs.readFile(`src/content/${path}`, 'utf-8');
 
     // Use `gray-matter` to parse the frontmatter and content
     const { content } = matter( fileContent);
@@ -32,7 +32,7 @@ export const getShowcasesMDX = async (): Promise<MDXRemoteSerializeResult[]> => 
         // Use Promise.all to resolve all promises from the mapping
         const mdxPromises = fileNames
             .filter(fileName => fileName.endsWith('.mdx'))
-            .map(fileName => loadMDXComponent(`src/content/showcase/${fileName}` )); // No await here
+            .map(fileName => loadMDXComponent(`showcase/${fileName}` )); // No await here
 
         mdxComponents = await Promise.all(mdxPromises); // Wait for all promises to resolve
 
