@@ -1,32 +1,32 @@
-import React, { useState } from 'react';
-import { Tab } from '@headlessui/react';
+import React, {MouseEventHandler, useState} from 'react';
+import {Tab, TabGroup, TabList, TabPanel, TabPanels} from '@headlessui/react';
 
 interface TabsProps {
     tabs: string[];
     children: React.ReactNode[];
+    onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
-const PrimaryTabs: React.FC<TabsProps> = ({ tabs, children }) => {
-    const [selectedTab, setSelectedTab] = useState(0);
+const PrimaryTabs: React.FC<TabsProps> = ({ tabs, children, onClick }) => {
 
     return (
         <>
-            <Tab.Group selectedIndex={selectedTab} onChange={setSelectedTab}>
-                <Tab.List className="flex space-x-2">
+            <TabGroup>
+                <TabList className="flex space-x-2">
                     {tabs.map((tab, index) => (
-                        <Tab key={index} className="custom-button">
+                        <Tab key={index} className="primary-button" onClick={onClick}>
                             {tab}
                         </Tab>
                     ))}
-                </Tab.List>
-                <Tab.Panels>
+                </TabList>
+                <TabPanels>
                     {children.map((content, index) => (
-                        <Tab.Panel key={index} className="p-4">
+                        <TabPanel key={index} className="p-4">
                             {content}
-                        </Tab.Panel>
+                        </TabPanel>
                     ))}
-                </Tab.Panels>
-            </Tab.Group>
+                </TabPanels>
+            </TabGroup>
         </>
     );
 };

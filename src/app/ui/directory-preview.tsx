@@ -2,7 +2,10 @@
 "use client"; // Mark this component as client-side
 
 import React, { useState } from "react";
-import ProjectPreview from "@/app/ui/project-preview"; // Adjust the import based on your structure
+import ProjectPreview from "@/app/ui/project-preview";
+import PrimaryPopover from "@/app/ui/components/Dropdown/primary-popover";
+import PrimaryTabs from "@/app/ui/components/Tabs/primary-tabs";
+import SecondaryButton from "@/app/ui/components/Button/secondary-button"; // Adjust the import based on your structure
 
 interface ProjectMetadata {
     title: string;
@@ -17,19 +20,23 @@ interface DirectoryPreviewProps {
     fileMetadataMap: Map<string, ProjectMetadata>; // Map from filename to metadata object
 }
 
+function findKeyByValue<T>(filesByDirectory: Record<string, string[]>, targetValue: string): string | null {
+    for (const [key, values] of Object.entries(filesByDirectory)) {
+        if (values.includes(targetValue)) {
+            return key; // Return the key if the targetValue is found in the array
+        }
+    }
+    return null; // Return null if not found
+}
+
 const DirectoryPreview: React.FC<DirectoryPreviewProps> = ({ directoryNames, filesByDirectory, fileMetadataMap }) => {
-    const [currentFiles, setCurrentFiles] = useState<string[]>([]);
-    const [currentDir, setCurrentDir] = useState<string | null>(null);
+
     const [currentFileName, setCurrentFileName] = useState<string | null>(null);
 
-    const handleDirClick = async (dir: string) => {
-        const files = filesByDirectory[dir] || []; // Lookup pre-fetched files
-        setCurrentFiles(files);
-        setCurrentDir(dir);
-        setCurrentFileName(null); // Reset file content when changing dir
-    };
+
 
     const handleFileClick = async (filename: string) => {
+        const currentDir = findKeyByValue(filesByDirectory, filename);
         setCurrentFileName(`${currentDir}/${filename}`)
     };
 
@@ -37,23 +44,20 @@ const DirectoryPreview: React.FC<DirectoryPreviewProps> = ({ directoryNames, fil
     return (
         <div>
             <div>
-                {directoryNames.map((directoryName) => (
-                    <button key={directoryName} onClick={() => handleDirClick(directoryName)}>
-                        {directoryName}
-                    </button>
-                ))}
-            </div>
+                <PrimaryTabs tabs={directoryNames}>
+                        {directoryNames.map((directory) =>  (
+                            <PrimaryPopover title={`Files in ${directory}`}>
+                                {filesByDirectory[directory].map(fileName => (
+                                    <SecondaryButton key={fileName} onClick={() => handleFileClick(fileName)}>
+                                        {fileName}
+                                    </SecondaryButton>
+                                ))}
 
-            {currentFiles.length > 0 && (
-                <div>
-                    <h2>Files in {currentDir}</h2>
-                    {currentFiles.map((file) => (
-                        <button key={file} onClick={() => handleFileClick(file)}>
-                            {file}
-                        </button>
-                    ))}
-                </div>
-            )}
+                            </PrimaryPopover>
+
+                        ))}
+                </PrimaryTabs>
+            </div>
 
 
         {currentFileName && (() => {

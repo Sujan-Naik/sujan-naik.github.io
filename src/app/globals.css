@@ -116,7 +116,23 @@ hgroup{
 }
 
 .primary-button:hover {
-  background-color: var(--foreground-secondary); /* Bright blue for hover */
+  background-color: var(--background-primary); /* Bright blue for hover */
+}
+
+  /* Primary Button Styles */
+.secondary-button {
+  background-color: var(--foreground-secondary);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: var(--button-padding);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.secondary:hover {
+  background-color: var(--background-secondary);
 }
 
 /* Primary Modal Styles */
@@ -278,9 +294,20 @@ hgroup{
   display: flex;             /* Use flexbox */
     flex-direction: column;   /* Arrange children in a column */
     align-items: flex-start;  /* Align items to the start */
-    padding: 10px;           /* Optional: Add some padding */
+    padding: 2vw;           /* Optional: Add some padding */
     background-color: var(--background-tertiary); /* Background color */
     border-right: 1px solid #ccc; /* Optional: Add a border */
     width: auto;              /* Width adjusts based on content */
     overflow: auto;           /* Allows for scrolling if content overflows */
+}
+
+.projectnav {
+    display: flex;               /* Use flexbox layout */
+    width: 100%;                /* Make the container as wide as possible */
+    height: 50vh;               /* Set the height to half the viewport height */
+    flex-direction: row;     /* Change this to 'row' if you prefer a horizontal layout */
+    overflow: auto;             /* Add overflow handling if content exceeds max height */
+    background-color: #f5f5f5;  /* Example background color (you can customize this) */
+    padding: 5vh;              /* Optional padding */
+    box-sizing: border-box;     /* Ensure padding is included in total width/height */
 }

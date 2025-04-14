@@ -17,7 +17,7 @@ export default async function Page() {
 
     return (
         <div>
-            <h1>File Navigator</h1>
+            <h1>Check out my work by category!</h1>
             <DirectoryPreview
                 directoryNames={directoryNames}
                 filesByDirectory={filesByDirectory}
