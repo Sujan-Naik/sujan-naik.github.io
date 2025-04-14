@@ -1,26 +1,15 @@
-import fs from 'fs/promises';
 import CarouselHolder from "@/app/ui/projects/carousel-holder";
-import {getShowcaseProjects} from "@/app/lib/fetchProjectData";
+import {getShowcasesMDX} from "@/app/lib/renderMDXNoFrontmatter";
 
 
 
 export default async function Carousel() {
-    const files = await getShowcaseProjects();
+    const mdxComponents = await getShowcasesMDX();
 
     return (
         <div>
-            <CarouselHolder files={files}/>
+            <CarouselHolder mdxComponents={mdxComponents}/>
         </div>
     );
-};
-
-export const getStaticProps = async () => {
-    const files = await getShowcaseProjects();
-
-    return {
-        props: {
-            files,
-        },
-    };
 };
 

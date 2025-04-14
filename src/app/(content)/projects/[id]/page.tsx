@@ -1,5 +1,6 @@
 import Project from "@/app/ui/projects/project";
 import {getShowcaseProjects} from "@/app/lib/fetchProjectData";
+import {loadMDXComponent} from "@/app/lib/renderMDXNoFrontmatter";
 
 export default async function Page({
   params,
@@ -16,8 +17,10 @@ export default async function Page({
         path = `showcase/${path}`;
     }
 
+    const project = await loadMDXComponent(path)
+
 
     return(
-        <div> <Project path={`content/${path}`}/></div>
+        <div> <Project mdxComponent={project}/></div>
     )
 }

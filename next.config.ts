@@ -1,9 +1,13 @@
 import type { NextConfig } from "next";
 import createMDX from '@next/mdx'
+import remarkMdxFrontmatter from "remark-mdx-frontmatter";
+import remarkParse from "remark-parse";
+import remarkFrontmatter from "remark-frontmatter";
+
 
 const nextConfig: NextConfig = {
   /* config options here */
-    pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
+    pageExtensions: ['md', 'mdx', 'ts', 'tsx'],
 
       images: {
       remotePatterns: [
@@ -15,15 +19,19 @@ const nextConfig: NextConfig = {
       },
       ], dangerouslyAllowSVG: true
   },
+  transpilePackages: ['next-mdx-remote'],
 };
 
 
 const withMDX = createMDX({
-  // Add markdown plugins here, as desired
-
+  extension: /\.mdx?$/,
+  options: {
+    remarkPlugins: [
+      // You can add more Remark plugins as needed
+    ],
+    format: 'mdx',
+  }
 })
-
-
 
 
 // Merge MDX config with Next.js config

@@ -274,4 +274,13 @@ hgroup{
   }
 }
 
-
+.sidenav{
+  display: flex;             /* Use flexbox */
+    flex-direction: column;   /* Arrange children in a column */
+    align-items: flex-start;  /* Align items to the start */
+    padding: 10px;           /* Optional: Add some padding */
+    background-color: var(--background-tertiary); /* Background color */
+    border-right: 1px solid #ccc; /* Optional: Add a border */
+    width: auto;              /* Width adjusts based on content */
+    overflow: auto;           /* Allows for scrolling if content overflows */
+}

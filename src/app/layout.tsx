@@ -8,7 +8,6 @@ import {pixelifySans} from "@/app/ui/fonts";
 export const metadata: Metadata = {
   title: "Sujan Naik",
   description: "Sujan Naik personal website",
-
 };
 
 export default function RootLayout({

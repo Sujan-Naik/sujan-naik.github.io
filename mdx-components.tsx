@@ -3,7 +3,7 @@ import Image, { ImageProps } from 'next/image';
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
-    // Header 1
+
     h1: ({ children }) => (
       <h1 className="text-4xl font-bold mb-4 text-center">
         {children}

@@ -2,34 +2,37 @@
 "use client"; // Mark this component as client-side
 
 import React, { useState } from "react";
-import PreviewCard from "@/app/ui/preview-card"; // Adjust the import based on your structure
+import ProjectPreview from "@/app/ui/project-preview"; // Adjust the import based on your structure
+
+interface ProjectMetadata {
+    title: string;
+    githubUrl: string;
+    previewImage: string;
+}
+
 
 interface DirectoryPreviewProps {
     directoryNames: string[];
-    filesByDirectory: Record<string, string[]>; // Maps directories to their files
+    filesByDirectory: Record<string, string[]>; // Maps directory names to their files
+    fileMetadataMap: Map<string, ProjectMetadata>; // Map from filename to metadata object
 }
 
-const DirectoryPreview: React.FC<DirectoryPreviewProps> = ({ directoryNames, filesByDirectory }) => {
+const DirectoryPreview: React.FC<DirectoryPreviewProps> = ({ directoryNames, filesByDirectory, fileMetadataMap }) => {
     const [currentFiles, setCurrentFiles] = useState<string[]>([]);
     const [currentDir, setCurrentDir] = useState<string | null>(null);
-    const [currentFileContent, setCurrentFileContent] = useState<{ title: string; githubUrl?: string; previewImage?: string; } | null>(null);
+    const [currentFileName, setCurrentFileName] = useState<string | null>(null);
 
     const handleDirClick = async (dir: string) => {
         const files = filesByDirectory[dir] || []; // Lookup pre-fetched files
         setCurrentFiles(files);
         setCurrentDir(dir);
-        setCurrentFileContent(null); // Reset file content when changing dir
+        setCurrentFileName(null); // Reset file content when changing dir
     };
 
     const handleFileClick = async (filename: string) => {
-        const response = await fetch(`/api/get-file-content?directory=${currentDir}&filename=${filename}`);
-        if (response.ok) {
-            const content = await response.json();
-            setCurrentFileContent(content);
-        } else {
-            console.error('Error fetching file content:', response.statusText);
-        }
+        setCurrentFileName(`${currentDir}/${filename}`)
     };
+
 
     return (
         <div>
@@ -52,13 +55,19 @@ const DirectoryPreview: React.FC<DirectoryPreviewProps> = ({ directoryNames, fil
                 </div>
             )}
 
-            {currentFileContent && (
-                <PreviewCard
-                    title={currentFileContent.title}
-                    githubUrl={currentFileContent.githubUrl}
-                    previewImage={currentFileContent.previewImage}
-                />
-            )}
+
+        {currentFileName && (() => {
+            // Extract only the filename (e.g., showcase.mdx from content/showcase.mdx)
+    const baseFileNameWithExtension = currentFileName.split('/').pop() as string; // This gets the last segment of the path
+    const baseFileName = baseFileNameWithExtension.replace(/\.mdx$/, '') as string; // Remove the .mdx extension
+
+            return (
+                fileMetadataMap.has(baseFileName) && (
+                    <ProjectPreview currentFileMetadata={fileMetadataMap.get(baseFileName) as ProjectMetadata} />
+                )
+            );
+        })()}
+
         </div>
     );
 };

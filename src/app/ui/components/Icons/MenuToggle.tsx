@@ -14,7 +14,7 @@ const Path = (props: PathProps) => (
     <path
         fill="circle"
         strokeWidth="3"
-        stroke="var(--background-primary)"
+        stroke="var(--foreground-primary)"
         strokeLinecap="round"
         {...props}
     />

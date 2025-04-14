@@ -10,7 +10,7 @@ export default function Layout({
   return (
     <div className="flex min-h-screen">
       {/* Side Navigation */}
-      <aside className="w-1/4 bg-gray-800 text-white p-4">
+      <aside className="sidenav">
         {navigation}
       </aside>
 

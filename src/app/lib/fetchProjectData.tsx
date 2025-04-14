@@ -73,20 +73,3 @@ export const  getFilesInDirectory = async(directory: string)=> {
     return files;
 }
 
-export const getFileContent = async (directory: string, filename: string) => {
-    let content = null;
-    try {
-        const filePath = `src/content/${directory}/${filename}`;
-        const fileContents = await fs.readFile(filePath, 'utf8');
-        const { data } = matter(fileContents); // Assuming you're using gray-matter to parse the frontmatter
-        content = {
-            title: data.title,
-            githubUrl: data.githubUrl,
-            previewImage: data.previewImage
-        };
-    } catch (err) {
-        console.error(`Error loading content of file ${filename} in directory ${directory}`, err);
-    }
-    return content;
-};
-

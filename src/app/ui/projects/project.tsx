@@ -1,33 +1,27 @@
 "use client";
-import {useEffect, useState, Suspense, JSX, LazyExoticComponent} from 'react';
+import {Suspense} from 'react';
 import {Transition} from "@headlessui/react";
 import LoadingCircleSpinner from "@/app/ui/components/Loading/LoadingCircleSpinner";
+import {MDXRemote,  MDXRemoteSerializeResult} from "next-mdx-remote";
+import {MDXProvider} from "@mdx-js/react";
+import {useMDXComponents} from "../../../../mdx-components";
 
 interface ProjectProps {
-    path: string;
+    mdxComponent: MDXRemoteSerializeResult;
 }
 
-const loadMDXComponent = (path: string) => import(`@/${path}.mdx`);
 
-const Project = ({ path }: ProjectProps) => {
-    const [MDXComponent, setMDXComponent] = useState<LazyExoticComponent<any>>();
-
-    useEffect(() => {
-        const fetchMDX = async () => {
-            const loadedPost = await loadMDXComponent(path);
-            setMDXComponent(() => loadedPost.default);
-        };
-        fetchMDX();
-    }, [path]);
-
+const Project = ({ mdxComponent }: ProjectProps) => {
+  const components = useMDXComponents({});
     return (
         <Transition show={true} appear={true}>
 
                 <div className={"transition duration-1000 ease-in data-[enter]:opacity-0"}>
         <Suspense fallback={
-
             <LoadingCircleSpinner/>}>
-            {MDXComponent ? <MDXComponent/> : ''}
+                <MDXProvider >
+                    <MDXRemote compiledSource={mdxComponent.compiledSource} scope={mdxComponent.scope} frontmatter={mdxComponent.frontmatter} components={components}></MDXRemote>
+                </MDXProvider>
         </Suspense>
                 </div>
         </Transition>

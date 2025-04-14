@@ -3,12 +3,11 @@
 import React from 'react';
 
 interface PreviewCardProps {
-    title: string;
-    githubUrl?: string;
-    previewImage?: string;
+    githubUrl: string;
+    previewImage: string;
 }
 
-const PreviewCard: React.FC<PreviewCardProps> = ({ title, githubUrl, previewImage }) => {
+const PreviewCard: React.FC<PreviewCardProps> = ({ githubUrl, previewImage }) => {
     return (
         <div
             style={{
@@ -31,7 +30,6 @@ const PreviewCard: React.FC<PreviewCardProps> = ({ title, githubUrl, previewImag
                 />
             )}
             <div style={{ padding: '16px', background: 'white' }}>
-                <h3 style={{ margin: 0 }}>{title}</h3>
                 {githubUrl && (
                     <a
                         href={githubUrl}
