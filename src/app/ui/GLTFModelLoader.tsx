@@ -2,8 +2,9 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, useGLTF } from '@react-three/drei';
-import { AnimationClip, AnimationMixer, Group, Object3DEventMap } from 'three';
+import {AnimationClip, AnimationMixer, Box3, Group, Object3DEventMap, Vector3} from 'three';
 import { GLTF, GLTFLoader } from 'three-stdlib';
+import PrimarySelect from "@/app/ui/components/Select/primary-select";
 
 // Type for GLTFModelLoader props
 interface GLTFModelLoaderProps {
@@ -47,7 +48,7 @@ const GLTFModelLoader: React.FC<GLTFModelLoaderProps> = ({ url }) => {
   const displayedModel: GLTF = model;
 
   return (
-    <div style={{ position: 'relative', width: '100%', height: '100vh' }}>
+    <div>
       <Canvas>
         <ambientLight />
         <directionalLight position={[10, 10, 5]} />
@@ -77,6 +78,12 @@ const Model: React.FC<{ scene: Group<Object3DEventMap>; animations: AnimationCli
       });
     }
 
+    // Calculate the bounding box to center the model
+    const boundingBox = new Box3().setFromObject(scene);
+    const center = boundingBox.getCenter(new Vector3());
+    // Move the model to the center of the scene
+    scene.position.set(-center.x, -center.y, -center.z); // Invert the center to position it correctly at the origin
+
     onMixerChange(mixerRef.current); // Pass mixer to parent component
 
     return () => {
@@ -95,39 +102,33 @@ const Model: React.FC<{ scene: Group<Object3DEventMap>; animations: AnimationCli
 const AnimationControls: React.FC<{ animations: AnimationClip[]; mixer: AnimationMixer | null }> = ({ animations, mixer }) => {
   const currentAnimationRef = useRef<AnimationClip | null>(null);
 
-  const handleAnimation = (animation: AnimationClip) => {
+  const handleAnimationChange = (selectedAnimationName: string) => {
+    const selectedAnimation = animations.find(animation => animation.name === selectedAnimationName);
+
     if (currentAnimationRef.current) {
       // Stop the currently playing animation
       mixer?.stopAllAction();
     }
 
-    // Play the new animation
-    const action = mixer?.clipAction(animation);
-    action?.play();
+    // Play the new animation if found
+    if (selectedAnimation) {
+      const action = mixer?.clipAction(selectedAnimation);
+      action?.play();
 
-    // Set the current animation reference to the new one
-    currentAnimationRef.current = animation;
+      // Set the current animation reference to the new one
+      currentAnimationRef.current = selectedAnimation;
+    }
   };
 
   return (
     <div
-      style={{
-        position: 'absolute',
-        top: '10px',
-        left: '10px',
-        zIndex: 10,
-        backgroundColor: 'white',
-        padding: '10px',
-        borderRadius: '5px',
-      }}
+
     >
-      {animations.map((animation: AnimationClip, index: number) => (
-        <button
-          key={index}
-          onClick={() => handleAnimation(animation)}>
-          {animation.name}
-        </button>
-      ))}
+      <PrimarySelect
+        options={animations.map(animation => animation.name)}
+        description="Select Animation"
+        onChange={(e) => handleAnimationChange(e.target.value)} // Handle change
+      />
     </div>
   );
 };

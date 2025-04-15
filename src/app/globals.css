@@ -311,3 +311,17 @@ hgroup{
     padding: 5vh;              /* Optional padding */
     box-sizing: border-box;     /* Ensure padding is included in total width/height */
 }
+
+/* Global styles for the PrimaryCard component */
+.primary-card {
+  background-color: var(--background-primary); /* White background */
+  border: 1px solid #ddd; /* Light gray border */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 16px; /* Internal spacing */
+  transition: box-shadow 0.3s; /* Smooth transition for hover effect */
+}
+
+.primary-card:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+}

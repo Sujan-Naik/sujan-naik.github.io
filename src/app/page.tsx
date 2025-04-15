@@ -2,17 +2,16 @@ import {pixelifySans} from "@/app/ui/fonts";
 import SujanLogo from "@/app/ui/sujan-logo";
 import Carousel from "@/app/ui/projects/carousel";
 import PrimaryLink from "./ui/components/Link/primary-link";
-import fs from "fs/promises";
-import Project from "@/app/ui/projects/project";
 import PrimarySwitch from "@/app/ui/components/Switch/primary-switch";
 import {Transition} from "@headlessui/react";
-import PrimaryHero from "@/app/ui/primary-hero";
-import GLTFModelLoader from "@/app/ui/GLTFModelLoader";
+import Hero from "@/app/ui/hero";
+import path from "path";
+import fs from "fs/promises";
 
 
-export default function Home(){
+export default async function Home(){
 
-
+   const models: string[] = await getModels() as string[];
   return (
     <div>
         <header>
@@ -26,8 +25,10 @@ export default function Home(){
             </div>
                 </Transition>
         </header>
-        {/*<PrimaryHero></PrimaryHero>*/}
-        <GLTFModelLoader url={'character.glb'}></GLTFModelLoader>
+
+        <Hero models={models}/>
+
+
         <section>
             <hgroup className={"p-3"}>
                 <h1>
@@ -46,4 +47,11 @@ export default function Home(){
         </section>
     </div>
   )
+}
+
+async function getModels() {
+  const modelsDirectory = path.join(process.cwd(), 'public/models'); // Adjust path as necessary
+  const filenames = await fs.readdir(modelsDirectory);
+
+  return filenames;
 }
