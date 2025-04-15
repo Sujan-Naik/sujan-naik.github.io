@@ -1,9 +1,9 @@
 "use client";
-import React, { useEffect, useState } from 'react';
-import {Canvas, useFrame} from '@react-three/fiber';
+import React, { useEffect, useState, useRef } from 'react';
+import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, useGLTF } from '@react-three/drei';
-import { AnimationMixer } from 'three';
-import {GLTFLoader} from "three-stdlib";
+import { AnimationClip, AnimationMixer, Group, Object3DEventMap } from 'three';
+import { GLTF, GLTFLoader } from 'three-stdlib';
 
 // Type for GLTFModelLoader props
 interface GLTFModelLoaderProps {
@@ -14,6 +14,7 @@ interface GLTFModelLoaderProps {
 const GLTFModelLoader: React.FC<GLTFModelLoaderProps> = ({ url }) => {
   const [model, setModel] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
+  const [mixer, setMixer] = useState<AnimationMixer | null>(null); // State for mixer
 
   useEffect(() => {
     const loader = new GLTFLoader();
@@ -43,49 +44,69 @@ const GLTFModelLoader: React.FC<GLTFModelLoaderProps> = ({ url }) => {
     return <div>Loading...</div>; // Loading state
   }
 
+  const displayedModel: GLTF = model;
+
   return (
     <div style={{ position: 'relative', width: '100%', height: '100vh' }}>
       <Canvas>
         <ambientLight />
         <directionalLight position={[10, 10, 5]} />
-        <Model scene={model.scene} animations={model.animations} />
+        <Model
+          scene={displayedModel.scene}
+          animations={displayedModel.animations}
+          onMixerChange={setMixer} // Pass setMixer function
+        />
         <OrbitControls />
       </Canvas>
-      <AnimationControls scene={model.scene} animations={model.animations} />
+      <AnimationControls
+        animations={displayedModel.animations}
+        mixer={mixer} // Pass the mixer down to the controls
+      />
     </div>
   );
 };
 
 // Model component to handle rendering the 3D model with animations
-const Model: React.FC<{ scene: any; animations: any[] }> = ({ scene, animations }) => {
-  const mixerRef = React.useRef<AnimationMixer | null>(new AnimationMixer(scene));
+const Model: React.FC<{ scene: Group<Object3DEventMap>; animations: AnimationClip[]; onMixerChange: (mixer: AnimationMixer) => void }> = ({ scene, animations, onMixerChange }) => {
+  const mixerRef = useRef<AnimationMixer>(new AnimationMixer(scene));
 
   useEffect(() => {
     if (animations.length > 0) {
       animations.forEach((clip) => {
-        mixerRef.current?.clipAction(clip).play();
+        mixerRef.current.clipAction(clip).play();
       });
     }
 
+    onMixerChange(mixerRef.current); // Pass mixer to parent component
+
     return () => {
-      // Clean up the mixer when the component unmounts
-      mixerRef.current = null;
+      mixerRef.current.stopAllAction(); // Stop all animations on unmount
     };
-  }, [animations]);
+  }, [animations, scene, onMixerChange]);
 
   useFrame((state, delta) => {
-    mixerRef.current?.update(delta); // Update the animation mixer
+    mixerRef.current.update(delta); // Update the animation mixer
   });
 
   return <primitive object={scene} />;
 };
 
 // Animation controls component to handle UI buttons for animation
-const AnimationControls: React.FC<{ animations: any[]; scene: any }> = ({ animations }) => {
-  const handleAnimation = (animation: any) => {
-    if (animation && animations) {
-      console.log(animation.type)
+const AnimationControls: React.FC<{ animations: AnimationClip[]; mixer: AnimationMixer | null }> = ({ animations, mixer }) => {
+  const currentAnimationRef = useRef<AnimationClip | null>(null);
+
+  const handleAnimation = (animation: AnimationClip) => {
+    if (currentAnimationRef.current) {
+      // Stop the currently playing animation
+      mixer?.stopAllAction();
     }
+
+    // Play the new animation
+    const action = mixer?.clipAction(animation);
+    action?.play();
+
+    // Set the current animation reference to the new one
+    currentAnimationRef.current = animation;
   };
 
   return (
@@ -100,15 +121,13 @@ const AnimationControls: React.FC<{ animations: any[]; scene: any }> = ({ animat
         borderRadius: '5px',
       }}
     >
-      {animations.map((animation: any, index: number) => {
-        return (
-          <button
-            key={index}
-            onClick={() => handleAnimation(animation)}>
-            {animation.name}
-          </button>
-        );
-      })}
+      {animations.map((animation: AnimationClip, index: number) => (
+        <button
+          key={index}
+          onClick={() => handleAnimation(animation)}>
+          {animation.name}
+        </button>
+      ))}
     </div>
   );
 };
