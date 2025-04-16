@@ -27,7 +27,6 @@ const ProjectPreview = ({ currentFileMetadata }: ProjectProps) => {
     return (
 
         <PrimaryDialog isOpen={showContactMe} onClose={handleContactButtonClick} title={currentFileMetadata.title}>
-
             <div>
                 <DialogPanel>
                     <div>

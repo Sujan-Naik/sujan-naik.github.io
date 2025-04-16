@@ -1,5 +1,6 @@
 import {Description, Field, Listbox, Select} from '@headlessui/react'
 import React, {ChangeEventHandler, Fragment} from "react";
+import PrimaryCard from "@/app/ui/components/Card/card";
 
 
 interface SelectProps {
@@ -11,6 +12,9 @@ interface SelectProps {
 
 const PrimarySelect: React.FC<SelectProps> = ({ options, description, onChange }) => {
   return (
+      <PrimaryCard>
+
+
       <Field>
                 <Description>{description}</Description>
           <Select name="status" aria-label="Project status" onChange={onChange}>
@@ -21,6 +25,7 @@ const PrimarySelect: React.FC<SelectProps> = ({ options, description, onChange }
         ))}
     </Select>
       </Field>
+          </PrimaryCard>
 
   )
 }

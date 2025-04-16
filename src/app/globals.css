@@ -452,3 +452,34 @@ li::before {
     margin-right: 0.5rem; /* Space between icon and text */
     color: #007BFF; /* Icon color */
 }
+
+.preview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Adjusts to fill space */
+    gap: 16px; /* Space between grid items */
+    width: 100%; /* Full width */
+    height: auto; /* Allow to grow with content */
+}
+
+.preview-card {
+    width: 100%; /* Ensure cards are full width of the grid item */
+    height: auto; /* Card height will depend on content */
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: 50vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: radial-gradient(circle, var(--background-secondary), var(--background-primary));
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+canvas:hover {
+    transform: scale(1.20); /* Slightly zoom in on hover */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.7); /* Deeper shadow on hover */
+}

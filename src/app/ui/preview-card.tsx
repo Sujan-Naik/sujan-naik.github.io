@@ -1,5 +1,3 @@
-// src/components/PreviewCard.tsx
-
 import React from 'react';
 
 interface PreviewCardProps {
@@ -15,8 +13,9 @@ const PreviewCard: React.FC<PreviewCardProps> = ({ githubUrl, previewImage }) =>
                 borderRadius: '8px',
                 overflow: 'hidden',
                 position: 'relative',
-                maxWidth: '300px',
-                margin: '20px',
+                width: '100%', // Allow the card to take the full width of the grid cell
+                height: 'auto', // Allow the height to adjust based on content
+                transition: 'box-shadow 0.2s ease', // Adding a transition for hover effect
             }}
         >
             {previewImage && (

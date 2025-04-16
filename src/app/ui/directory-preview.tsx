@@ -7,6 +7,7 @@ import PrimaryPopover from "@/app/ui/components/Dropdown/primary-popover";
 import PrimaryTabs from "@/app/ui/components/Tabs/primary-tabs";
 import SecondaryButton from "@/app/ui/components/Button/secondary-button";
 import {useRouter, usePathname} from "next/navigation";
+import PreviewCard from "@/app/ui/preview-card";
 interface ProjectMetadata {
     title: string;
     githubUrl: string;
@@ -54,21 +55,35 @@ const DirectoryPreview: React.FC<DirectoryPreviewProps> = ({ directoryNames, fil
     return (
         <div>
             <div>
-                <PrimaryTabs tabs={directoryNames}>
-                        {directoryNames.map((directory) =>  (
-                            <PrimaryPopover title={`Files in ${directory}`}>
-                                {filesByDirectory[directory].map(fileName => (
-                                    <SecondaryButton key={fileName} onClick={() => handleFileClick(fileName)}>
-                                        <div onMouseOver={() => navigateToMedia(fileName) }>
-                                            {fileName}
-                                        </div>
-                                    </SecondaryButton>
-                                ))}
-
-                            </PrimaryPopover>
-
-                        ))}
-                </PrimaryTabs>
+               <div className="primary-tabs-container">
+    <PrimaryTabs tabs={directoryNames}>
+        {directoryNames.map((directory) => (
+            <div key={directory} title={`Files in ${directory}`}>
+                <h3>{directory}</h3>
+                <div className="preview-grid">
+                    {filesByDirectory[directory].map(fileName => (
+                        <div key={fileName}>
+                            {fileMetadataMap.has(fileName) && (() => {
+                                const metadata = fileMetadataMap.get(fileName) as ProjectMetadata;
+                                return (
+                                    <PreviewCard
+                                        githubUrl={metadata.githubUrl}
+                                        previewImage={metadata.previewImage}
+                                    />
+                                );
+                            })()}
+                            <SecondaryButton onClick={() => handleFileClick(fileName)}>
+                                <div onMouseOver={() => navigateToMedia(fileName)}>
+                                    {fileName}
+                                </div>
+                            </SecondaryButton>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        ))}
+    </PrimaryTabs>
+</div>
             </div>
 
 
