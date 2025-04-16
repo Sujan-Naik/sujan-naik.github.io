@@ -1,4 +1,5 @@
 import NavBar from "@/app/ui/navbar";
+import PrimaryCard from "@/app/ui/components/Card/card";
 
 export default function Layout({
   children,
@@ -9,9 +10,9 @@ export default function Layout({
       <div>
 
       <NavBar/>
-    <div className="max-w-4xl mx-auto px-6 py-8 border border-foreground-secondary bg-background-tertiary rounded-lg shadow-md">
-  {children}
-</div>
+        <PrimaryCard>
+              {children}
+        </PrimaryCard>
       </div>
   );
 }

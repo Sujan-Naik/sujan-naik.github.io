@@ -8,12 +8,13 @@
   --foreground-tertiary: #007BFF; /* Bold sky blue for headings or highlights */
   --background-tertiary: #E0F7FF; /* Light sky blue for tertiary backgrounds */
 
+  --border-color: #38B2AC;
     --modal-max-width: 800px; /* Max width for modals */
     --modal-min-width: 400px; /* Max width for modals */
   --button-padding: 0.5rem 1rem; /* Padding for buttons */
   --accordion-padding: 0.75rem; /* Padding for accordion */
   --tab-height: 50px; /* Height for tabs */
-    --link-color: var(--foreground-primary); /* Color for links */
+  --link-color: var(--foreground-primary); /* Color for links */
   --link-icon-size: 4px; /* Set a standard size for the link icons */
 }
 
@@ -54,7 +55,7 @@ iframe {
     height: auto; /* Auto height for responsive scaling */
     max-width: 100%; /* Ensure it doesn't exceed the width of its container */
     aspect-ratio: 16 / 9; /* Maintain a 16:9 aspect ratio */
-    border: none; /* Remove default border */
+    border: 2vw var(--border-color); /* Remove default border */
 }
 
 /* Optional: Add some styles for iframe focus */
@@ -90,13 +91,7 @@ hgroup{
     */
     margin: auto; /* Center the carousel */
     overflow: hidden; /* Hide overflow */
-    border-radius: 8px; /* Optional: rounded corners */
-    border-width: 10px;
-    border-color: var(--background-primary);
-    outline: black thin groove;
-    /*@apply relative w-full max-w-[600px] mx-auto overflow-hidden rounded-lg;*/
-    background: var(--background-secondary);
-    color: var(--foreground-secondary);
+
   }
   .carousel-inner{
     padding: 0px;
@@ -107,7 +102,7 @@ hgroup{
 .primary-button {
   background-color: var(--foreground-primary); /* Turquoise main color */
   color: white;
-  border: none;
+  border: 2vw var(--border-color);
   border-radius: 4px;
   padding: var(--button-padding);
   font-size: 1rem;
@@ -123,7 +118,7 @@ hgroup{
 .secondary-button {
   background-color: var(--foreground-secondary);
   color: white;
-  border: none;
+  border: 2vw var(--border-color);
   border-radius: 4px;
   padding: var(--button-padding);
   font-size: 1rem;
@@ -183,27 +178,56 @@ hgroup{
 .primary-accordion {
   background-color: var(--background-secondary); /* Soft sky blue */
   padding: var(--accordion-padding);
-  border-radius: 6px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 10px; /* Slightly more rounded corners */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Deeper shadow for more depth */
+  width: 100%; /* Occupies full width */
+  margin-bottom: 1rem; /* Space below each accordion for separation */
+  transition: box-shadow 0.3s ease, transform 0.3s; /* Heavy metal transitions */
+}
+
+.primary-accordion:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* More pronounced shadow on hover */
+  transform: translateY(-2px); /* Lift effect on hover */
+}
+
+.accordion-arrow {
+    font-size: 1.5rem; /* Larger font size */
+    color: var(--foreground-secondary); /* Use your theme color */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transitions */
+    margin-left: 10px; /* Space between title and arrow */
+    display: inline-block; /* Ensure it is treated as a block for padding */
+    line-height: 1; /* Adjust line height for vertical centering */
+}
+
+.primary-accordion__title:hover .accordion-arrow {
+    color: var(--foreground-secondary); /* Change color on hover for better visibility */
 }
 
 .primary-accordion__title {
-  cursor: pointer;
-  font-size: 1.1rem;
-  background-color: var(--foreground-tertiary); /* Bold sky blue for title */
-  padding: var(--accordion-padding);
-  border-radius: 6px;
-  margin: 0;
+    display: flex; /* Allow flexbox for better alignment */
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space between title and arrow */
+}
+
+.primary-accordion__title:hover {
+  color: #FFF; /* Change text color on hover for contrast */
+  transform: scale(1.02); /* Slightly scale up on hover for emphasis */
 }
 
 .primary-accordion__content {
   padding: var(--accordion-padding);
+  overflow: hidden; /* Prevent overflow */
+  transition: max-height 0.5s ease-in-out; /* Smooth opening/closing transition */
 }
 
+/* Show the content when opened */
+.primary-accordion.open .primary-accordion__content {
+  max-height: 500px; /* Arbitrary large value for smooth expanding effect */
+}
 /* Primary Dropdown Styles */
 .primary-dropdown {
   background-color: white;
-  border: 1px solid var(--foreground-secondary); /* Bright blue border */
+  border: 2vw var(--border-color); /* Bright blue border */
   border-radius: 4px;
   padding: var(--button-padding);
   width: 100%;
@@ -250,11 +274,33 @@ hgroup{
 .link {
   color: var(--link-color);
   text-decoration: none; /* Remove underline */
-  transition: color 0.3s ease; /* Smooth color change on hover */
+  transition: color 0.3s ease, background 0.3s ease, transform 0.2s ease; /* Smooth color and transform on hover */
+  font-weight: 500; /* Slightly increase font weight */
+  position: relative; /* Position for pseudo-elements */
 }
 
 .link:hover {
   color: var(--foreground-secondary); /* Color on hover */
+  background-color: rgba(0, 0, 0, 0.1); /* Light background on hover */
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* Add underline on hover (optional) */
+.link::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 2px; /* Height of your underline */
+  background-color: var(--foreground-secondary); /* Color for underline */
+  position: absolute; /* Position at the bottom */
+  left: 0; /* Align to the left */
+  bottom: -2px; /* Position below text */
+  transform: scaleX(0); /* Hidden initially */
+  transition: transform 0.3s ease; /* Smooth scale transition */
+}
+
+.link:hover::after {
+  transform: scaleX(1); /* Scale to full width on hover */
 }
 
 /* LinkIcon Styles */
@@ -314,8 +360,9 @@ hgroup{
 
 /* Global styles for the PrimaryCard component */
 .primary-card {
-  background-color: var(--background-primary); /* White background */
-  border: 1px solid #ddd; /* Light gray border */
+  background-color: var(#fff); /* White background */
+  color: var(--foreground-secondary);
+  border: 2vw var(--border-color); /* Light gray border */
   border-radius: 8px; /* Rounded corners */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   padding: 16px; /* Internal spacing */
@@ -324,4 +371,84 @@ hgroup{
 
 .primary-card:hover {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+}
+
+
+.radio {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 1px; /* p-4 */
+    cursor: pointer;
+    border-radius: 0.5rem; /* rounded-lg */
+    border: 2vw var(--border-color); /* Default border for radio button */
+
+}
+
+.radio-default {
+    background-color: var(--background-secondary); /* bg-white */
+    color: var(--foreground-secondary);
+}
+
+.radio-checked {
+    background-color: #3b82f6; /* bg-blue-500 */
+    color: white; /* text-white */
+}
+
+.radio-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 1rem; /* h-4 */
+    width: 1rem; /* w-4 */
+    border-radius: 50%; /* rounded-full */
+    border: 2vw var(--border-color); /* border-gray-300 */
+    margin-right: 0.75rem; /* mr-3 */
+}
+
+.radio-icon-checked {
+    background-color: #2563eb; /* bg-blue-600 */
+    height: 0.625rem; /* h-2.5 */
+    width: 0.625rem; /* w-2.5 */
+    border-radius: 50%; /* rounded-full */
+}
+
+.radio-group-container {
+    overflow: hidden; /* Prevent overflow when collapsed */
+    max-width: 100%; /* Set max width according to your design */
+    transition: max-height 0.3s ease; /* Smooth transition for max height */
+    max-height: 10vh;
+}
+.radio-group-container:hover {
+    max-height: 100vh; /* Adjust this according to how much space you need */
+}
+
+
+ul {
+    list-style-type: none; /* Remove default bullets */
+    padding: 0; /* Remove default padding */
+    margin: 1rem 0; /* Add margin for spacing */
+}
+
+li {
+  list-style-type: none; /* Remove default bullets */
+    padding: 1rem; /* Add padding */
+    margin: 0.5rem 0; /* Vertical spacing */
+    background-color: var(--background-secondary); /* Light background color */
+    border: 1px solid #e3e3e3; /* Subtle border */
+    border-radius: 8px; /* Rounded corners */
+    transition: background-color 0.3s, transform 0.2s; /* Transition for hover effect */
+}
+
+li:hover {
+    background-color: #e0f7fa; /* Light blue on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow on hover */
+}
+
+/* Optional: Adding icons before each list item */
+li::before {
+    content: '✔'; /* Change this to an icon or symbol */
+    margin-right: 0.5rem; /* Space between icon and text */
+    color: #007BFF; /* Icon color */
 }

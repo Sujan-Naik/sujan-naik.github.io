@@ -7,6 +7,8 @@ import {Transition} from "@headlessui/react";
 import Hero from "@/app/ui/hero";
 import path from "path";
 import fs from "fs/promises";
+import PrimaryButton from "@/app/ui/components/Button/primary-button";
+import PrimaryCard from "@/app/ui/components/Card/card";
 
 
 export default async function Home(){
@@ -32,7 +34,7 @@ export default async function Home(){
         <section>
             <hgroup className={"p-3"}>
                 <h1>
-                    Highlighted Projects
+                    Featured Projects
                 </h1>
                 <PrimarySwitch>
                     <Carousel />
@@ -40,9 +42,12 @@ export default async function Home(){
             </hgroup>
 
             <hgroup>
-                <PrimaryLink href={"/projects"}>
-                   <h3> View all my work...</h3>
-                </PrimaryLink>
+                <PrimaryCard>
+                    <PrimaryLink href={"/projects"}>
+                        <h3> View all my work...</h3>
+                    </PrimaryLink>
+                </PrimaryCard>
+
             </hgroup>
         </section>
     </div>

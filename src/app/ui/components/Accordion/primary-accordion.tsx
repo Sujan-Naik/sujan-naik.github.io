@@ -1,5 +1,4 @@
-// src/app/ui/components/Accordion/Accordion.tsx
-import React, { useState } from 'react';
+import React from 'react';
 import { Disclosure } from '@headlessui/react';
 
 interface AccordionItemProps {
@@ -7,22 +6,22 @@ interface AccordionItemProps {
     children: React.ReactNode;
 }
 
-const AccordionItem: React.FC<AccordionItemProps> = ({ title, children }) => (
+export const AccordionItem: React.FC<AccordionItemProps> = ({ title, children }) => (
     <Disclosure>
         {({ open }) => (
-            <>
-                <Disclosure.Button className="primary-button">
-                    <p className={"primary-accordion__title"}>
+            <div className="primary-accordion"> {/* Apply the class for styling the accordion */}
+                <Disclosure.Button className="primary-accordion__title">
+                    <p>
                         {title}
                     </p>
-                    <p className={"primary-accordion__content"}>
-                        {open ? '-' : '+'}
+                    <p className="accordion-arrow">
+                        {open ? '▲' : '▼'}
                     </p>
                 </Disclosure.Button>
-                <Disclosure.Panel className="p-2">
+                <Disclosure.Panel className="primary-accordion__content">
                     {children}
                 </Disclosure.Panel>
-            </>
+            </div>
         )}
     </Disclosure>
 );
@@ -30,6 +29,5 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ title, children }) => (
 const PrimaryAccordion: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     return <div>{children}</div>;
 };
-
 
 export default PrimaryAccordion;
