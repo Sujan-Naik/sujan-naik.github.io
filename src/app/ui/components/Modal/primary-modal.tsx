@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dialog } from '@headlessui/react';
+import {Dialog} from '@headlessui/react';
 
 interface ModalProps {
     isOpen: boolean;
@@ -8,7 +8,7 @@ interface ModalProps {
     children: React.ReactNode;
 }
 
-const PrimaryModal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
+const PrimaryModal: React.FC<ModalProps> = ({isOpen, onClose, title, children}) => {
     return (
         <Dialog open={isOpen} onClose={onClose} className="fixed inset-0 z-10 overflow-y-auto primary-modal">
             <div className="modal-content">

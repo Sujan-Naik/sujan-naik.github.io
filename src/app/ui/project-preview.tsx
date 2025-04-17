@@ -1,11 +1,9 @@
 "use client";
 import React, {Suspense, useState} from 'react';
-import {DialogPanel, DialogTitle, Transition} from "@headlessui/react";
+import {DialogPanel} from "@headlessui/react";
 import LoadingCircleSpinner from "@/app/ui/components/Loading/LoadingCircleSpinner";
 import PreviewCard from "@/app/ui/preview-card";
-import ContactMe from "@/app/ui/contact-me";
 import PrimaryDialog from "@/app/ui/components/Dialog/primary-dialog";
-import PrimaryButton from "@/app/ui/components/Button/primary-button";
 
 interface ProjectMetadata {
     title: string;
@@ -17,7 +15,7 @@ interface ProjectProps {
     currentFileMetadata: ProjectMetadata; // Changed from 'path' to 'currentFileMetadata'
 }
 
-const ProjectPreview = ({ currentFileMetadata }: ProjectProps) => {
+const ProjectPreview = ({currentFileMetadata}: ProjectProps) => {
     const [showContactMe, setShowContactMe] = useState(true);
     const handleContactButtonClick = () => {
         setShowContactMe(prevState => !prevState);
@@ -31,7 +29,7 @@ const ProjectPreview = ({ currentFileMetadata }: ProjectProps) => {
                 <DialogPanel>
                     <div>
                         <div>
-                            <Suspense fallback={<LoadingCircleSpinner />}>
+                            <Suspense fallback={<LoadingCircleSpinner/>}>
                                 {currentFileMetadata && (
                                     <PreviewCard
                                         githubUrl={currentFileMetadata.githubUrl} // GitHub URL from metadata
@@ -44,9 +42,6 @@ const ProjectPreview = ({ currentFileMetadata }: ProjectProps) => {
                 </DialogPanel>
             </div>
         </PrimaryDialog>
-
-
-
 
 
     );

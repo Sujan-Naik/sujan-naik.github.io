@@ -1,4 +1,4 @@
-export default function ContactMe(){
+export default function ContactMe() {
     return (
         <div>
             <hgroup>
@@ -6,9 +6,15 @@ export default function ContactMe(){
                 <h2> My Socials</h2>
             </hgroup>
             <p>
-                <a> <li> My Email</li> </a>
-                <a> <li> Phone Number</li> </a>
-                <a> <li> LinkedIn</li> </a>
+                <a>
+                    <li> My Email</li>
+                </a>
+                <a>
+                    <li> Phone Number</li>
+                </a>
+                <a>
+                    <li> LinkedIn</li>
+                </a>
             </p>
         </div>
     )

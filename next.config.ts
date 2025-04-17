@@ -1,36 +1,33 @@
-import type { NextConfig } from "next";
+import type {NextConfig} from "next";
 import createMDX from '@next/mdx'
-import remarkMdxFrontmatter from "remark-mdx-frontmatter";
-import remarkParse from "remark-parse";
-import remarkFrontmatter from "remark-frontmatter";
 
 
 const nextConfig: NextConfig = {
-  /* config options here */
+    /* config options here */
     pageExtensions: ['md', 'mdx', 'ts', 'tsx'],
 
-      images: {
-      remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "github-readme-stats.vercel.app",
-        port: "",
-        pathname: "/**",
-      },
-      ], dangerouslyAllowSVG: true
-  },
-  transpilePackages: ['next-mdx-remote'],
+    images: {
+        remotePatterns: [
+            {
+                protocol: "https",
+                hostname: "github-readme-stats.vercel.app",
+                port: "",
+                pathname: "/**",
+            },
+        ], dangerouslyAllowSVG: true
+    },
+    transpilePackages: ['next-mdx-remote'],
 };
 
 
 const withMDX = createMDX({
-  extension: /\.mdx?$/,
-  options: {
-    remarkPlugins: [
-      // You can add more Remark plugins as needed
-    ],
-    format: 'mdx',
-  }
+    extension: /\.mdx?$/,
+    options: {
+        remarkPlugins: [
+            // You can add more Remark plugins as needed
+        ],
+        format: 'mdx',
+    }
 })
 
 

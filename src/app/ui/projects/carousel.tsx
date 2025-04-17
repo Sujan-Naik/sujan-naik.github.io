@@ -1,7 +1,6 @@
 import CarouselHolder from "@/app/ui/projects/carousel-holder";
 import {getShowcasesMDX} from "@/app/lib/renderMDXNoFrontmatter";
-import PrimaryCard from "@/app/ui/components/Card/card";
-
+import PrimaryCard from "@/app/ui/components/Card/PrimaryCard";
 
 
 export default async function Carousel() {

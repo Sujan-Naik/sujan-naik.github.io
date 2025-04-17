@@ -1,9 +1,9 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type {Meta, StoryObj} from '@storybook/react';
 
 import NavLinks from './nav-links';
 
 const meta = {
-  component: NavLinks,
+    component: NavLinks,
 } satisfies Meta<typeof NavLinks>;
 
 export default meta;
@@ -11,7 +11,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  args: {
-    projectNames: []
-  }
+    args: {
+        projectNames: []
+    }
 };

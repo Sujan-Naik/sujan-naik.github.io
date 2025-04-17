@@ -1,5 +1,4 @@
 import fs from "fs/promises";
-import matter from "gray-matter";
 
 export const getShowcaseProjects = async () => {
     let files: string[] = [];
@@ -22,7 +21,7 @@ export const getAllProjects = async () => {
     let files: string[] = [];
 
     try {
-        const fileNames = await fs.readdir("src/content/",{ recursive: true });
+        const fileNames = await fs.readdir("src/content/", {recursive: true});
 
         files = fileNames
             .filter(fileName => fileName.endsWith('.mdx'))
@@ -60,7 +59,7 @@ export const getDirectories = async () => {
     };
 };
 
-export const  getFilesInDirectory = async(directory: string)=> {
+export const getFilesInDirectory = async (directory: string) => {
     let files: string[] = [];
     try {
         const dirPath = `src/content/${directory}`;

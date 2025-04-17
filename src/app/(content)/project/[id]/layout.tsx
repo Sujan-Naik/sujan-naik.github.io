@@ -1,18 +1,18 @@
 import NavBar from "@/app/ui/navbar";
-import PrimaryCard from "@/app/ui/components/Card/card";
+import PrimaryCard from "@/app/ui/components/Card/PrimaryCard";
 
 export default function Layout({
-  children,
-}: {
-  children: React.ReactNode;
+                                   children,
+                               }: {
+    children: React.ReactNode;
 }) {
-  return (
-      <div>
+    return (
+        <div>
 
-      <NavBar/>
-        <PrimaryCard>
-              {children}
-        </PrimaryCard>
-      </div>
-  );
+            <NavBar/>
+            <PrimaryCard>
+                {children}
+            </PrimaryCard>
+        </div>
+    );
 }

@@ -1,6 +1,6 @@
-import {Description, Field, Listbox, Select} from '@headlessui/react'
-import React, {ChangeEventHandler, Fragment} from "react";
-import PrimaryCard from "@/app/ui/components/Card/card";
+import {Description, Field, Select} from '@headlessui/react'
+import React, {ChangeEventHandler} from "react";
+import PrimaryCard from "@/app/ui/components/Card/PrimaryCard";
 
 
 interface SelectProps {
@@ -10,24 +10,24 @@ interface SelectProps {
 }
 
 
-const PrimarySelect: React.FC<SelectProps> = ({ options, description, onChange }) => {
-  return (
-      <PrimaryCard>
+const PrimarySelect: React.FC<SelectProps> = ({options, description, onChange}) => {
+    return (
+        <PrimaryCard>
 
 
-      <Field>
+            <Field>
                 <Description>{description}</Description>
-          <Select name="status" aria-label="Project status" onChange={onChange}>
-        {options.map((option) => (
-                        <option key={option} value={option} >
+                <Select name="status" aria-label="Project status" onChange={onChange}>
+                    {options.map((option) => (
+                        <option key={option} value={option}>
                             {option}
                         </option>
-        ))}
-    </Select>
-      </Field>
-          </PrimaryCard>
+                    ))}
+                </Select>
+            </Field>
+        </PrimaryCard>
 
-  )
+    )
 }
 
 export default PrimarySelect;

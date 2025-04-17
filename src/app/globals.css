@@ -1,376 +1,377 @@
 @import "tailwindcss";
 
 :root {
-  --background-primary: #C9F6FF; /* Water lightest background for everywhere */
-  --foreground-primary: #35D6ED; /* Turquoise main color for text */
-  --background-secondary: #A1E2FB; /* Soft sky blue for cards and UI elements */
-  --foreground-secondary: #1DA1F2; /* Bright blue for secondary text or accents */
-  --foreground-tertiary: #007BFF; /* Bold sky blue for headings or highlights */
-  --background-tertiary: #E0F7FF; /* Light sky blue for tertiary backgrounds */
+    --background-primary: #C9F6FF; /* Water lightest background for everywhere */
+    --foreground-primary: #35D6ED; /* Turquoise main color for text */
+    --background-secondary: #A1E2FB; /* Soft sky blue for cards and UI elements */
+    --foreground-secondary: #1DA1F2; /* Bright blue for secondary text or accents */
+    --foreground-tertiary: #007BFF; /* Bold sky blue for headings or highlights */
+    --background-tertiary: #E0F7FF; /* Light sky blue for tertiary backgrounds */
 
-  --border-color: #38B2AC;
+    --border-color: #38B2AC;
     --modal-max-width: 800px; /* Max width for modals */
     --modal-min-width: 400px; /* Max width for modals */
-  --button-padding: 0.5rem 1rem; /* Padding for buttons */
-  --accordion-padding: 0.75rem; /* Padding for accordion */
-  --tab-height: 50px; /* Height for tabs */
-  --link-color: var(--foreground-primary); /* Color for links */
-  --link-icon-size: 4px; /* Set a standard size for the link icons */
+    --button-padding: 0.5rem 1rem; /* Padding for buttons */
+    --accordion-padding: 0.75rem; /* Padding for accordion */
+    --tab-height: 50px; /* Height for tabs */
+    --link-color: var(--foreground-primary); /* Color for links */
+    --link-icon-size: 4px; /* Set a standard size for the link icons */
 }
 
 @theme inline {
-  --color-background: var(--background-primary);
-  --color-foreground: var(--foreground-primary);
+    --color-background: var(--background-primary);
+    --color-foreground: var(--foreground-primary);
 }
 
 
 body {
-  background: var(--background-primary);
-  color: var(--foreground-primary);
+    background: var(--background-primary);
+    color: var(--foreground-primary);
 }
 
 @layer base {
-  h1 {
-  font-size: var(--text-2xl);
-  color: var(--foreground-tertiary); /* Bold sky blue for headings */
-}
+    h1 {
+        font-size: var(--text-2xl);
+        color: var(--foreground-tertiary); /* Bold sky blue for headings */
+    }
 
-h2 {
-  font-size: var(--text-xl);
-  color: var(--foreground-secondary); /* Bright blue for secondary headings */
-}
+    h2 {
+        font-size: var(--text-xl);
+        color: var(--foreground-secondary); /* Bright blue for secondary headings */
+    }
 
-h3 {
-  font-size: var(--text-lg);
-  color: var(--foreground-primary); /* Turquoise main color for text */
-}
+    h3 {
+        font-size: var(--text-lg);
+        color: var(--foreground-primary); /* Turquoise main color for text */
+    }
 
-  a {
-    color: var(--color-blue-600);
-    text-decoration-line: underline;
-  }
-  /* Style the iframe directly */
-iframe {
-    width: 100%; /* Make the iframe take the full width of the parent */
-    height: auto; /* Auto height for responsive scaling */
-    max-width: 100%; /* Ensure it doesn't exceed the width of its container */
-    aspect-ratio: 16 / 9; /* Maintain a 16:9 aspect ratio */
-    border: 2vw var(--border-color); /* Remove default border */
-}
+    a {
+        color: var(--color-blue-600);
+        text-decoration-line: underline;
+    }
 
-/* Optional: Add some styles for iframe focus */
-iframe:focus {
-    outline: none; /* Remove outline when focused */
-}
+    /* Style the iframe directly */
+    iframe {
+        width: 100%; /* Make the iframe take the full width of the parent */
+        height: auto; /* Auto height for responsive scaling */
+        max-width: 100%; /* Ensure it doesn't exceed the width of its container */
+        aspect-ratio: 16 / 9; /* Maintain a 16:9 aspect ratio */
+        border: 2vw var(--border-color); /* Remove default border */
+    }
 
-  header{
-  display: flex;
-  flex-direction: column;
-  background: var(--background-tertiary);
-  color: var(--foreground-tertiary);
-  justify-content: center;
-  align-items: center;
-}
+    /* Optional: Add some styles for iframe focus */
+    iframe:focus {
+        outline: none; /* Remove outline when focused */
+    }
 
-hgroup{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+    header {
+        display: flex;
+        flex-direction: column;
+        background: var(--background-tertiary);
+        color: var(--foreground-tertiary);
+        justify-content: center;
+        align-items: center;
+    }
+
+    hgroup {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 
 }
 
 
 @layer components {
-  .carousel {
-    position: relative;
-    width: 100%;
-    /*
-    max-width: 600px; !* Set a max width *!
-    */
-    margin: auto; /* Center the carousel */
-    overflow: hidden; /* Hide overflow */
+    .carousel {
+        position: relative;
+        width: 100%;
+        /*
+        max-width: 600px; !* Set a max width *!
+        */
+        margin: auto; /* Center the carousel */
+        overflow: hidden; /* Hide overflow */
 
-  }
-  .carousel-inner{
-    padding: 0px;
-  }
+    }
+
+    .carousel-inner {
+        padding: 0px;
+    }
 
 
-  /* Primary Button Styles */
-.primary-button {
-  background-color: var(--foreground-primary); /* Turquoise main color */
-  color: white;
-  border: 2vw var(--border-color);
-  border-radius: 4px;
-  padding: var(--button-padding);
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+    /* Primary Button Styles */
+    .primary-button {
+        background-color: var(--foreground-primary); /* Turquoise main color */
+        color: white;
+        border: 2vw var(--border-color);
+        border-radius: 4px;
+        padding: var(--button-padding);
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .primary-button:hover {
+        background-color: var(--background-primary); /* Bright blue for hover */
+    }
+
+    /* Primary Button Styles */
+    .secondary-button {
+        background-color: var(--foreground-secondary);
+        color: white;
+        border: 2vw var(--border-color);
+        border-radius: 4px;
+        padding: var(--button-padding);
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .secondary:hover {
+        background-color: var(--background-secondary);
+    }
+
+    /* Primary Modal Styles */
+    .primary-modal {
+        background-color: white;
+        border-radius: 8px;
+        max-width: var(--modal-max-width);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        padding: 2rem;
+    }
+
+    /* Primary Dialog Styles */
+    .primary-dialog {
+        background-color: var(--background-secondary); /* Soft sky blue */
+        border-radius: 8px;
+        max-width: var(--modal-max-width);
+        min-width: var(--modal-min-width);
+        width: auto;
+        padding: 20px;
+        position: fixed; /* Keep it fixed on the screen */
+        top: 50%; /* Position it in the vertical center */
+        left: 50%; /* Position it in the horizontal center */
+        transform: translate(-50%, -50%); /* Offset it by half its own width and height */
+        height: 80vh;
+        display: flex;
+        justify-content: center;
+        z-index: 10;
+    }
+
+    /* Primary Dialog Panel Styles */
+    .primary-dialog-panel {
+        background-color: var(--background-secondary); /* Background color for the panel */
+        border-radius: 8px; /* Rounded corners */
+        max-width: var(--modal-max-width); /* Use your defined max width */
+        width: 95%; /* Ensure it uses most of the width available, responsive */
+        height: auto; /* Allow it to grow based on content */
+        max-height: 80vh; /* Maximum height */
+        padding: 20px; /* Internal padding */
+        overflow-y: auto; /* Enable vertical scrolling if content exceeds height */
+        display: flex; /* Use flexbox for layout */
+        flex-direction: column; /* Stack child elements vertically */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Optional shadow for depth */
+        position: relative; /* Make position relative for absolute child elements */
+        z-index: 20; /* Ensure it appears above backdrop */
+    }
+
+    /* Primary Accordion Styles */
+    .primary-accordion {
+        background-color: var(--background-secondary); /* Soft sky blue */
+        padding: var(--accordion-padding);
+        border-radius: 10px; /* Slightly more rounded corners */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Deeper shadow for more depth */
+        width: 100%; /* Occupies full width */
+        margin-bottom: 1rem; /* Space below each accordion for separation */
+        transition: box-shadow 0.3s ease, transform 0.3s; /* Heavy metal transitions */
+    }
+
+    .primary-accordion:hover {
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* More pronounced shadow on hover */
+        transform: translateY(-2px); /* Lift effect on hover */
+    }
+
+    .accordion-arrow {
+        font-size: 1.5rem; /* Larger font size */
+        color: var(--foreground-secondary); /* Use your theme color */
+        transition: transform 0.3s ease, color 0.3s ease; /* Smooth transitions */
+        margin-left: 10px; /* Space between title and arrow */
+        display: inline-block; /* Ensure it is treated as a block for padding */
+        line-height: 1; /* Adjust line height for vertical centering */
+    }
+
+    .primary-accordion__title:hover .accordion-arrow {
+        color: var(--foreground-secondary); /* Change color on hover for better visibility */
+    }
+
+    .primary-accordion__title {
+        display: flex; /* Allow flexbox for better alignment */
+        align-items: center; /* Center items vertically */
+        justify-content: space-between; /* Space between title and arrow */
+    }
+
+    .primary-accordion__title:hover {
+        color: #FFF; /* Change text color on hover for contrast */
+        transform: scale(1.02); /* Slightly scale up on hover for emphasis */
+    }
+
+    .primary-accordion__content {
+        padding: var(--accordion-padding);
+        overflow: hidden; /* Prevent overflow */
+        transition: max-height 0.5s ease-in-out; /* Smooth opening/closing transition */
+    }
+
+    /* Show the content when opened */
+    .primary-accordion.open .primary-accordion__content {
+        max-height: 500px; /* Arbitrary large value for smooth expanding effect */
+    }
+
+    /* Primary Dropdown Styles */
+    .primary-dropdown {
+        background-color: white;
+        border: 2vw var(--border-color); /* Bright blue border */
+        border-radius: 4px;
+        padding: var(--button-padding);
+        width: 100%;
+        cursor: pointer;
+    }
+
+    /* Primary Tabs Styles */
+    .primary-tabs {
+        display: flex;
+        border-bottom: 2px solid var(--foreground-secondary); /* Bright blue border */
+    }
+
+    .primary-tab {
+        padding: var(--button-padding);
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+    }
+
+    .primary-tab:hover {
+        background-color: var(--foreground-tertiary); /* Bold sky blue on hover */
+    }
+
+    /* Additional Responsive Considerations */
+    @media (max-width: 768px) {
+        .primary-button {
+            width: 100%;
+        }
+
+        .primary-modal {
+            width: 90%;
+            padding: 1rem;
+        }
+
+        .primary-dropdown {
+            width: 100%;
+        }
+    }
 }
-
-.primary-button:hover {
-  background-color: var(--background-primary); /* Bright blue for hover */
-}
-
-  /* Primary Button Styles */
-.secondary-button {
-  background-color: var(--foreground-secondary);
-  color: white;
-  border: 2vw var(--border-color);
-  border-radius: 4px;
-  padding: var(--button-padding);
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.secondary:hover {
-  background-color: var(--background-secondary);
-}
-
-/* Primary Modal Styles */
-.primary-modal {
-  background-color: white;
-  border-radius: 8px;
-  max-width: var(--modal-max-width);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  padding: 2rem;
-}
-
-/* Primary Dialog Styles */
-.primary-dialog {
-  background-color: var(--background-secondary); /* Soft sky blue */
-  border-radius: 8px;
-  max-width: var(--modal-max-width);
-  min-width: var(--modal-min-width);
-  width: auto;
-  padding: 20px;
-  position: fixed; /* Keep it fixed on the screen */
-  top: 50%; /* Position it in the vertical center */
-  left: 50%; /* Position it in the horizontal center */
-  transform: translate(-50%, -50%); /* Offset it by half its own width and height */
-  height: 80vh;
-  display: flex;
-  justify-content: center;
-  z-index: 10;
-}
-
-  /* Primary Dialog Panel Styles */
-.primary-dialog-panel {
-  background-color: var(--background-secondary); /* Background color for the panel */
-  border-radius: 8px; /* Rounded corners */
-  max-width: var(--modal-max-width); /* Use your defined max width */
-  width: 95%; /* Ensure it uses most of the width available, responsive */
-  height: auto; /* Allow it to grow based on content */
-  max-height: 80vh; /* Maximum height */
-  padding: 20px; /* Internal padding */
-  overflow-y: auto; /* Enable vertical scrolling if content exceeds height */
-  display: flex; /* Use flexbox for layout */
-  flex-direction: column; /* Stack child elements vertically */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Optional shadow for depth */
-  position: relative; /* Make position relative for absolute child elements */
-  z-index: 20; /* Ensure it appears above backdrop */
-}
-
-/* Primary Accordion Styles */
-.primary-accordion {
-  background-color: var(--background-secondary); /* Soft sky blue */
-  padding: var(--accordion-padding);
-  border-radius: 10px; /* Slightly more rounded corners */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Deeper shadow for more depth */
-  width: 100%; /* Occupies full width */
-  margin-bottom: 1rem; /* Space below each accordion for separation */
-  transition: box-shadow 0.3s ease, transform 0.3s; /* Heavy metal transitions */
-}
-
-.primary-accordion:hover {
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* More pronounced shadow on hover */
-  transform: translateY(-2px); /* Lift effect on hover */
-}
-
-.accordion-arrow {
-    font-size: 1.5rem; /* Larger font size */
-    color: var(--foreground-secondary); /* Use your theme color */
-    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transitions */
-    margin-left: 10px; /* Space between title and arrow */
-    display: inline-block; /* Ensure it is treated as a block for padding */
-    line-height: 1; /* Adjust line height for vertical centering */
-}
-
-.primary-accordion__title:hover .accordion-arrow {
-    color: var(--foreground-secondary); /* Change color on hover for better visibility */
-}
-
-.primary-accordion__title {
-    display: flex; /* Allow flexbox for better alignment */
-    align-items: center; /* Center items vertically */
-    justify-content: space-between; /* Space between title and arrow */
-}
-
-.primary-accordion__title:hover {
-  color: #FFF; /* Change text color on hover for contrast */
-  transform: scale(1.02); /* Slightly scale up on hover for emphasis */
-}
-
-.primary-accordion__content {
-  padding: var(--accordion-padding);
-  overflow: hidden; /* Prevent overflow */
-  transition: max-height 0.5s ease-in-out; /* Smooth opening/closing transition */
-}
-
-/* Show the content when opened */
-.primary-accordion.open .primary-accordion__content {
-  max-height: 500px; /* Arbitrary large value for smooth expanding effect */
-}
-/* Primary Dropdown Styles */
-.primary-dropdown {
-  background-color: white;
-  border: 2vw var(--border-color); /* Bright blue border */
-  border-radius: 4px;
-  padding: var(--button-padding);
-  width: 100%;
-  cursor: pointer;
-}
-
-/* Primary Tabs Styles */
-.primary-tabs {
-  display: flex;
-  border-bottom: 2px solid var(--foreground-secondary); /* Bright blue border */
-}
-
-.primary-tab {
-  padding: var(--button-padding);
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.primary-tab:hover {
-  background-color: var(--foreground-tertiary); /* Bold sky blue on hover */
-}
-
-/* Additional Responsive Considerations */
-@media (max-width: 768px) {
-  .primary-button {
-    width: 100%;
-  }
-
-  .primary-modal {
-    width: 90%;
-    padding: 1rem;
-  }
-
-  .primary-dropdown {
-    width: 100%;
-  }
-}
-}
-
-
 
 
 /* Link Styles */
 .link {
-  color: var(--link-color);
-  text-decoration: none; /* Remove underline */
-  transition: color 0.3s ease, background 0.3s ease, transform 0.2s ease; /* Smooth color and transform on hover */
-  font-weight: 500; /* Slightly increase font weight */
-  position: relative; /* Position for pseudo-elements */
+    color: var(--link-color);
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease, background 0.3s ease, transform 0.2s ease; /* Smooth color and transform on hover */
+    font-weight: 500; /* Slightly increase font weight */
+    position: relative; /* Position for pseudo-elements */
 }
 
 .link:hover {
-  color: var(--foreground-secondary); /* Color on hover */
-  background-color: rgba(0, 0, 0, 0.1); /* Light background on hover */
-  transform: translateY(-2px); /* Slight lift on hover */
+    color: var(--foreground-secondary); /* Color on hover */
+    background-color: rgba(0, 0, 0, 0.1); /* Light background on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
 }
 
 /* Add underline on hover (optional) */
 .link::after {
-  content: '';
-  display: block;
-  width: 100%;
-  height: 2px; /* Height of your underline */
-  background-color: var(--foreground-secondary); /* Color for underline */
-  position: absolute; /* Position at the bottom */
-  left: 0; /* Align to the left */
-  bottom: -2px; /* Position below text */
-  transform: scaleX(0); /* Hidden initially */
-  transition: transform 0.3s ease; /* Smooth scale transition */
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px; /* Height of your underline */
+    background-color: var(--foreground-secondary); /* Color for underline */
+    position: absolute; /* Position at the bottom */
+    left: 0; /* Align to the left */
+    bottom: -2px; /* Position below text */
+    transform: scaleX(0); /* Hidden initially */
+    transition: transform 0.3s ease; /* Smooth scale transition */
 }
 
 .link:hover::after {
-  transform: scaleX(1); /* Scale to full width on hover */
+    transform: scaleX(1); /* Scale to full width on hover */
 }
 
 /* LinkIcon Styles */
 .link-icon {
-  display: inline-flex;
-  align-items: center; /* Align icons vertically */
-  color: var(--link-color);
-  transition: color 0.3s ease; /* Smooth color change on hover */
+    display: inline-flex;
+    align-items: center; /* Align icons vertically */
+    color: var(--link-color);
+    transition: color 0.3s ease; /* Smooth color change on hover */
 }
 
 .link-icon:hover {
-  color: var(--foreground-secondary); /* Change color on hover */
+    color: var(--foreground-secondary); /* Change color on hover */
 }
 
 .link-icon img, /* If using an image as an icon */
 .link-icon svg { /* If using an SVG as an icon */
-  width: var(--link-icon-size);
-  height: var(--link-icon-size);
+    width: var(--link-icon-size);
+    height: var(--link-icon-size);
 }
 
 
 /* Additional Styles if LinkIcon includes a text component */
 .link-icon-text {
-  margin-left: 0.5rem; /* Space between icon and text */
-  font-weight: 500; /* Slightly bolder text */
+    margin-left: 0.5rem; /* Space between icon and text */
+    font-weight: 500; /* Slightly bolder text */
 }
 
 /* Responsive Considerations */
 @media (max-width: 768px) {
-  .link,
-  .link-icon {
-    font-size: 0.9rem; /* Adjust font size for smaller screens */
-  }
+    .link,
+    .link-icon {
+        font-size: 0.9rem; /* Adjust font size for smaller screens */
+    }
 }
 
-.sidenav{
-  display: flex;             /* Use flexbox */
-    flex-direction: column;   /* Arrange children in a column */
-    align-items: flex-start;  /* Align items to the start */
-    padding: 2vw;           /* Optional: Add some padding */
+.sidenav {
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Arrange children in a column */
+    align-items: flex-start; /* Align items to the start */
+    padding: 2vw; /* Optional: Add some padding */
     background-color: var(--background-tertiary); /* Background color */
     border-right: 1px solid #ccc; /* Optional: Add a border */
-    width: auto;              /* Width adjusts based on content */
-    overflow: auto;           /* Allows for scrolling if content overflows */
+    width: auto; /* Width adjusts based on content */
+    overflow: auto; /* Allows for scrolling if content overflows */
 }
 
 .projectnav {
-    display: flex;               /* Use flexbox layout */
-    width: 100%;                /* Make the container as wide as possible */
-    height: 50vh;               /* Set the height to half the viewport height */
-    flex-direction: row;     /* Change this to 'row' if you prefer a horizontal layout */
-    overflow: auto;             /* Add overflow handling if content exceeds max height */
-    background-color: #f5f5f5;  /* Example background color (you can customize this) */
-    padding: 5vh;              /* Optional padding */
-    box-sizing: border-box;     /* Ensure padding is included in total width/height */
+    display: flex; /* Use flexbox layout */
+    width: 100%; /* Make the container as wide as possible */
+    height: 50vh; /* Set the height to half the viewport height */
+    flex-direction: row; /* Change this to 'row' if you prefer a horizontal layout */
+    overflow: auto; /* Add overflow handling if content exceeds max height */
+    background-color: #f5f5f5; /* Example background color (you can customize this) */
+    padding: 5vh; /* Optional padding */
+    box-sizing: border-box; /* Ensure padding is included in total width/height */
 }
 
 /* Global styles for the PrimaryCard component */
 .primary-card {
-  background-color: var(#fff); /* White background */
-  color: var(--foreground-secondary);
-  border: 2vw var(--border-color); /* Light gray border */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  padding: 16px; /* Internal spacing */
-  transition: box-shadow 0.3s; /* Smooth transition for hover effect */
+    background-color: var(#fff); /* White background */
+    color: var(--foreground-secondary);
+    border: 2vw var(--border-color); /* Light gray border */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    padding: 16px; /* Internal spacing */
+    transition: box-shadow 0.3s; /* Smooth transition for hover effect */
 }
 
 .primary-card:hover {
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
 }
 
 
@@ -419,6 +420,7 @@ hgroup{
     transition: max-height 0.3s ease; /* Smooth transition for max height */
     max-height: 10vh;
 }
+
 .radio-group-container:hover {
     max-height: 100vh; /* Adjust this according to how much space you need */
 }
@@ -431,7 +433,7 @@ ul {
 }
 
 li {
-  list-style-type: none; /* Remove default bullets */
+    list-style-type: none; /* Remove default bullets */
     padding: 1rem; /* Add padding */
     margin: 0.5rem 0; /* Vertical spacing */
     background-color: var(--background-secondary); /* Light background color */
@@ -455,16 +457,39 @@ li::before {
 
 .preview-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Adjusts to fill space */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Create responsive columns */
     gap: 16px; /* Space between grid items */
-    width: 100%; /* Full width */
-    height: auto; /* Allow to grow with content */
+    width: 100%; /* Full width of viewport */
+    height: 100%; /* Full height of viewport */
+    overflow: hidden; /* Prevent scrolling on grid */
 }
 
-.preview-card {
-    width: 100%; /* Ensure cards are full width of the grid item */
-    height: auto; /* Card height will depend on content */
+.preview-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center items vertically */
+    align-items: center; /* Center items horizontally */
+    width: 100%; /* Fill the container width */
+    height: 100%; /* Fill the container height */
+    box-sizing: border-box; /* Include padding and border in element's dimensions */
+    background-color: #f0f0f0; /* Background color for preview item */
+    border: 1px solid #ccc; /* Optional: border for visual distinction */
+    overflow: hidden; /* Prevent overflow of content */
 }
+
+/* Style for an image or content inside the preview-item */
+.preview-item img {
+    width: 100%; /* Make images responsive */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Crop the image to fit inside the div without stretching */
+}
+
+/* Optional: In case you have text or secondary content */
+.preview-content {
+    padding: 8px; /* Space around the text content */
+    text-align: center; /* Center text */
+}
+
 
 canvas {
     display: block;
@@ -482,4 +507,43 @@ canvas {
 canvas:hover {
     transform: scale(1.20); /* Slightly zoom in on hover */
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.7); /* Deeper shadow on hover */
+}
+
+
+/* PreviewCard.css */
+
+.preview-card {
+    border: 1px solid #ccc; /* Optional: Add a border */
+    border-radius: 8px; /* Optional: Round corners */
+    overflow: hidden; /* Prevent overflow from child elements */
+    background-color: #ffffff; /* Background color */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+}
+
+.github-link {
+    display: block; /* Ensure the link occupies full width */
+    margin-top: 8px; /* Margin above the link */
+    color: #0070f3; /* GitHub link color */
+    text-decoration: none; /* Remove underline from links */
+}
+
+.github-link:hover {
+    text-decoration: underline; /* Underline on hover for better accessibility */
+}
+
+
+.tab-list {
+    display: flex; /* Arrange tabs in a horizontal row */
+    gap: 8px; /* Space between tabs */
+}
+
+.tab-panel {
+    width: 100%; /* Full width for the panel */
+    height: 100%; /* Full height for the panel */
+    padding: 0; /* Remove padding to ensure it takes the full space */
+}
+
+.tab-panel > * {
+    width: 100%; /* Child elements take full width */
+    height: 100%; /* Child elements take full height */
 }

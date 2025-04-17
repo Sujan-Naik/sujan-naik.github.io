@@ -1,13 +1,13 @@
 import React from 'react';
 
 export default async function Page({
-  params,
-}: {
-  params: Promise<{ stub: string }>
+                                       params,
+                                   }: {
+    params: Promise<{ stub: string }>
 }) {
 
-    const { stub } = await params
-     console.log(stub);
+    const {stub} = await params
+    console.log(stub);
 
 
     const videoId = Array.isArray(stub) ? stub[0] : stub; // Handle the case where the id might be an array

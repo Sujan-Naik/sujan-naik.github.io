@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import {motion} from "framer-motion"
 
 
 function LoadingCircleSpinner() {
@@ -8,14 +8,14 @@ function LoadingCircleSpinner() {
         <div className="container">
             <motion.div
                 className="spinner"
-                animate={{ rotate: 360 }}
+                animate={{rotate: 360}}
                 transition={{
                     duration: 1.5,
                     repeat: Infinity,
                     ease: "linear",
                 }}
             />
-            <StyleSheet />
+            <StyleSheet/>
         </div>
     )
 }

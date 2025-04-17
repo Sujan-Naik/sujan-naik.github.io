@@ -1,7 +1,4 @@
 "use client"
-import {motion} from "framer-motion";
-
-import {JSX, SVGProps} from "react";
 
 // Adapted from https://codesandbox.io/p/sandbox/81ww2d?file=%2Fsrc%2FMenuToggle.tsx%3A1%2C1-34%2C1
 interface PathProps {
@@ -36,7 +33,7 @@ const MenuToggle: React.FC<MenuToggleProps> = ({toggle}: MenuToggleProps) => {
                         open: {d: "M 3 16.5 L 17 2.5"}
                     }}
                 />
-                <Path d="M 2 9.423 L 20 9.423"  className="middle"/>
+                <Path d="M 2 9.423 L 20 9.423" className="middle"/>
                 <Path
                     d="M 2 16.346 L 20 16.346"
                     className="bottom"

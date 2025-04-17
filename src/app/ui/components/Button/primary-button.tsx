@@ -1,5 +1,5 @@
 // src/app/ui/components/Button/Button.tsx
-import { Button as HeadlessButton } from '@headlessui/react';
+import {Button as HeadlessButton} from '@headlessui/react';
 import React from 'react';
 
 interface ButtonProps {
@@ -8,7 +8,7 @@ interface ButtonProps {
     className?: string; // Optional custom className
 }
 
-const PrimaryButton: React.FC<ButtonProps> = ({ children, onClick, className = '' }) => {
+const PrimaryButton: React.FC<ButtonProps> = ({children, onClick, className = ''}) => {
     return (
         <HeadlessButton
             onClick={onClick}

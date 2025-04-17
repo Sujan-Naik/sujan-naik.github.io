@@ -1,11 +1,10 @@
 import fs from 'fs/promises';
 import path from 'path';
 import grayMatter from 'gray-matter';
-import { PathLike } from 'fs';
 
 const readDirectoryRecursively = async (dir: string, projectMetadataMap: Map<any, any>) => {
     try {
-        const entries = await fs.readdir(dir, { withFileTypes: true });
+        const entries = await fs.readdir(dir, {withFileTypes: true});
 
         await Promise.all(entries.map(async (entry) => {
             const fullPath = path.join(dir, entry.name);
@@ -17,7 +16,7 @@ const readDirectoryRecursively = async (dir: string, projectMetadataMap: Map<any
                 // If it's an MDX file, read and parse it
                 try {
                     const fileContents = await fs.readFile(fullPath, 'utf-8');
-                    const { data } = grayMatter(fileContents); // Parse the file contents
+                    const {data} = grayMatter(fileContents); // Parse the file contents
                     const fileNameWithoutExtension = entry.name.replace(/\.mdx$/, '');
 
                     // Map the file name to its metadata
