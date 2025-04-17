@@ -7,7 +7,7 @@ export default async function Carousel() {
     const mdxComponents = await getShowcasesMDX();
 
     return (
-        <PrimaryCard>
+        <PrimaryCard width={"100%"}>
             <CarouselHolder mdxComponents={mdxComponents}/>
         </PrimaryCard>
     );

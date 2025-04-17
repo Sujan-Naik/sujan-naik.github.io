@@ -1,16 +1,20 @@
-import React from 'react';
+// pages/projects/media/[stub].tsx
+"use client"
+import React, { useEffect, useState } from 'react';
 
-export default async function Page({
-                                       params,
-                                   }: {
-    params: Promise<{ stub: string }>
-}) {
+const Page = ({ params }: { params: { stub: string } }) => {
+    const { stub } = params;
+    const [videoId, setVideoId] = useState<string | null>(null);
 
-    const {stub} = await params
-    console.log(stub);
+    useEffect(() => {
+        // Here you could fetch logic to validate or acquire video ID if needed.
+        // If stub is a valid YouTube ID, just set it directly.
+        setVideoId(stub);
+    }, [stub]);
 
-
-    const videoId = Array.isArray(stub) ? stub[0] : stub; // Handle the case where the id might be an array
+    if (!videoId) {
+        return <div>Loading...</div>;
+    }
 
     return (
         <div>
@@ -25,3 +29,4 @@ export default async function Page({
     );
 };
 
+export default Page;

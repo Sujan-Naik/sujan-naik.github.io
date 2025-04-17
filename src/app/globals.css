@@ -3,6 +3,7 @@
 :root {
     --background-primary: #C9F6FF; /* Water lightest background for everywhere */
     --foreground-primary: #35D6ED; /* Turquoise main color for text */
+
     --background-secondary: #A1E2FB; /* Soft sky blue for cards and UI elements */
     --foreground-secondary: #1DA1F2; /* Bright blue for secondary text or accents */
     --foreground-tertiary: #007BFF; /* Bold sky blue for headings or highlights */
@@ -31,22 +32,21 @@ body {
 
 @layer base {
     h1 {
-        font-size: var(--text-2xl);
+        font-size: xx-large;
         color: var(--foreground-tertiary); /* Bold sky blue for headings */
     }
 
     h2 {
-        font-size: var(--text-xl);
+        font-size: x-large;
         color: var(--foreground-secondary); /* Bright blue for secondary headings */
     }
 
     h3 {
-        font-size: var(--text-lg);
+        font-size: large;
         color: var(--foreground-primary); /* Turquoise main color for text */
     }
 
     a {
-        color: var(--color-blue-600);
         text-decoration-line: underline;
     }
 
@@ -78,6 +78,35 @@ body {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+    ul {
+        list-style-type: none; /* Remove default bullets */
+        padding: 0; /* Remove default padding */
+        margin: 1rem 0; /* Add margin for spacing */
+    }
+
+    li {
+        list-style-type: none; /* Remove default bullets */
+        padding: 1rem; /* Add padding */
+        margin: 0.5rem 0; /* Vertical spacing */
+        background-color: var(--background-secondary); /* Light background color */
+        color: var(--foreground-secondary);
+        border: 1px solid #e3e3e3; /* Subtle border */
+        border-radius: 8px; /* Rounded corners */
+        transition: background-color 0.3s, transform 0.2s; /* Transition for hover effect */
+    }
+
+    li:hover {
+        background-color: #e0f7fa; /* Light blue on hover */
+        transform: translateY(-2px); /* Slight lift on hover */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow on hover */
+    }
+
+    /* Optional: Adding icons before each list item */
+    li::before {
+        content: '✔'; /* Change this to an icon or symbol */
+        margin-right: 0.5rem; /* Space between icon and text */
+        color: #007BFF; /* Icon color */
     }
 
 }
@@ -116,7 +145,6 @@ body {
         background-color: var(--background-primary); /* Bright blue for hover */
     }
 
-    /* Primary Button Styles */
     .secondary-button {
         background-color: var(--foreground-secondary);
         color: white;
@@ -268,282 +296,266 @@ body {
             width: 100%;
         }
     }
-}
 
 
-/* Link Styles */
-.link {
-    color: var(--link-color);
-    text-decoration: none; /* Remove underline */
-    transition: color 0.3s ease, background 0.3s ease, transform 0.2s ease; /* Smooth color and transform on hover */
-    font-weight: 500; /* Slightly increase font weight */
-    position: relative; /* Position for pseudo-elements */
-}
 
-.link:hover {
-    color: var(--foreground-secondary); /* Color on hover */
-    background-color: rgba(0, 0, 0, 0.1); /* Light background on hover */
-    transform: translateY(-2px); /* Slight lift on hover */
-}
-
-/* Add underline on hover (optional) */
-.link::after {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 2px; /* Height of your underline */
-    background-color: var(--foreground-secondary); /* Color for underline */
-    position: absolute; /* Position at the bottom */
-    left: 0; /* Align to the left */
-    bottom: -2px; /* Position below text */
-    transform: scaleX(0); /* Hidden initially */
-    transition: transform 0.3s ease; /* Smooth scale transition */
-}
-
-.link:hover::after {
-    transform: scaleX(1); /* Scale to full width on hover */
-}
-
-/* LinkIcon Styles */
-.link-icon {
-    display: inline-flex;
-    align-items: center; /* Align icons vertically */
-    color: var(--link-color);
-    transition: color 0.3s ease; /* Smooth color change on hover */
-}
-
-.link-icon:hover {
-    color: var(--foreground-secondary); /* Change color on hover */
-}
-
-.link-icon img, /* If using an image as an icon */
-.link-icon svg { /* If using an SVG as an icon */
-    width: var(--link-icon-size);
-    height: var(--link-icon-size);
-}
-
-
-/* Additional Styles if LinkIcon includes a text component */
-.link-icon-text {
-    margin-left: 0.5rem; /* Space between icon and text */
-    font-weight: 500; /* Slightly bolder text */
-}
-
-/* Responsive Considerations */
-@media (max-width: 768px) {
-    .link,
-    .link-icon {
-        font-size: 0.9rem; /* Adjust font size for smaller screens */
+    /* Link Styles */
+    .link {
+        color: var(--link-color);
+        text-decoration: none; /* Remove underline */
+        transition: color 0.3s ease, background 0.3s ease, transform 0.2s ease; /* Smooth color and transform on hover */
+        font-weight: 500; /* Slightly increase font weight */
+        position: relative; /* Position for pseudo-elements */
     }
-}
 
-.sidenav {
-    display: flex; /* Use flexbox */
-    flex-direction: column; /* Arrange children in a column */
-    align-items: flex-start; /* Align items to the start */
-    padding: 2vw; /* Optional: Add some padding */
-    background-color: var(--background-tertiary); /* Background color */
-    border-right: 1px solid #ccc; /* Optional: Add a border */
-    width: auto; /* Width adjusts based on content */
-    overflow: auto; /* Allows for scrolling if content overflows */
-}
+    .link:hover {
+        color: var(--foreground-secondary); /* Color on hover */
+        background-color: rgba(0, 0, 0, 0.1); /* Light background on hover */
+        transform: translateY(-2px); /* Slight lift on hover */
+    }
 
-.projectnav {
-    display: flex; /* Use flexbox layout */
-    width: 100%; /* Make the container as wide as possible */
-    height: 50vh; /* Set the height to half the viewport height */
-    flex-direction: row; /* Change this to 'row' if you prefer a horizontal layout */
-    overflow: auto; /* Add overflow handling if content exceeds max height */
-    background-color: #f5f5f5; /* Example background color (you can customize this) */
-    padding: 5vh; /* Optional padding */
-    box-sizing: border-box; /* Ensure padding is included in total width/height */
-}
+    /* Add underline on hover (optional) */
+    .link::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 2px; /* Height of your underline */
+        background-color: var(--foreground-secondary); /* Color for underline */
+        position: absolute; /* Position at the bottom */
+        left: 0; /* Align to the left */
+        bottom: -2px; /* Position below text */
+        transform: scaleX(0); /* Hidden initially */
+        transition: transform 0.3s ease; /* Smooth scale transition */
+    }
 
-/* Global styles for the PrimaryCard component */
-.primary-card {
-    background-color: var(#fff); /* White background */
-    color: var(--foreground-secondary);
-    border: 2vw var(--border-color); /* Light gray border */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    padding: 16px; /* Internal spacing */
-    transition: box-shadow 0.3s; /* Smooth transition for hover effect */
-}
+    .link:hover::after {
+        transform: scaleX(1); /* Scale to full width on hover */
+    }
 
-.primary-card:hover {
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
-}
+    /* LinkIcon Styles */
+    .link-icon {
+        display: inline-flex;
+        align-items: center; /* Align icons vertically */
+        color: var(--link-color);
+        transition: color 0.3s ease; /* Smooth color change on hover */
+    }
 
+    .link-icon:hover {
+        color: var(--foreground-secondary); /* Change color on hover */
+    }
 
-.radio {
-    position: relative;
-    display: flex;
-    align-items: center;
-    padding: 1px; /* p-4 */
-    cursor: pointer;
-    border-radius: 0.5rem; /* rounded-lg */
-    border: 2vw var(--border-color); /* Default border for radio button */
-
-}
-
-.radio-default {
-    background-color: var(--background-secondary); /* bg-white */
-    color: var(--foreground-secondary);
-}
-
-.radio-checked {
-    background-color: #3b82f6; /* bg-blue-500 */
-    color: white; /* text-white */
-}
-
-.radio-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 1rem; /* h-4 */
-    width: 1rem; /* w-4 */
-    border-radius: 50%; /* rounded-full */
-    border: 2vw var(--border-color); /* border-gray-300 */
-    margin-right: 0.75rem; /* mr-3 */
-}
-
-.radio-icon-checked {
-    background-color: #2563eb; /* bg-blue-600 */
-    height: 0.625rem; /* h-2.5 */
-    width: 0.625rem; /* w-2.5 */
-    border-radius: 50%; /* rounded-full */
-}
-
-.radio-group-container {
-    overflow: hidden; /* Prevent overflow when collapsed */
-    max-width: 100%; /* Set max width according to your design */
-    transition: max-height 0.3s ease; /* Smooth transition for max height */
-    max-height: 10vh;
-}
-
-.radio-group-container:hover {
-    max-height: 100vh; /* Adjust this according to how much space you need */
-}
+    .link-icon img, /* If using an image as an icon */
+    .link-icon svg { /* If using an SVG as an icon */
+        width: var(--link-icon-size);
+        height: var(--link-icon-size);
+    }
 
 
-ul {
-    list-style-type: none; /* Remove default bullets */
-    padding: 0; /* Remove default padding */
-    margin: 1rem 0; /* Add margin for spacing */
-}
+    /* Additional Styles if LinkIcon includes a text component */
+    .link-icon-text {
+        margin-left: 0.5rem; /* Space between icon and text */
+        font-weight: 500; /* Slightly bolder text */
+    }
 
-li {
-    list-style-type: none; /* Remove default bullets */
-    padding: 1rem; /* Add padding */
-    margin: 0.5rem 0; /* Vertical spacing */
-    background-color: var(--background-secondary); /* Light background color */
-    border: 1px solid #e3e3e3; /* Subtle border */
-    border-radius: 8px; /* Rounded corners */
-    transition: background-color 0.3s, transform 0.2s; /* Transition for hover effect */
-}
+    /* Responsive Considerations */
+    @media (max-width: 768px) {
+        .link,
+        .link-icon {
+            font-size: 0.9rem; /* Adjust font size for smaller screens */
+        }
+    }
 
-li:hover {
-    background-color: #e0f7fa; /* Light blue on hover */
-    transform: translateY(-2px); /* Slight lift on hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow on hover */
-}
+    .sidenav {
+        display: flex; /* Use flexbox */
+        flex-direction: column; /* Arrange children in a column */
+        align-items: flex-start; /* Align items to the start */
+        padding: 2vw; /* Optional: Add some padding */
+        background-color: var(--background-tertiary); /* Background color */
+        border-right: 1px solid #ccc; /* Optional: Add a border */
+        width: auto; /* Width adjusts based on content */
+        overflow: auto; /* Allows for scrolling if content overflows */
+    }
 
-/* Optional: Adding icons before each list item */
-li::before {
-    content: '✔'; /* Change this to an icon or symbol */
-    margin-right: 0.5rem; /* Space between icon and text */
-    color: #007BFF; /* Icon color */
-}
+    .projectnav {
+        display: flex; /* Use flexbox layout */
+        width: 100%; /* Make the container as wide as possible */
+        height: 50vh; /* Set the height to half the viewport height */
+        flex-direction: row; /* Change this to 'row' if you prefer a horizontal layout */
+        overflow: auto; /* Add overflow handling if content exceeds max height */
+        background-color: #f5f5f5; /* Example background color (you can customize this) */
+        padding: 5vh; /* Optional padding */
+        box-sizing: border-box; /* Ensure padding is included in total width/height */
+    }
 
-.preview-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Create responsive columns */
-    gap: 16px; /* Space between grid items */
-    width: 100%; /* Full width of viewport */
-    height: 100%; /* Full height of viewport */
-    overflow: hidden; /* Prevent scrolling on grid */
-}
+    .primary-card {
+        background-color: var(#fff); /* White background */
+        color: var(--foreground-primary);
+        border: 2vw var(--border-color); /* Light gray border */
+        border-radius: 8px; /* Rounded corners */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        padding: 16px; /* Internal spacing */
+        transition: box-shadow 0.3s; /* Smooth transition for hover effect */
+    }
 
-.preview-item {
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Center items vertically */
-    align-items: center; /* Center items horizontally */
-    width: 100%; /* Fill the container width */
-    height: 100%; /* Fill the container height */
-    box-sizing: border-box; /* Include padding and border in element's dimensions */
-    background-color: #f0f0f0; /* Background color for preview item */
-    border: 1px solid #ccc; /* Optional: border for visual distinction */
-    overflow: hidden; /* Prevent overflow of content */
-}
+    .primary-card:hover {
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+    }
 
-/* Style for an image or content inside the preview-item */
-.preview-item img {
-    width: 100%; /* Make images responsive */
-    height: auto; /* Maintain aspect ratio */
-    object-fit: cover; /* Crop the image to fit inside the div without stretching */
-}
+    .secondary-card {
+        background-color: var(#fff); /* White background */
+        color: var(--foreground-secondary);
+        border: 2vw var(--border-color); /* Light gray border */
+        border-radius: 8px; /* Rounded corners */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        padding: 16px; /* Internal spacing */
+        transition: box-shadow 0.3s; /* Smooth transition for hover effect */
+    }
 
-/* Optional: In case you have text or secondary content */
-.preview-content {
-    padding: 8px; /* Space around the text content */
-    text-align: center; /* Center text */
-}
+    .secondary-card:hover {
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+    }
+    
+
+    .radio {
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding: 1px; /* p-4 */
+        cursor: pointer;
+        border-radius: 0.5rem; /* rounded-lg */
+        border: 2vw var(--border-color); /* Default border for radio button */
+
+    }
+
+    .radio-default {
+        background-color: var(--background-secondary); /* bg-white */
+        color: var(--foreground-secondary);
+    }
+
+    .radio-checked {
+        background-color: #3b82f6; /* bg-blue-500 */
+        color: white; /* text-white */
+    }
+
+    .radio-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 1rem; /* h-4 */
+        width: 1rem; /* w-4 */
+        border-radius: 50%; /* rounded-full */
+        border: 2vw var(--border-color); /* border-gray-300 */
+        margin-right: 0.75rem; /* mr-3 */
+    }
+
+    .radio-icon-checked {
+        background-color: #2563eb; /* bg-blue-600 */
+        height: 0.625rem; /* h-2.5 */
+        width: 0.625rem; /* w-2.5 */
+        border-radius: 50%; /* rounded-full */
+    }
+
+    .radio-group-container {
+        overflow: hidden; /* Prevent overflow when collapsed */
+        max-width: 100%; /* Set max width according to your design */
+        transition: max-height 0.3s ease; /* Smooth transition for max height */
+        max-height: 10vh;
+    }
+
+    .radio-group-container:hover {
+        max-height: 100vh; /* Adjust this according to how much space you need */
+    }
+
+    
+    .preview-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Create responsive columns */
+        gap: 16px; /* Space between grid items */
+        width: 100%; /* Full width of viewport */
+        height: 100%; /* Full height of viewport */
+        overflow: hidden; /* Prevent scrolling on grid */
+    }
+
+    .preview-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Center items vertically */
+        align-items: center; /* Center items horizontally */
+        width: 100%; /* Fill the container width */
+        height: 100%; /* Fill the container height */
+        box-sizing: border-box; /* Include padding and border in element's dimensions */
+        background-color: #f0f0f0; /* Background color for preview item */
+        border: 1px solid #ccc; /* Optional: border for visual distinction */
+        overflow: hidden; /* Prevent overflow of content */
+    }
+
+    /* Style for an image or content inside the preview-item */
+    .preview-item img {
+        width: 100%; /* Make images responsive */
+        height: auto; /* Maintain aspect ratio */
+        object-fit: cover; /* Crop the image to fit inside the div without stretching */
+    }
+
+    /* Optional: In case you have text or secondary content */
+    .preview-content {
+        padding: 8px; /* Space around the text content */
+        text-align: center; /* Center text */
+    }
 
 
-canvas {
-    display: block;
-    width: 100%;
-    height: 50vh;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background: radial-gradient(circle, var(--background-secondary), var(--background-primary));
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+    canvas {
+        display: block;
+        width: 100%;
+        height: 50vh;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background: radial-gradient(circle, var(--background-secondary), var(--background-primary));
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
 
-canvas:hover {
-    transform: scale(1.20); /* Slightly zoom in on hover */
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.7); /* Deeper shadow on hover */
-}
+    canvas:hover {
+        transform: scale(1.20); /* Slightly zoom in on hover */
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.7); /* Deeper shadow on hover */
+    }
 
 
-/* PreviewCard.css */
+    /* PreviewCard.css */
+    .preview-card {
+        border: 1px solid #ccc; /* Optional: Add a border */
+        border-radius: 8px; /* Optional: Round corners */
+        overflow: hidden; /* Prevent overflow from child elements */
+        background-color: #ffffff; /* Background color */
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+    }
 
-.preview-card {
-    border: 1px solid #ccc; /* Optional: Add a border */
-    border-radius: 8px; /* Optional: Round corners */
-    overflow: hidden; /* Prevent overflow from child elements */
-    background-color: #ffffff; /* Background color */
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
-}
+    .github-link {
+        display: block; /* Ensure the link occupies full width */
+        margin-top: 8px; /* Margin above the link */
+        color: #0070f3; /* GitHub link color */
+        text-decoration: none; /* Remove underline from links */
+    }
 
-.github-link {
-    display: block; /* Ensure the link occupies full width */
-    margin-top: 8px; /* Margin above the link */
-    color: #0070f3; /* GitHub link color */
-    text-decoration: none; /* Remove underline from links */
-}
-
-.github-link:hover {
-    text-decoration: underline; /* Underline on hover for better accessibility */
-}
+    .github-link:hover {
+        text-decoration: underline; /* Underline on hover for better accessibility */
+    }
 
 
-.tab-list {
-    display: flex; /* Arrange tabs in a horizontal row */
-    gap: 8px; /* Space between tabs */
-}
+    .tab-list {
+        display: flex; /* Arrange tabs in a horizontal row */
+        gap: 8px; /* Space between tabs */
+    }
 
-.tab-panel {
-    width: 100%; /* Full width for the panel */
-    height: 100%; /* Full height for the panel */
-    padding: 0; /* Remove padding to ensure it takes the full space */
-}
+    .tab-panel {
+        width: 100%; /* Full width for the panel */
+        height: 100%; /* Full height for the panel */
+        padding: 0; /* Remove padding to ensure it takes the full space */
+    }
 
-.tab-panel > * {
-    width: 100%; /* Child elements take full width */
-    height: 100%; /* Child elements take full height */
+    .tab-panel > * {
+        width: 100%; /* Child elements take full width */
+        height: 100%; /* Child elements take full height */
+    }
 }
