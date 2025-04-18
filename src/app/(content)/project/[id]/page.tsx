@@ -34,11 +34,11 @@ export default async function Page({
         path = `showcase/${path}`;
     }
 
-    const project = await loadMDXComponent(`${path}.mdx`);
+    // const project = await loadMDXComponent(`${path}.mdx`);
 
 
     return (
-        <div><Project mdxComponent={project}/></div>
+        <div></div>
     )
 }
 

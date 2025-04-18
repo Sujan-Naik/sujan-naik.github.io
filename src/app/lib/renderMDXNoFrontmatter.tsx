@@ -7,7 +7,7 @@ import {MDXRemoteSerializeResult} from "next-mdx-remote";
 export const loadMDXComponent = async (path: string) => {
 
     // Read the file content
-    const fileContent = await fs.readFile(`/content/${path}`, 'utf-8');
+    const fileContent = await fs.readFile(`public/content/${path}`, 'utf-8');
 
     // Use `gray-matter` to parse the frontmatter and content
     const {content} = matter(fileContent);
@@ -23,7 +23,7 @@ export const getShowcasesMDX = async (): Promise<MDXRemoteSerializeResult[]> => 
     let mdxComponents: MDXRemoteSerializeResult[] = [];
 
     try {
-        const fileNames = await fs.readdir("/content/showcase");
+        const fileNames = await fs.readdir("public/content/showcase");
 
         // Use Promise.all to resolve all promises from the mapping
         const mdxPromises = fileNames
