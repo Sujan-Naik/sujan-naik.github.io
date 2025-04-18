@@ -22,5 +22,5 @@ export default async function Page({params,
 
 
 export function generateStaticParams() {
-  return []
+  return [ { slug: [""] } ]
 }
