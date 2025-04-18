@@ -21,6 +21,6 @@ export default async function Page({params,
 };
 
 
-export async function generateStaticParams() {
+export function generateStaticParams() {
   return []
 }
