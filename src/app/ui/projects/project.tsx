@@ -1,5 +1,5 @@
 "use client"
-import { Suspense } from "react"
+import { Suspense, useEffect, useState } from "react"
 import { Transition } from "@headlessui/react"
 import LoadingCircleSpinner from "@/app/ui/components/Loading/LoadingCircleSpinner"
 import { MDXRemote, type MDXRemoteSerializeResult } from "next-mdx-remote"
@@ -12,6 +12,13 @@ interface ProjectProps {
 
 const Project = ({ mdxComponent }: ProjectProps) => {
   const components = useMDXComponents({})
+  // Add a state to ensure rendering only happens on the client
+  const [isClient, setIsClient] = useState(false)
+
+  // This effect ensures the component only renders MDX on the client
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
 
   // Add null checking to prevent errors during hydration
   if (!mdxComponent || !mdxComponent.compiledSource) {
@@ -22,14 +29,19 @@ const Project = ({ mdxComponent }: ProjectProps) => {
     <Transition show={true} appear={true}>
       <div className={"transition duration-1000 ease-in data-[enter]:opacity-0"}>
         <Suspense fallback={<LoadingCircleSpinner />}>
-          <MDXProvider>
-            <MDXRemote
-              compiledSource={mdxComponent.compiledSource}
-              scope={mdxComponent.scope || {}}
-              frontmatter={mdxComponent.frontmatter || {}}
-              components={components}
-            />
-          </MDXProvider>
+          {/* Only render MDX content on the client side */}
+          {isClient ? (
+            <MDXProvider>
+              <MDXRemote
+                compiledSource={mdxComponent.compiledSource}
+                scope={mdxComponent.scope || {}}
+                frontmatter={mdxComponent.frontmatter || {}}
+                components={components}
+              />
+            </MDXProvider>
+          ) : (
+            <LoadingCircleSpinner />
+          )}
         </Suspense>
       </div>
     </Transition>
