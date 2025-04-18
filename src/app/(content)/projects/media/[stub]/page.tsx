@@ -1,14 +1,11 @@
 import React from 'react';
 
-export default async function Page({
-    params,
-}: {
-    params: { stub: string }
+export default async function Page({params,
+                                   }: {
+    params: Promise<{ stub: string }>
 }) {
-    // No need to await params, directly destructure
-    const { stub } = params;
 
-    console.log(stub);
+    const {stub} = await params
 
     return (
         <div>
@@ -22,3 +19,8 @@ export default async function Page({
         </div>
     );
 };
+
+
+export async function generateStaticParams() {
+  return []
+}
