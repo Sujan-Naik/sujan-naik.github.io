@@ -38,7 +38,7 @@ export default async function Page({
 
 
     return (
-        <div></div>
+        <div><Project mdxComponent={project}/></div>
     )
 }
 
