@@ -1,22 +1,51 @@
 @import "tailwindcss";
 
 :root {
-    --background-primary: #C9F6FF; /* Water lightest background for everywhere */
-    --foreground-primary: #35D6ED; /* Turquoise main color for text */
 
-    --background-secondary: #A1E2FB; /* Soft sky blue for cards and UI elements */
-    --foreground-secondary: #1DA1F2; /* Bright blue for secondary text or accents */
-    --foreground-tertiary: #007BFF; /* Bold sky blue for headings or highlights */
-    --background-tertiary: #E0F7FF; /* Light sky blue for tertiary backgrounds */
+    --theme-saturation: 0%;
+    --theme-lightness: 10%;
+    /* Background and foreground for primary UI elements */
+    --background-primary: hsl(var(--theme-hue), var(--theme-saturation), calc(var(--theme-lightness) + 15%)); /* Light primary background */
+    --foreground-primary: hsl(var(--theme-hue), var(--theme-saturation), calc(var(--theme-lightness) - 30%)); /* Dark primary text color */
 
-    --border-color: #38B2AC;
+    /* Background and foreground for secondary UI elements (cards, etc.) */
+    --background-secondary: hsl(var(--theme-hue), calc(var(--theme-saturation) * 0.7), calc(var(--theme-lightness) + 20%)); /* Soft background for cards */
+    --foreground-secondary: hsl(var(--theme-hue), var(--theme-saturation), calc(var(--theme-lightness) - 40%)); /* Even darker for secondary text */
+
+    /* For headings, accent colors */
+    --foreground-tertiary: hsl(var(--theme-hue), var(--theme-saturation), calc(var(--theme-lightness) - 20%)); /* Bold color for headings */
+    --background-tertiary: hsl(var(--theme-hue), calc(var(--theme-saturation) * 0.8), calc(var(--theme-lightness) + 30%)); /* Light tertiary background, complements text color */
+
+
     --modal-max-width: 800px; /* Max width for modals */
-    --modal-min-width: 400px; /* Max width for modals */
+    --modal-min-width: 400px; /* Min width for modals */
     --button-padding: 0.5rem 1rem; /* Padding for buttons */
     --accordion-padding: 0.75rem; /* Padding for accordion */
     --tab-height: 50px; /* Height for tabs */
     --link-color: var(--foreground-primary); /* Color for links */
-    --link-icon-size: 4px; /* Set a standard size for the link icons */
+    --link-icon-size: 4px; /* Standard size for link icons */
+}
+
+
+/* Default Blue Theme */
+:root[data-theme='blue'] {
+    --theme-hue: 210; /* Adjusted: Blue color */
+    --theme-saturation: 100%;
+    --theme-lightness: 50%;
+}
+
+/* Green Theme */
+:root[data-theme='green'] {
+    --theme-hue: 120; /* Green */
+    --theme-saturation: 100%;
+    --theme-lightness: 40%; /* Slightly darker shade */
+}
+
+/* Red Theme */
+:root[data-theme='red'] {
+    --theme-hue: 0; /* Red */
+    --theme-saturation: 100%;
+    --theme-lightness: 50%; /* Normal red */
 }
 
 @theme inline {
@@ -104,7 +133,7 @@ body {
 
     /* Optional: Adding icons before each list item */
     li::before {
-        content: '✔'; /* Change this to an icon or symbol */
+        content: '○'; /* Change this to an icon or symbol */
         margin-right: 0.5rem; /* Space between icon and text */
         color: #007BFF; /* Icon color */
     }
@@ -131,8 +160,8 @@ body {
 
     /* Primary Button Styles */
     .primary-button {
-        background-color: var(--foreground-primary); /* Turquoise main color */
-        color: white;
+        background-color: var(--background-secondary); /* Turquoise main color */
+        color: var(--foreground-primary);
         border: 2vw var(--border-color);
         border-radius: 4px;
         padding: var(--button-padding);
@@ -146,8 +175,8 @@ body {
     }
 
     .secondary-button {
-        background-color: var(--foreground-secondary);
-        color: white;
+        background-color: var(--background-secondary);
+        color: var(--foreground-secondary);
         border: 2vw var(--border-color);
         border-radius: 4px;
         padding: var(--button-padding);

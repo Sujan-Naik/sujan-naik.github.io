@@ -79,7 +79,7 @@ const Hero: React.FC<HeroProps> = ({models}) => {
                         </Radio>
                     </div>
                 </RadioGroup>}
-                {!isHovered && <h3>Hover over me!</h3>}
+                {!isHovered && <h1>Hover over me!</h1>}
             </div>
 
             {/* Display selected item content conditionally */}
@@ -134,12 +134,13 @@ const Hero: React.FC<HeroProps> = ({models}) => {
                     <li>
                         Worked in a team of 7 to develop using Agile Methodologies.
                     </li>
-                    <li></li>
+                    <li>Frontend at Vercel with a database using MongoDB and a backend at Render.</li>
 
                     <h2>Dingo</h2>
                     <PrimaryLink href={'project/Dingo'}> Check out a more comprehensive overview!</PrimaryLink>
                     <li>An intuitive task and team management web app.</li>
                     <li>Developed in a team of 5 using the Django Web Framework.</li>
+                    <li>Deployed at Vercel </li>
                 </div>}
                 {selectedItem === 'modding' && <div>You selected Game Modding.
                     <p>I create Minecraft Plugins and Mods, as well as curate Modpacks.</p>

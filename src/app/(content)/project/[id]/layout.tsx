@@ -9,7 +9,6 @@ export default function Layout({
     return (
         <div>
 
-            <NavBar/>
             <PrimaryCard>
                 {children}
             </PrimaryCard>

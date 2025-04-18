@@ -7,13 +7,13 @@ export default function ContactMe() {
             </hgroup>
             <p>
                 <a>
-                    <li> My Email</li>
+                    <li> My Email: <code>sujannaik047@gmail.com</code></li>
                 </a>
                 <a>
-                    <li> Phone Number</li>
+                    <li> Phone Number: <code> 07376050492</code></li>
                 </a>
                 <a>
-                    <li> LinkedIn</li>
+                    <li> LinkedIn: <code> https://www.linkedin.com/in/sujan-naik-69878a312/</code></li>
                 </a>
             </p>
         </div>

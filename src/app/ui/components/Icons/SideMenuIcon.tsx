@@ -53,7 +53,7 @@ function useMenuAnimation(isOpen: boolean) {
 }
 
 const SideMenuIcon: React.FC<SideMenuIcon> = ({children}) => {
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(true);
 
     const scope = useMenuAnimation(isOpen);
 

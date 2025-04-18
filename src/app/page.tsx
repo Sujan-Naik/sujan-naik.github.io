@@ -37,15 +37,6 @@ export default async function Home() {
                         <Carousel/>
                     </PrimarySwitch>
                 </hgroup>
-
-                <hgroup>
-                    <PrimaryCard>
-                        <PrimaryLink href={"/projects"}>
-                            <h3> View all my work...</h3>
-                        </PrimaryLink>
-                    </PrimaryCard>
-
-                </hgroup>
             </section>
 
             <Hero models={models}/>

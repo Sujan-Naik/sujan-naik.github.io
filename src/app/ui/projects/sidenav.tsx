@@ -32,7 +32,7 @@ export default function SideNav({projectNames}: NavLinksProps) {
                 </PrimaryButton>
 
                 {showContactMe && (
-                    <PrimaryDialog isOpen={showContactMe} onClose={handleContactButtonClick} title={"Hello!"}>
+                    <PrimaryDialog isOpen={showContactMe} onClose={handleContactButtonClick} title={""}>
 
                         <div>
                             <DialogPanel>

@@ -4,7 +4,7 @@ export const getShowcaseProjects = async () => {
     let files: string[] = [];
 
     try {
-        const fileNames = await fs.readdir("src/content/showcase");
+        const fileNames = await fs.readdir("public/content/showcase");
 
         files = fileNames
             .filter(fileName => fileName.endsWith('.mdx'))
@@ -21,12 +21,13 @@ export const getAllProjects = async () => {
     let files: string[] = [];
 
     try {
-        const fileNames = await fs.readdir("src/content/", {recursive: true});
-
+        const fileNames = await fs.readdir("public/content/", {recursive: true});
         files = fileNames
             .filter(fileName => fileName.endsWith('.mdx'))
             .map(fileName => fileName.replace(/\.mdx$/, ''))
             .map(fileName => fileName.replace(/.*\//, ''));
+
+        console.log(files)
     } catch (err) {
         console.error("Error reading files", err);
     }
@@ -37,12 +38,12 @@ export const getAllProjects = async () => {
 export const getDirectories = async () => {
     let directories: string[] = [];
     try {
-        const files = await fs.readdir("src/content");
+        const files = await fs.readdir("public/content");
 
         // Use Promise.all to resolve the array of promises from the map
         const stats = await Promise.all(
             files.map(async (file) => {
-                const filePath = `src/content/${file}`;
+                const filePath = `public/content/${file}`;
                 const stat = await fs.stat(filePath);
                 return stat.isDirectory() ? file : null; // Return the directory name or null
             })
@@ -62,7 +63,7 @@ export const getDirectories = async () => {
 export const getFilesInDirectory = async (directory: string) => {
     let files: string[] = [];
     try {
-        const dirPath = `src/content/${directory}`;
+        const dirPath = `public/content/${directory}`;
         files = await fs.readdir(dirPath);
         // Filter for .mdx files only
         files = files.filter(file => file.endsWith('.mdx')).map(value => value.replace(/\.mdx$/, ''));
