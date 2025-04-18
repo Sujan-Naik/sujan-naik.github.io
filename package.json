@@ -36,6 +36,7 @@
     "remark-mdx-frontmatter": "^5.1.0",
     "remark-parse": "^11.0.0",
     "three": "^0.175.0",
+    "three-stdlib": "^2.35.15",
     "typography": "^0.16.24",
     "unified": "^11.0.5"
   },

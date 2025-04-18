@@ -83,6 +83,9 @@ importers:
       three:
         specifier: ^0.175.0
         version: 0.175.0
+      three-stdlib:
+        specifier: ^2.35.15
+        version: 2.35.15(three@0.175.0)
       typography:
         specifier: ^0.16.24
         version: 0.16.24
