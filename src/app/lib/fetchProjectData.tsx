@@ -4,7 +4,7 @@ export const getShowcaseProjects = async () => {
     let files: string[] = [];
 
     try {
-        const fileNames = await fs.readdir("public/content/showcase");
+        const fileNames = await fs.readdir("content/showcase");
 
         files = fileNames
             .filter(fileName => fileName.endsWith('.mdx'))
@@ -21,7 +21,7 @@ export const getAllProjects = async () => {
     let files: string[] = [];
 
     try {
-        const fileNames = await fs.readdir("public/content/", {recursive: true});
+        const fileNames = await fs.readdir("content/", {recursive: true});
         files = fileNames
             .filter(fileName => fileName.endsWith('.mdx'))
             .map(fileName => fileName.replace(/\.mdx$/, ''))
@@ -38,12 +38,12 @@ export const getAllProjects = async () => {
 export const getDirectories = async () => {
     let directories: string[] = [];
     try {
-        const files = await fs.readdir("public/content");
+        const files = await fs.readdir("content");
 
         // Use Promise.all to resolve the array of promises from the map
         const stats = await Promise.all(
             files.map(async (file) => {
-                const filePath = `public/content/${file}`;
+                const filePath = `content/${file}`;
                 const stat = await fs.stat(filePath);
                 return stat.isDirectory() ? file : null; // Return the directory name or null
             })
@@ -63,7 +63,7 @@ export const getDirectories = async () => {
 export const getFilesInDirectory = async (directory: string) => {
     let files: string[] = [];
     try {
-        const dirPath = `public/content/${directory}`;
+        const dirPath = `content/${directory}`;
         files = await fs.readdir(dirPath);
         // Filter for .mdx files only
         files = files.filter(file => file.endsWith('.mdx')).map(value => value.replace(/\.mdx$/, ''));
