@@ -5,7 +5,7 @@ import createMDX from '@next/mdx'
 const nextConfig: NextConfig = {
     /* config options here */
     pageExtensions: ['md', 'mdx', 'ts', 'tsx'],
-
+    output: 'export',
     images: {
         remotePatterns: [
             {

@@ -1,6 +1,23 @@
 import Project from "@/app/ui/projects/project";
-import {getShowcaseProjects} from "@/app/lib/fetchProjectData";
+import {getAllProjects, getShowcaseProjects} from "@/app/lib/fetchProjectData";
 import {loadMDXComponent} from "@/app/lib/renderMDXNoFrontmatter";
+
+// This function generates static parameters for the page
+export async function generateStaticParams(): Promise<Array<{ id: string }>> {
+    try {
+        const posts: string[] = await getAllProjects(); // Get an array of post ids
+
+        // Map over the posts and return an array of objects with the id
+        return posts.map(post => ({
+            id: post, // Each object in the array contains the slug/id
+        }));
+    } catch (error) {
+        console.error("Error fetching project IDs:", error);
+        return [];
+    }
+}
+
+
 
 export default async function Page({
                                        params,
@@ -24,3 +41,4 @@ export default async function Page({
         <div><Project mdxComponent={project}/></div>
     )
 }
+
