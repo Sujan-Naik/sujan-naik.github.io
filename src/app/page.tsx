@@ -26,7 +26,6 @@ export default async function Home() {
                 </Transition>
             </header>
 
-            <Hero models={models}/>
 
 
             <section>
@@ -48,6 +47,8 @@ export default async function Home() {
 
                 </hgroup>
             </section>
+
+            <Hero models={models}/>
         </div>
     )
 }

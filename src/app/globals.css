@@ -529,6 +529,8 @@ body {
         overflow: hidden; /* Prevent overflow from child elements */
         background-color: #ffffff; /* Background color */
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+        width: 50vw;
+        height: 50vh;
     }
 
     .github-link {
@@ -536,6 +538,7 @@ body {
         margin-top: 8px; /* Margin above the link */
         color: #0070f3; /* GitHub link color */
         text-decoration: none; /* Remove underline from links */
+
     }
 
     .github-link:hover {

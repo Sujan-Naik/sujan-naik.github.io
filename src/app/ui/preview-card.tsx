@@ -8,14 +8,6 @@ interface PreviewCardProps {
 const PreviewCard: React.FC<PreviewCardProps> = ({githubUrl, previewImage}) => {
     return (
         <div className="preview-card">
-            {previewImage && (
-                <div
-                    className="preview-image"
-                    style={{
-                        backgroundImage: `url(${previewImage})`
-                    }}
-                />
-            )}
             <div className="preview-content">
                 {githubUrl && (
                     <a
@@ -24,10 +16,24 @@ const PreviewCard: React.FC<PreviewCardProps> = ({githubUrl, previewImage}) => {
                         rel="noopener noreferrer"
                         className="github-link"
                     >
-                        Edit on GitHub
+                        Check out on GitHub
                     </a>
                 )}
             </div>
+
+            {previewImage && (
+                <div
+                    style={{
+                        backgroundImage: `url(${previewImage})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        backgroundRepeat: 'no-repeat',
+                        width: '100%',
+                        height: '100%'
+                    }}
+                />
+            )}
+
         </div>
     );
 };

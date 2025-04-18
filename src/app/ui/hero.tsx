@@ -111,7 +111,7 @@ const Hero: React.FC<HeroProps> = ({models}) => {
                     <h1> My Web Dev Projects/Experience (by recency)</h1>
                     <h2> This Website</h2>
                     <li>
-                        Developed by myself using Next.js in Typescript.
+                        Developed by myself using Next.js in Typescript with the App router.
                     </li>
                     <li>
                         It is statically hosted on github and renders MDX dynamically to be easily updated in the future
@@ -123,17 +123,21 @@ const Hero: React.FC<HeroProps> = ({models}) => {
                     </li>
 
                     <h2>PollAnywhere</h2>
-                    <PrimaryLink href={'project/PollAnywhere'}> Check out the full page!</PrimaryLink>
+                    <PrimaryLink href={'project/PollAnywhere'}> Check out a more comprehensive overview!</PrimaryLink>
                     <li>
                         A spin-off of the well known PollEverywhere aimed towards Informatics lecturers developed using
                         the MERN stack.
                     </li>
                     <li>
-                        Worked in a team of 7 using Agile Methodologies.
+                        Makes use of websockets to provide real time updates, allowing lecturers to see students answers to quiz questions.
                     </li>
+                    <li>
+                        Worked in a team of 7 to develop using Agile Methodologies.
+                    </li>
+                    <li></li>
 
                     <h2>Dingo</h2>
-                    <PrimaryLink href={'project/Dingo'}> Check out the full page!</PrimaryLink>
+                    <PrimaryLink href={'project/Dingo'}> Check out a more comprehensive overview!</PrimaryLink>
                     <li>An intuitive task and team management web app.</li>
                     <li>Developed in a team of 5 using the Django Web Framework.</li>
                 </div>}
