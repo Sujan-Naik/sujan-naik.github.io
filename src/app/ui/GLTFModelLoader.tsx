@@ -54,11 +54,14 @@ const GLTFModelLoader: React.FC<GLTFModelLoaderProps> = ({url}) => {
                 mixer={mixer} // Pass the mixer down to the controls
             />
 
-            <Canvas className={"canvas"} style={{
-                width: '100%',
-                height: '100vh',
-                display: 'block', // Ensures that the canvas takes the full width
+            <div className={"flex justify-center primary-card"}>
+            <Canvas className={"canvas "} style={{
+                width: '80%',
+                height: '70vh',
+                display: 'block',
+
             }}>
+
                 <ambientLight/>
                 <directionalLight position={[10, 10, 5]}/>
                 <Model
@@ -68,7 +71,7 @@ const GLTFModelLoader: React.FC<GLTFModelLoaderProps> = ({url}) => {
                 />
                 <OrbitControls/>
             </Canvas>
-
+            </div>
         </div>
     );
 };
@@ -94,7 +97,7 @@ const Model: React.FC<{
         scene.position.set(-center.x, -center.y, -center.z); // Invert the center to position it correctly at the origin
 
         // Scale the model
-        const scaleFactor = 1.5; // Change this value to scale larger (e.g., 2 for double the size)
+        const scaleFactor = 1; // Change this value to scale larger (e.g., 2 for double the size)
         scene.scale.set(scaleFactor, scaleFactor, scaleFactor);
 
         onMixerChange(mixerRef.current); // Pass mixer to parent component

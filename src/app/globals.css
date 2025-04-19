@@ -205,7 +205,7 @@ body {
         border-radius: 8px;
         max-width: var(--modal-max-width);
         min-width: var(--modal-min-width);
-        width: auto;
+        width: 80vw;
         padding: 20px;
         position: fixed; /* Keep it fixed on the screen */
         top: 50%; /* Position it in the vertical center */
@@ -213,6 +213,7 @@ body {
         transform: translate(-50%, -50%); /* Offset it by half its own width and height */
         height: 80vh;
         display: flex;
+        justify-items: center;
         justify-content: center;
         z-index: 10;
     }
@@ -222,8 +223,8 @@ body {
         background-color: var(--background-secondary); /* Background color for the panel */
         border-radius: 8px; /* Rounded corners */
         max-width: var(--modal-max-width); /* Use your defined max width */
-        width: 95%; /* Ensure it uses most of the width available, responsive */
-        height: auto; /* Allow it to grow based on content */
+        width: 100%; /* Ensure it uses most of the width available, responsive */
+        height: 100%; /* Allow it to grow based on content */
         max-height: 80vh; /* Maximum height */
         padding: 20px; /* Internal padding */
         overflow-y: auto; /* Enable vertical scrolling if content exceeds height */
@@ -232,6 +233,10 @@ body {
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Optional shadow for depth */
         position: relative; /* Make position relative for absolute child elements */
         z-index: 20; /* Ensure it appears above backdrop */
+    }
+
+    .primary-dialog-title{
+        text-align: center;
     }
 
     /* Primary Accordion Styles */
@@ -573,7 +578,6 @@ body {
     .preview-card {
         border: 1px solid #ccc; /* Optional: Add a border */
         border-radius: 8px; /* Optional: Round corners */
-        overflow: hidden; /* Prevent overflow from child elements */
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
         width: 100%;
         height: 100%;

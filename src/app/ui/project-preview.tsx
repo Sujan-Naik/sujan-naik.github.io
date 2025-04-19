@@ -27,22 +27,14 @@ const ProjectPreview = ({currentFileMetadata, onClose}: ProjectProps) => {
     return (
 
         <PrimaryDialog isOpen={showContactMe} onClose={handleContactButtonClick} title={currentFileMetadata.title}>
-            <div>
-                <DialogPanel>
-                    <div>
-                        <div>
-                            <Suspense fallback={<LoadingCircleSpinner/>}>
+                <DialogPanel className={"primary-dialog-panel"}>
                                 {currentFileMetadata && (
                                     <PreviewCard
                                         externalUrl={currentFileMetadata.externalUrl} // GitHub URL from metadata
                                         previewImage={currentFileMetadata.previewImage} // Preview image from metadata
                                     />
                                 )}
-                            </Suspense>
-                        </div>
-                    </div>
                 </DialogPanel>
-            </div>
         </PrimaryDialog>
 
 

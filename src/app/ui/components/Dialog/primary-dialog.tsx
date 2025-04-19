@@ -13,10 +13,9 @@ const CustomDialog: React.FC<DialogProps> = ({isOpen, onClose, title, children})
     return (
         <div>
             <Dialog open={isOpen} onClose={onClose} className="primary-dialog">
-                <DialogBackdrop></DialogBackdrop>
                 <DialogPanel className="primary-dialog-panel">
-                    <DialogTitle>{title}</DialogTitle>
-                    <div>{children}</div>
+                    <DialogTitle className={"primary-dialog-title"}>{title}</DialogTitle>
+                    {children}
                     <button onClick={onClose} className="primary-button">Close</button>
                 </DialogPanel>
             </Dialog>

@@ -1,3 +1,5 @@
+import PrimaryLink from "@/app/ui/components/Link/primary-link";
+
 export default function ContactMe() {
     return (
         <div>
@@ -12,9 +14,9 @@ export default function ContactMe() {
                 <a>
                     <li> Phone Number: <code> 07376050492</code></li>
                 </a>
-                <a>
-                    <li> LinkedIn: <code> https://www.linkedin.com/in/sujan-naik-69878a312/</code></li>
-                </a>
+
+                <li> <PrimaryLink href={"https://www.linkedin.com/in/sujan-naik-69878a312/"} > LinkedIn</PrimaryLink></li>
+
             </p>
         </div>
     )

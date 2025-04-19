@@ -1,5 +1,6 @@
 import React from 'react';
 import PrimaryCard from "@/app/ui/components/Card/PrimaryCard";
+import PrimaryLink from "@/app/ui/components/Link/primary-link";
 
 interface PreviewCardProps {
     externalUrl: string;
@@ -9,20 +10,18 @@ interface PreviewCardProps {
 const PreviewCard: React.FC<PreviewCardProps> = ({externalUrl, previewImage}) => {
     return (
         <div className="preview-card">
+
             <div className="preview-content">
                 {externalUrl && (
-                    <a
+                    <PrimaryLink
                         href={externalUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="github-link"
+
                     >
-                        GitHub
-                    </a>
+                        External Link
+                    </PrimaryLink>
                 )}
 
-                <PrimaryCard width={"100%"} height={"100%"}>
-                    {previewImage && (
+                {previewImage && (
                         <div
                             style={{
                                 backgroundImage: `url(${previewImage})`,
@@ -34,7 +33,10 @@ const PreviewCard: React.FC<PreviewCardProps> = ({externalUrl, previewImage}) =>
                             }}
                         />
                     )}
-                </PrimaryCard>
+
+
+
+
             </div>
 
 
