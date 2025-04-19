@@ -1,38 +1,43 @@
 import React from 'react';
+import PrimaryCard from "@/app/ui/components/Card/PrimaryCard";
 
 interface PreviewCardProps {
-    githubUrl: string;
+    externalUrl: string;
     previewImage: string;
 }
 
-const PreviewCard: React.FC<PreviewCardProps> = ({githubUrl, previewImage}) => {
+const PreviewCard: React.FC<PreviewCardProps> = ({externalUrl, previewImage}) => {
     return (
         <div className="preview-card">
             <div className="preview-content">
-                {githubUrl && (
+                {externalUrl && (
                     <a
-                        href={githubUrl}
+                        href={externalUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="github-link"
                     >
-                        Check out on GitHub
+                        GitHub
                     </a>
                 )}
+
+                <PrimaryCard width={"100%"} height={"100%"}>
+                    {previewImage && (
+                        <div
+                            style={{
+                                backgroundImage: `url(${previewImage})`,
+                                backgroundSize: 'contain',
+                                backgroundPosition: 'center',
+                                backgroundRepeat: 'no-repeat',
+                                width: '100%',
+                                height: '100%'
+                            }}
+                        />
+                    )}
+                </PrimaryCard>
             </div>
 
-            {previewImage && (
-                <div
-                    style={{
-                        backgroundImage: `url(${previewImage})`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                        backgroundRepeat: 'no-repeat',
-                        width: '100%',
-                        height: '100%'
-                    }}
-                />
-            )}
+
 
         </div>
     );

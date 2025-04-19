@@ -24,7 +24,7 @@ export default async function Page({params,
 
 interface ProjectMetadata {
     title: string;
-    githubUrl: string;
+    externalUrl: string;
     previewImage: string;
     video: string;
 }

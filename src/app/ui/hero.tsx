@@ -87,7 +87,7 @@ const Hero: React.FC<HeroProps> = ({models}) => {
                 <h3 className="text-xl font-semibold">Selected Skill Area:</h3>
                 {selectedItem === 'gameDev' && <div>You selected Video Game Development & Design.
                     <h1> RoboSim Roguelike Scholar</h1>
-                    <PrimaryLink href={'project/RoboSim Roguelike Scholar'}> Check out the full page!</PrimaryLink>
+                    <PrimaryLink href={'project/RSRS'}> Check out the full page!</PrimaryLink>
                     <blockquote>
                         <li>A 3D Roguelike Video Game written in Unity for my final year Computer Science BSc project as
                             part of a knowledge exchange project with IBM.

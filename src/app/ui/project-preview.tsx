@@ -7,18 +7,20 @@ import PrimaryDialog from "@/app/ui/components/Dialog/primary-dialog";
 
 interface ProjectMetadata {
     title: string;
-    githubUrl: string;
+    externalUrl: string;
     previewImage: string;
 }
 
 interface ProjectProps {
-    currentFileMetadata: ProjectMetadata; // Changed from 'path' to 'currentFileMetadata'
+    currentFileMetadata: ProjectMetadata;
+    onClose: () => void;
 }
 
-const ProjectPreview = ({currentFileMetadata}: ProjectProps) => {
+const ProjectPreview = ({currentFileMetadata, onClose}: ProjectProps) => {
     const [showContactMe, setShowContactMe] = useState(true);
     const handleContactButtonClick = () => {
         setShowContactMe(prevState => !prevState);
+        onClose();
     }
 
 
@@ -32,7 +34,7 @@ const ProjectPreview = ({currentFileMetadata}: ProjectProps) => {
                             <Suspense fallback={<LoadingCircleSpinner/>}>
                                 {currentFileMetadata && (
                                     <PreviewCard
-                                        githubUrl={currentFileMetadata.githubUrl} // GitHub URL from metadata
+                                        externalUrl={currentFileMetadata.externalUrl} // GitHub URL from metadata
                                         previewImage={currentFileMetadata.previewImage} // Preview image from metadata
                                     />
                                 )}

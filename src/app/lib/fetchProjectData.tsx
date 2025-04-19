@@ -1,10 +1,53 @@
 import fs from "fs/promises";
+import path from "path";
+
+
+
+export const getProjectWithPath = async (inputName: string) => {
+    if (!inputName) {
+        throw new Error('Invalid input: inputName must be a non-empty string.');
+    }
+
+    try {
+        const directories = await fs.readdir("public/content", { withFileTypes: true });
+
+        // Preparing an array to hold possible matches
+        let foundFilePath = null;
+
+        // Iterate over each directory
+        for (const dir of directories) {
+            if (dir.isDirectory()) {
+                const dirPath = path.join("public/content", dir.name);
+                const fileNames = await fs.readdir(dirPath);
+
+                // Check if the inputName corresponds to any .mdx files in this directory
+                const matchingFile = fileNames.find(fileName => fileName === `${inputName}.mdx`);
+
+                if (matchingFile) {
+                    foundFilePath = `${dir.name}/${matchingFile}`;
+                    break; // Exit once we find the first match
+                }
+            }
+        }
+
+        // If we found the match, return it; otherwise, throw an error
+        if (foundFilePath) {
+            return foundFilePath;
+        } else {
+            throw new Error('File not found');
+        }
+    } catch (err) {
+        console.error("Error reading files", err);
+        throw new Error('An error occurred while searching for the file.');
+    }
+}
+
 
 export const getShowcaseProjects = async () => {
     let files: string[] = [];
 
     try {
-        const fileNames = await fs.readdir("public/content/showcase");
+        const fileNames = await fs.readdir("public/showcase");
 
         files = fileNames
             .filter(fileName => fileName.endsWith('.mdx'))

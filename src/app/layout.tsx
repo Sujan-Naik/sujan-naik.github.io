@@ -21,7 +21,7 @@ export default function RootLayout({
         <body className="bg-background-primary text-foreground-primary">
             <div className="min-h-screen flex flex-col">
                 <div className="flex-grow bg-background-primary px-4 py-4 md:px-8">
-                    <div className="bg-background-tertiary rounded-lg shadow-md p-4 mx-auto max-w-4xl">
+                    <div className="bg-background-tertiary rounded-lg shadow-md p-4 mx-auto">
                         {children}
                     </div>
                 </div>

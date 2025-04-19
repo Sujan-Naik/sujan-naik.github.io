@@ -1,5 +1,5 @@
 import Project from "@/app/ui/projects/project";
-import {getAllProjects, getShowcaseProjects} from "@/app/lib/fetchProjectData";
+import {getAllProjects, getProjectWithPath, getShowcaseProjects} from "@/app/lib/fetchProjectData";
 import {loadMDXComponent} from "@/app/lib/renderMDXNoFrontmatter";
 
 // This function generates static parameters for the page
@@ -27,14 +27,11 @@ export default async function Page({
 
     const {id} = await params
 
-    let path: string = id.replace(/%20/g, ' ');
 
-    const showcases: string[] = await getShowcaseProjects();
-    if (showcases.includes(path)) {
-        path = `showcase/${path}`;
-    }
+    const path = await getProjectWithPath(id);
 
-    const project = await loadMDXComponent(`${path}.mdx`);
+    console.log(path);
+    const project = await loadMDXComponent(`/content/${path}`);
 
 
     return (

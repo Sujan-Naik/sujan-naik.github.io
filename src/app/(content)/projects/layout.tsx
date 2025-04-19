@@ -15,14 +15,14 @@ export default function Layout({
             </aside>
 
             {/* Main Content Area */}
-            <main className="flex-1">
+            <main className="main-content">
                 {/* Projects Overview */}
                 <div className="projectnav">
                     {projects}
                 </div>
 
                 {/* Children Content */}
-                <div className="bg-white shadow rounded-lg p-4 col-span-1 md:col-span-2 lg:col-span-3">
+                <div className="children-container">
                     {children}
                 </div>
             </main>

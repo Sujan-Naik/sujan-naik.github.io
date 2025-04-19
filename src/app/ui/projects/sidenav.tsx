@@ -14,10 +14,6 @@ interface NavLinksProps {
 }
 
 export default function SideNav({projectNames}: NavLinksProps) {
-    const [showContactMe, setShowContactMe] = useState(false);
-    const handleContactButtonClick = () => {
-        setShowContactMe(prevState => !prevState);
-    }
 
     return (
 
@@ -27,25 +23,7 @@ export default function SideNav({projectNames}: NavLinksProps) {
             <div>
                 <NavLinks projectNames={projectNames}/>
 
-                <PrimaryButton onClick={handleContactButtonClick}>
-                    Contact-me
-                </PrimaryButton>
 
-                {showContactMe && (
-                    <PrimaryDialog isOpen={showContactMe} onClose={handleContactButtonClick} title={""}>
-
-                        <div>
-                            <DialogPanel>
-                                <div>
-                                    <div>
-                                        <DialogTitle>Contact me!</DialogTitle>
-                                        <ContactMe/>
-                                    </div>
-                                </div>
-                            </DialogPanel>
-                        </div>
-                    </PrimaryDialog>
-                )}
             </div>
         </div>
     );

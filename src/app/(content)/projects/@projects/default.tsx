@@ -17,7 +17,7 @@ export default async function Default() {
 
     return (
         <div style={{width: '100%', height: '100%'}}>
-            <h1>Check out my work by category!</h1>
+            <h3>An interactive showcase of my projects - more detail on the sidebar</h3>
             <DirectoryPreview
                 directoryNames={directoryNames}
                 filesByDirectory={filesByDirectory}

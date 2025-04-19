@@ -10,7 +10,7 @@ import PreviewCard from "@/app/ui/preview-card";
 
 interface ProjectMetadata {
     title: string;
-    githubUrl: string;
+    externalUrl: string;
     previewImage: string;
     video: string;
 }
@@ -39,17 +39,25 @@ const DirectoryPreview: React.FC<DirectoryPreviewProps> = ({directoryNames, file
     const pathname = usePathname()
     const handleFileClick = async (filename: string) => {
         const currentDir = findKeyByValue(filesByDirectory, filename);
+        console.log('yeet')
         setCurrentFileName(`${currentDir}/${filename}`)
     };
 
     const navigateToMedia = async (filename: string) => {
         if (fileMetadataMap.has(filename)) {
-            const newPath = `/projects/media/${(fileMetadataMap.get(filename) as ProjectMetadata).video}`;
-            if (pathname != newPath) {
-                router.push(newPath)
+            const projectMetadata = (fileMetadataMap.get(filename) as ProjectMetadata);
+            if (projectMetadata.video) {
+                const newPath = `/projects/media/${projectMetadata.video}`;
+                if (pathname != newPath) {
+                    router.push(newPath)
+                }
             }
         }
     }
+
+    const closeDialog = () => {
+        setCurrentFileName(null);
+    };
 
 
     return (
@@ -58,24 +66,24 @@ const DirectoryPreview: React.FC<DirectoryPreviewProps> = ({directoryNames, file
                 <PrimaryTabs tabs={directoryNames}>
                     {directoryNames.map((directory) => (
                         <div key={directory} title={`Files in ${directory}`}>
-                            <h3>{directory}</h3>
                             <div className="preview-grid">
                                 {filesByDirectory[directory].map(fileName => (
                                     <div key={fileName} className="preview-item">
                                         {fileMetadataMap.has(fileName) && (() => {
                                             const metadata = fileMetadataMap.get(fileName) as ProjectMetadata;
                                             return (
+                                                <>
                                                 <PreviewCard
-                                                    githubUrl={metadata.githubUrl}
+                                                    externalUrl={metadata.externalUrl}
                                                     previewImage={metadata.previewImage}
                                                 />
+                                                <SecondaryButton onClick={() => handleFileClick(fileName)}>
+                                                    {metadata.title}
+                                                </SecondaryButton>
+                                                </>
                                             );
                                         })()}
-                                        <SecondaryButton onClick={() => handleFileClick(fileName)}>
-                                            <div onMouseOver={() => navigateToMedia(fileName)}>
-                                                {fileName}
-                                            </div>
-                                        </SecondaryButton>
+
                                     </div>
                                 ))}
                             </div>
@@ -86,12 +94,12 @@ const DirectoryPreview: React.FC<DirectoryPreviewProps> = ({directoryNames, file
 
 
             {currentFileName && (() => {
-                // Extract only the filename (e.g., showcase.mdx from content/showcase.mdx)
+                // Extract only the filename (e.g., showcase.mdx from /showcase.mdx)
                 const baseFileName = currentFileName.split('/').pop() as string; // This gets the last segment of the path
 
                 return (
                     fileMetadataMap.has(baseFileName) && (
-                        <ProjectPreview currentFileMetadata={fileMetadataMap.get(baseFileName) as ProjectMetadata}/>
+                        <ProjectPreview currentFileMetadata={fileMetadataMap.get(baseFileName) as ProjectMetadata} onClose={closeDialog}/>
                     )
                 );
             })()}
