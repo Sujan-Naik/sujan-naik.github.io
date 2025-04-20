@@ -21,6 +21,8 @@ export default async function Home() {
                         <hgroup>
                             <h1><SujanLogo/></h1>
                             <p> Welcome to my portfolio website!</p>
+                            <p> Currently in my 3rd year studying a BSc in Computer Science with Artificial Intelligence at Kings College University.</p>
+                            <p> I am a passionate Video Game Developer and Full Stack Web Developer</p>
                         </hgroup>
                     </div>
                 </Transition>

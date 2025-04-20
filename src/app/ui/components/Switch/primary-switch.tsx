@@ -9,7 +9,7 @@ interface PrimarySwitchProps {
 }
 
 const PrimarySwitch: React.FC<PrimarySwitchProps> = ({children}) => {
-    const [enabled, setEnabled] = useState(false)
+    const [enabled, setEnabled] = useState(true)
 
     return (
         <>

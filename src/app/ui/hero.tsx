@@ -144,6 +144,9 @@ const Hero: React.FC<HeroProps> = ({models}) => {
                 </div>}
                 {selectedItem === 'modding' && <div>You selected Game Modding.
                     <p>I create Minecraft Plugins and Mods, as well as curate Modpacks.</p>
+                    <p>Minecraft is what got me into coding in the first place, so most of my earlier projects are in Minecraft.</p>
+                    <p>The majority of my earlier work is addons for <PrimaryLink href={"projectkorra.com"}> ProjectKorra</PrimaryLink> an open-source project that aims to bring the world of
+                        bridge the gap between the Avatar: The Last Airbender & The Legend of Korra Universe with Minecraft Multiplayer. </p>
                     <p>SonorousMC is the name of my Minecraft network, featuring a ProjectKorra server, Modpack server
                         and my Main MMORPG Fantasy Project server! </p>
                     <PrimaryAccordion>
@@ -153,8 +156,7 @@ const Hero: React.FC<HeroProps> = ({models}) => {
                                     href="https://github.com/SonorousMinecraft/SonorousAbilities">Abilities</a> (alpha)
                                 </h2>
                                 <blockquote>
-                                    <p>A groundbreakingly complex ability system, heavily inspired by <a
-                                        href="https://projectkorra.com/">Project Korra</a> but written from scratch and
+                                    <p>A groundbreakingly complex ability system, heavily inspired by Project Korra but written from scratch and
                                         aims to
                                         do things a different way.</p>
                                     <p>Consists of Archetypes (the name for classes) such as Earth, Ocean, Sky, Sun,
@@ -236,14 +238,26 @@ const Hero: React.FC<HeroProps> = ({models}) => {
                             </div>
                         </AccordionItem>
                         <AccordionItem title={"Avatar Duels"}>
+                                                        <PrimaryLink href={'project/AvatarDuels'}> Check out the full page!</PrimaryLink>
+
                             <h2>
-                                The central plugin, fork of addons and duel system with AI opponents
+                                An AI opponent that uses ProjectKorra to fight with elemental abilities.
                             </h2>
-                            <a href="https://github.com/Sujan-Naik/AvatarDuels">Github Link</a>
+                            <PrimaryLink href={"https://github.com/Sujan-Naik/AvatarDuels"}>Github Link</PrimaryLink>
                         </AccordionItem>
                         <AccordionItem title={"Vibrant Voyages"}>
-                            <h2> A Modpack I've curated and implemented a public server for</h2>
-                            <a href={"https://modrinth.com/modpack/vibrant-voyages"}> Modrinth page link</a>
+                            <h2>A Modpack</h2>
+                            <li>
+                                Features a mainstream fantasy themed gameplay experience centered around adventuring and fighting
+                                various monsters and visiting different dimensions.
+                            </li>
+                            <li>
+                                Well thought through and balanced mechanics.
+                            </li>
+                            <li>
+                                Villagers which use a LLMs to converse.
+                            </li>
+                            <PrimaryLink href={"https://modrinth.com/modpack/vibrant-voyages"}> Modrinth page link</PrimaryLink>
                         </AccordionItem>
                     </PrimaryAccordion>
 

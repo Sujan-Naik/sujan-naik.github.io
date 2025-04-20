@@ -12,14 +12,11 @@ const PreviewCard: React.FC<PreviewCardProps> = ({externalUrl, previewImage}) =>
         <div className="preview-card">
 
             <div className="preview-content">
-                {externalUrl && (
-                    <PrimaryLink
-                        href={externalUrl}
+                <PrimaryLink href={externalUrl}>
+                    External Link
+                </PrimaryLink>
 
-                    >
-                        External Link
-                    </PrimaryLink>
-                )}
+
 
                 {previewImage && (
                         <div
@@ -33,8 +30,6 @@ const PreviewCard: React.FC<PreviewCardProps> = ({externalUrl, previewImage}) =>
                             }}
                         />
                     )}
-
-
 
 
             </div>

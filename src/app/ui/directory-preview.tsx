@@ -7,6 +7,7 @@ import PrimaryTabs from "@/app/ui/components/Tabs/primary-tabs";
 import SecondaryButton from "@/app/ui/components/Button/secondary-button";
 import {usePathname, useRouter} from "next/navigation";
 import PreviewCard from "@/app/ui/preview-card";
+import PrimaryLink from "@/app/ui/components/Link/primary-link";
 
 interface ProjectMetadata {
     title: string;
@@ -99,7 +100,8 @@ const DirectoryPreview: React.FC<DirectoryPreviewProps> = ({directoryNames, file
 
                 return (
                     fileMetadataMap.has(baseFileName) && (
-                        <ProjectPreview currentFileMetadata={fileMetadataMap.get(baseFileName) as ProjectMetadata} onClose={closeDialog}/>
+                        <ProjectPreview link={baseFileName} currentFileMetadata={fileMetadataMap.get(baseFileName) as ProjectMetadata} onClose={closeDialog}/>
+
                     )
                 );
             })()}

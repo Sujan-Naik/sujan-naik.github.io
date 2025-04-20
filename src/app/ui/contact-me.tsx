@@ -15,7 +15,7 @@ export default function ContactMe() {
                     <li> Phone Number: <code> 07376050492</code></li>
                 </a>
 
-                <li> <PrimaryLink href={"https://www.linkedin.com/in/sujan-naik-69878a312/"} > LinkedIn</PrimaryLink></li>
+                <li> <PrimaryLink href={"https://www.linkedin.com/in/sujan-naik-69878a312/"} > Click me to see my LinkedIn</PrimaryLink></li>
 
             </p>
         </div>
