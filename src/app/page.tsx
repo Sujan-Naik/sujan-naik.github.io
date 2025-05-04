@@ -41,7 +41,11 @@ export default async function Home() {
                 </hgroup>
             </section>
 
-            <Hero models={models}/>
+            <section className={"flex justify-center text-center"}>
+                <PrimaryCard width={'80vw'}>
+                    <Hero models={models}/>
+                </PrimaryCard>
+            </section>
         </div>
     )
 }
