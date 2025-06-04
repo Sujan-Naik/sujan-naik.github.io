@@ -6,23 +6,21 @@ import {AnimationClip, AnimationMixer, Box3, Group, Vector3} from 'three';
 import {GLTF, GLTFLoader} from 'three-stdlib';
 import PrimarySelect from "@/app/ui/components/Select/primary-select";
 
-// Type for GLTFModelLoader props
 interface GLTFModelLoaderProps {
     url: string;
 }
 
-// Main component for loading and rendering the GLTF model
 const GLTFModelLoader: React.FC<GLTFModelLoaderProps> = ({url}) => {
     const [model, setModel] = useState<any>(null);
     const [error, setError] = useState<string | null>(null);
-    const [mixer, setMixer] = useState<AnimationMixer | null>(null); // State for mixer
+    const [mixer, setMixer] = useState<AnimationMixer | null>(null);
 
     useEffect(() => {
         const loader = new GLTFLoader();
         loader.load(
             url,
             (gltf) => {
-                setModel(gltf); // Set the loaded GLTF model
+                setModel(gltf);
             },
             undefined,
             (error) => {
@@ -31,10 +29,6 @@ const GLTFModelLoader: React.FC<GLTFModelLoaderProps> = ({url}) => {
             }
         );
 
-        // Cleanup if necessary
-        return () => {
-            // Handle any cleanup if required
-        };
     }, [url]);
 
     if (error) {

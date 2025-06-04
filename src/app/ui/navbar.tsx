@@ -5,23 +5,12 @@ import SujanLogo from "@/app/ui/sujan-logo";
 import PrimaryDropdown from "@/app/ui/components/Dropdown/primary-dropdown";
 import ContactMe from "@/app/ui/contact-me";
 import PrimaryDialog from "@/app/ui/components/Dialog/primary-dialog";
-import {DialogPanel, DialogTitle} from "@headlessui/react";
+import {Button, DialogPanel, DialogTitle} from "@headlessui/react";
 import PrimaryButton from "@/app/ui/components/Button/primary-button";
 import PrimaryLink from "@/app/ui/components/Link/primary-link";
 import PrimaryCard from "@/app/ui/components/Card/PrimaryCard";
 
-const THEMES = ['blue', 'green', 'red'];
-
 export default function NavBar() {
-    const [selectedTheme, setSelectedTheme] = useState<string>('blue');
-
-    useEffect(() => {
-        document.documentElement.setAttribute('data-theme', 'blue'); // Update the theme
-    }, []);
-    const handleThemeChange = (value: string) => {
-        setSelectedTheme(value);
-        document.documentElement.setAttribute('data-theme', value); // Update the theme
-    };
 
     const [showContactMe, setShowContactMe] = useState(false);
     const handleContactButtonClick = () => {
@@ -33,32 +22,22 @@ export default function NavBar() {
             <div className="flex items-center space-x-4">
                 <SujanLogo />
 
-            <PrimaryDropdown options={THEMES} selected={selectedTheme} onChange={handleThemeChange} />
                 <PrimaryCard>
-
-            <PrimaryButton onClick={handleContactButtonClick}> Contact me ! </PrimaryButton>
+                        <PrimaryLink href={"/contact-me"}>
+                             Contact me !
+                        </PrimaryLink>
                 </PrimaryCard>
-             {showContactMe && (
-                    <PrimaryDialog isOpen={showContactMe} onClose={handleContactButtonClick} title={""}>
-
-                        <div>
-                            <DialogPanel>
-                                <div>
-                                    <div>
-                                        <DialogTitle>Contact me!</DialogTitle>
-                                        <ContactMe/>
-                                    </div>
-                                </div>
-                            </DialogPanel>
-                        </div>
-                    </PrimaryDialog>
-                )}
 
                 <PrimaryCard>
                         <PrimaryLink href={"/projects"}>
                              Project Directory
                         </PrimaryLink>
-                    </PrimaryCard>
+                </PrimaryCard>
+                <PrimaryCard>
+                    <PrimaryLink href={"https://docs.google.com/document/d/1t383yQawetxH2yyoxbhXusYv-yzjfkSf8ps2jjMnsM4/edit?usp=sharing"}>
+                        Resume
+                    </PrimaryLink>
+                </PrimaryCard>
 </div>
         </header>
     );

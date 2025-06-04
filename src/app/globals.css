@@ -2,21 +2,19 @@
 
 :root {
 
-    --theme-saturation: 0%;
-    --theme-lightness: 10%;
     /* Background and foreground for primary UI elements */
-    --background-primary: hsl(var(--theme-hue), var(--theme-saturation), calc(var(--theme-lightness) + 15%)); /* Light primary background */
-    --foreground-primary: hsl(var(--theme-hue), var(--theme-saturation), calc(var(--theme-lightness) - 30%)); /* Dark primary text color */
+    --background-primary:  #0C56BC;
+    --foreground-primary: #A4C3D2;
 
     /* Background and foreground for secondary UI elements (cards, etc.) */
-    --background-secondary: hsl(var(--theme-hue), calc(var(--theme-saturation) * 0.7), calc(var(--theme-lightness) + 20%)); /* Soft background for cards */
-    --foreground-secondary: hsl(var(--theme-hue), var(--theme-saturation), calc(var(--theme-lightness) - 40%)); /* Even darker for secondary text */
+    --background-secondary: #0643A5;
+    --foreground-secondary: #AECBD6;
 
     /* For headings, accent colors */
-    --foreground-tertiary: hsl(var(--theme-hue), var(--theme-saturation), calc(var(--theme-lightness) - 20%)); /* Bold color for headings */
-    --background-tertiary: hsl(var(--theme-hue), calc(var(--theme-saturation) * 0.8), calc(var(--theme-lightness) + 30%)); /* Light tertiary background, complements text color */
+    --background-tertiary: #00308F;
+    --foreground-tertiary: #BFD4DB;
 
-    --border-color: black;
+    --border-color: #000019;
 
     --modal-max-width: 800px; /* Max width for modals */
     --modal-min-width: 400px; /* Min width for modals */
@@ -25,28 +23,6 @@
     --tab-height: 50px; /* Height for tabs */
     --link-color: var(--foreground-primary); /* Color for links */
     --link-icon-size: 4px; /* Standard size for link icons */
-}
-
-
-/* Default Blue Theme */
-:root[data-theme='blue'] {
-    --theme-hue: 210; /* Adjusted: Blue color */
-    --theme-saturation: 100%;
-    --theme-lightness: 50%;
-}
-
-/* Green Theme */
-:root[data-theme='green'] {
-    --theme-hue: 120; /* Green */
-    --theme-saturation: 100%;
-    --theme-lightness: 40%; /* Slightly darker shade */
-}
-
-/* Red Theme */
-:root[data-theme='red'] {
-    --theme-hue: 0; /* Red */
-    --theme-saturation: 100%;
-    --theme-lightness: 50%; /* Normal red */
 }
 
 @theme inline {
@@ -420,7 +396,7 @@ body {
     width: 100%; /* Full width of the container */
     flex: 1 1 auto; /* Allow ProjectNav to grow and shrink */
     overflow-y: auto; /* Handle overflow if content exceeds max height */
-    background-color: #f5f5f5; /* Example background color */
+    background-color: var(--background-secondary);
     padding: 5vh; /* Optional padding */
     box-sizing: border-box; /* Include padding in total width/height calculation */
 }
@@ -515,13 +491,10 @@ body {
     .radio-group-container {
         overflow: hidden; /* Prevent overflow when collapsed */
         max-width: 100%; /* Set max width according to your design */
-        transition: max-height 0.3s ease; /* Smooth transition for max height */
-        max-height: 10vh;
+        max-height: 100%;
     }
 
-    .radio-group-container:hover {
-        max-height: 100vh; /* Adjust this according to how much space you need */
-    }
+
 
     .preview-grid {
     display: grid;
@@ -542,7 +515,7 @@ body {
     width: 100%;
     height: auto; /* Let height be determined by grid */
     box-sizing: content-box;
-    background-color: #f0f0f0;
+    background-color: var(--background-primary);
     border: 1px solid #ccc;
     overflow: hidden;
 }
