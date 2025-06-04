@@ -40,7 +40,6 @@ const DirectoryPreview: React.FC<DirectoryPreviewProps> = ({directoryNames, file
     const pathname = usePathname()
     const handleFileClick = async (filename: string) => {
         const currentDir = findKeyByValue(filesByDirectory, filename);
-        console.log('yeet')
         setCurrentFileName(`${currentDir}/${filename}`)
     };
 
