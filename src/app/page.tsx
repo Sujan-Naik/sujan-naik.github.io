@@ -39,15 +39,15 @@ export default async function Home() {
             {/*    </PrimaryCard>*/}
             {/*</section>*/}
 
-            {/*<section>*/}
-            {/*    <hgroup className={"p-3"}>*/}
-            {/*        <h1>*/}
-            {/*            Featured Projects*/}
-            {/*        </h1>*/}
+            <section>
+                <hgroup className={"p-3"}>
+                    <h1>
+                        Featured Projects
+                    </h1>
 
-            {/*        <Carousel/>*/}
-            {/*    </hgroup>*/}
-            {/*</section>*/}
+                    <Carousel/>
+                </hgroup>
+            </section>
 
 
         </div>
