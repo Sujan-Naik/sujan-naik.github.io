@@ -30,7 +30,7 @@ const ProjectPreview = ({currentFileMetadata, onClose, link}: ProjectProps) => {
 
         <PrimaryDialog isOpen={showContactMe} onClose={handleContactButtonClick} title={currentFileMetadata.title}>
                 <DialogPanel className={"primary-dialog-panel"}>
-                                <PrimaryLink href={`/project/${link}` }>
+                                <PrimaryLink href={`/projects/${link}` }>
                                     Check out the full Project page!
                                 </PrimaryLink>
                                 {currentFileMetadata && (

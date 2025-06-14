@@ -24,18 +24,18 @@ export default function NavBar() {
 
                 <PrimaryCard>
                         <PrimaryLink href={"/contact-me"}>
-                             Contact me !
+                             Contact me
                         </PrimaryLink>
                 </PrimaryCard>
 
                 <PrimaryCard>
                         <PrimaryLink href={"/projects"}>
-                             Project Directory
+                             Check out all my projects
                         </PrimaryLink>
                 </PrimaryCard>
                 <PrimaryCard>
                     <PrimaryLink href={"https://docs.google.com/document/d/1t383yQawetxH2yyoxbhXusYv-yzjfkSf8ps2jjMnsM4/edit?usp=sharing"}>
-                        Resume
+                        View my CV on Google Docs
                     </PrimaryLink>
                 </PrimaryCard>
 </div>

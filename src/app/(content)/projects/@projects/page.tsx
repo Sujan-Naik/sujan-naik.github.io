@@ -4,7 +4,7 @@ import {getDirectories, getFilesInDirectory} from "@/app/lib/fetchProjectData";
 import DirectoryPreview from "@/app/ui/directory-preview";
 import {getAllProjectMetadata} from "@/app/lib/fetchProjectMetadata";
 
-export default async function Default() {
+export default async function Page() {
     const {directoryNames} = await getDirectories();
     const filesByDirectory: Record<string, string[]> = {};
     const filesMetadata = await getAllProjectMetadata(); // Fetch project metadata
@@ -16,13 +16,12 @@ export default async function Default() {
     }
 
     return (
-        <div style={{width: '100%', height: '100%'}}>
-            <h3>An interactive showcase of my projects - more detail on the sidebar</h3>
+        <>
             <DirectoryPreview
                 directoryNames={directoryNames}
                 filesByDirectory={filesByDirectory}
                 fileMetadataMap={filesMetadata} // Pass metadata directly here
             />
-        </div>
+        </>
     );
 }

@@ -73,7 +73,6 @@ body {
     header {
         display: flex;
         flex-direction: column;
-        background: var(--background-tertiary);
         color: var(--foreground-tertiary);
         justify-content: center;
         align-items: center;
@@ -84,7 +83,21 @@ body {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        height: 100%;
     }
+
+    section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+
+    code {
+        background-color: black;
+    }
+
     ul {
         list-style-type: none; /* Remove default bullets */
         padding: 0; /* Remove default padding */
@@ -103,8 +116,8 @@ body {
     }
 
     li:hover {
-        background-color: #e0f7fa; /* Light blue on hover */
-        transform: translateY(-2px); /* Slight lift on hover */
+        background-color: var(--background-tertiary); /* Light blue on hover */
+        transform: translateY(-10px); /* Slight lift on hover */
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow on hover */
     }
 
@@ -396,9 +409,10 @@ body {
     width: 100%; /* Full width of the container */
     flex: 1 1 auto; /* Allow ProjectNav to grow and shrink */
     overflow-y: auto; /* Handle overflow if content exceeds max height */
-    background-color: var(--background-secondary);
+    background-color: var(--background-tertiary);
     padding: 5vh; /* Optional padding */
     box-sizing: border-box; /* Include padding in total width/height calculation */
+    justify-content: center;
 }
 
     .main-content {
@@ -572,8 +586,11 @@ body {
 
 
     .tab-list {
-        display: flex; /* Arrange tabs in a horizontal row */
-        gap: 8px; /* Space between tabs */
+    display: flex;
+    flex-wrap: wrap; /* Allow children to wrap onto multiple lines */
+    justify-content: left; /* Evenly distribute space between items on each line */
+    gap: 8px; /* Optional: space between items */
+        padding: 10px;
     }
 
     .tab-panel {

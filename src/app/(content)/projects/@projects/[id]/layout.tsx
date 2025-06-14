@@ -7,11 +7,8 @@ export default function Layout({
     children: React.ReactNode;
 }) {
     return (
-        <div>
-
-            <PrimaryCard>
+            <PrimaryCard width={"90%"}>
                 {children}
             </PrimaryCard>
-        </div>
     );
 }

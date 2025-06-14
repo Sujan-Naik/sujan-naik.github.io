@@ -41,7 +41,7 @@ export default function NavLinks({projectNames}: NavLinksProps) {
             {projectNames && projectNames.map(link => {
                 const LinkIcon = ArrowRightIcon;
                 return (
-                    <PrimaryLink key={link} href={`/project/${link}`} className="flex items-center space-x-2 p-1">
+                    <PrimaryLink key={link} href={`/projects/${link}`} className="flex items-center space-x-2 p-1">
                 <span className="flex items-center justify-center w-6 h-6">
                   <LinkIcon className="w-full h-full"/>
                 </span>

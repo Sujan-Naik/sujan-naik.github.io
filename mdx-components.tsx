@@ -64,12 +64,6 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       </pre>
         ),
 
-        // Inline Code
-        code: ({children}) => (
-            <code className="bg-gray-200  font-mono px-1 py-0.5 rounded">
-                {children}
-            </code>
-        ),
 
         // List Items
         ul: ({children}) => (
