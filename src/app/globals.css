@@ -588,7 +588,7 @@ body {
     .tab-list {
     display: flex;
     flex-wrap: wrap; /* Allow children to wrap onto multiple lines */
-    justify-content: left; /* Evenly distribute space between items on each line */
+    justify-content: center; /* Evenly distribute space between items on each line */
     gap: 8px; /* Optional: space between items */
         padding: 10px;
     }

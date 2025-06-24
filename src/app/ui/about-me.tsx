@@ -38,6 +38,13 @@ export default function AboutMe(){
       </ul>
     </div>
     <div style={{ minWidth: '10vw' }}>
+      <h3>Content Mangement Systems</h3>
+      <ul>
+        <li>PayloadCMS</li>
+        <li>Wordpress</li>
+      </ul>
+    </div>
+    <div style={{ minWidth: '10vw' }}>
       <h3>Backend Technologies</h3>
       <ul>
         <li>Flask</li>

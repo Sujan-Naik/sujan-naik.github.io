@@ -17,7 +17,7 @@ export default async function Home() {
                 <Transition show={true} appear={true}>
 
                     <hgroup className={"text-center transition duration-1000 ease-in data-[enter]:opacity-0"}>
-                        <PrimaryCard width={"50%"}>
+                        <PrimaryCard width={"95%"}>
                             <h1>Hello, I'm Sujan Naik, a Software Engineer</h1>
                             <h2>I do Full-Stack Web and App Development and Video Game Development</h2>
                         </PrimaryCard>
@@ -25,7 +25,7 @@ export default async function Home() {
                 </Transition>
 
             <section className={"d-flex text-center justify-content-center "}>
-                <SecondaryCard width={"60%"}>
+                <SecondaryCard width={"100%"}>
                     <AboutMe>
 
                     </AboutMe>
