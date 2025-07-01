@@ -1,5 +1,5 @@
 import SideNav from "@/app/ui/projects/sidenav";
-import {getAllProjects} from "@/app/lib/cs/fetchProjectData";
+import {getAllProjects} from "@/app/lib/game-dev/fetchProjectData";
 import SideMenuIcon from "@/app/ui/components/Icons/SideMenuIcon";
 
 export default async function ProjectSideView() {

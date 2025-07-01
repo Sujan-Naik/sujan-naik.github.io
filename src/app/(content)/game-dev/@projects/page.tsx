@@ -1,8 +1,8 @@
 // src/app/page.tsx
 import React from 'react'; // Import React for JSX
-import {getDirectories, getFilesInDirectory} from "@/app/lib/cs/fetchProjectData";
+import {getDirectories, getFilesInDirectory} from "@/app/lib/game-dev/fetchProjectData";
 import DirectoryPreview from "@/app/ui/directory-preview";
-import {getAllProjectMetadata} from "@/app/lib/cs/fetchProjectMetadata";
+import {getAllProjectMetadata} from "@/app/lib/game-dev/fetchProjectMetadata";
 
 export default async function Page() {
     const {directoryNames} = await getDirectories();

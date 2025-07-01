@@ -30,7 +30,12 @@ export default function NavBar() {
 
                 <PrimaryCard>
                         <PrimaryLink href={"/projects"}>
-                             Check out all my projects
+                             My Web Dev Projects
+                        </PrimaryLink>
+                </PrimaryCard>
+                <PrimaryCard>
+                        <PrimaryLink href={"/projects"}>
+                             My Game Dev Projects
                         </PrimaryLink>
                 </PrimaryCard>
                 <PrimaryCard>

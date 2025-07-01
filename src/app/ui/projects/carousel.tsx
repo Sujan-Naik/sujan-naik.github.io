@@ -1,5 +1,5 @@
 import CarouselHolder from "@/app/ui/projects/carousel-holder";
-import {getShowcasesMDX} from "@/app/lib/renderMDXNoFrontmatter";
+import {getShowcasesMDX} from "@/app/lib/cs/renderMDXNoFrontmatter";
 import PrimaryCard from "@/app/ui/components/Card/PrimaryCard";
 
 
