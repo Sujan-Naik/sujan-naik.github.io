@@ -20,6 +20,7 @@ export default async function Home() {
                         <PrimaryCard width={"95%"}>
                             <h1>Hello, I'm Sujan Naik, a Software Engineer</h1>
                             <h2>I do Full-Stack Web and App Development and Video Game Development</h2>
+                            <h3>Available for Freelance Opportunities</h3>
                         </PrimaryCard>
                     </hgroup>
                 </Transition>

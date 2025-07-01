@@ -215,11 +215,9 @@ body {
         width: 100%; /* Ensure it uses most of the width available, responsive */
         height: 100%; /* Allow it to grow based on content */
         max-height: 80vh; /* Maximum height */
-        padding: 20px; /* Internal padding */
         overflow-y: auto; /* Enable vertical scrolling if content exceeds height */
         display: flex; /* Use flexbox for layout */
         flex-direction: column; /* Stack child elements vertically */
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Optional shadow for depth */
         position: relative; /* Make position relative for absolute child elements */
         z-index: 20; /* Ensure it appears above backdrop */
         text-align: center;
