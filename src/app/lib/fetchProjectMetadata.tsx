@@ -33,7 +33,7 @@ const readDirectoryRecursively = async (dir: string, projectMetadataMap: Map<any
 
 export const getAllProjectMetadata = async () => {
     const projectMetadataMap = new Map();
-    const baseDir = path.join(process.cwd(), 'public/content'); // Set your base directory
+    const baseDir = path.join(process.cwd(), 'public/cs'); // Set your base directory
 
     await readDirectoryRecursively(baseDir, projectMetadataMap); // Start recursive reading
 
