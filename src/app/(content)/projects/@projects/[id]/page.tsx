@@ -30,7 +30,7 @@ export default async function Page({
 
     const path = await getProjectWithPath(id);
 
-    const project = await loadMDXComponent(`/content/${path}`);
+    const project = await loadMDXComponent(`cs/${path}`);
 
 
     return (
