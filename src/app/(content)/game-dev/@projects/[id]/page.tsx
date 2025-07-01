@@ -1,6 +1,6 @@
 import Project from "@/app/ui/projects/project";
-import {getAllProjects, getProjectWithPath, getShowcaseProjects} from "@/app/lib/cs/fetchProjectData";
-import {loadMDXComponent} from "@/app/lib/cs/renderMDXNoFrontmatter";
+import {getAllProjects, getProjectWithPath, getShowcaseProjects} from "@/app/lib/game-dev/fetchProjectData";
+import {loadMDXComponent} from "@/app/lib/game-dev/renderMDXNoFrontmatter";
 
 // This function generates static parameters for the page
 export async function generateStaticParams(): Promise<Array<{ id: string }>> {
@@ -30,7 +30,7 @@ export default async function Page({
 
     const path = await getProjectWithPath(id);
 
-    const project = await loadMDXComponent(`cs/${path}`);
+    const project = await loadMDXComponent(`game/${path}`);
 
 
     return (
